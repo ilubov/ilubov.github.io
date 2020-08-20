@@ -10,7 +10,7 @@
 
 <title>
     
-    tag: java |
+    java并发-synchronized关键字&amp;CAS锁 |
     
     ilubov</title>
 <!--end title-->
@@ -185,13 +185,14 @@
     <ul class="bread-crumb-menu animated rubberBand">
         <li><a href="/"><i class="fh fh-ravelry" aria-hidden="true"></i> Home</a></li>
         
-        <li><a href="/tags"><i class="fh fh-tags" aria-hidden="true"></i> Tags</a></li>
+        <li><a href="/categories/java/"><i class="fh fh-cube" aria-hidden="true"></i> java</a>
+        </li>
         
         <li>
             
-            <i class="fh fh-tag" aria-hidden="true"></i>
+            <i class="fh fh-newspaper-o" aria-hidden="true"></i>
             
-            java
+            java并发-synchronized关键字&CAS锁
         </li>
         
     </ul>
@@ -208,23 +209,9 @@
 </div>
             <!--end breadcrumb-->
             <!--begin body-->
-            <div id="tag">
-    <h2><i class="fh fh-tags" aria-hidden="true"></i>&nbsp;java</h2>
-    
-    <div class="row recent-posts">
-    
-    <h2>
-        
-        <a href="/archives/2020" title="2020">2020</a>
-    </h2>
-    
-    <div class="recent-post-item animated fadeInLeftBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/02/26/java-concurrent-synchronized-cas-lock/">
-                java并发-synchronized关键字&amp;CAS锁
-            </a>
-        </h3>
+            <article class="post animated rollIn">
+    <h1 class="post-title">java并发-synchronized关键字&amp;CAS锁</h1>
+    <div class="post-subtitle">
         
         <time datetime="2020-02-26T11:08:29.000Z" class="item">
             <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-02-26
@@ -232,85 +219,151 @@
         
         
         <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
+      <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
             
             <a class="label label-primary tags" href="/categories/java/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
-                    </a>
+           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
+        </a>
             
         </span>
         
-    </div>
-    
-    <div class="item-footer">
         
         <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
+        <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
             
             <a class="label label-info tags" href="/tags/java/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
-                    </a>
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
+            </a>
             
             <a class="label label-info tags" href="/tags/%E5%B9%B6%E5%8F%91/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;并发
-                    </a>
-            
-        </span>
-        
-        <a class="look" href="/2020/02/26/java-concurrent-synchronized-cas-lock/">Look >></a>
-    </div>
-</div>
-    
-    <div class="recent-post-item animated fadeInRightBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/01/27/java-array-list/">
-                java集合-List类
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;并发
             </a>
-        </h3>
-        
-        <time datetime="2020-01-27T14:47:17.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-01-27
-        </time>
-        
-        
-        <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
-            
-            <a class="label label-primary tags" href="/categories/java/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
-                    </a>
             
         </span>
         
     </div>
     
-    <div class="item-footer">
-        
-        <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
+    <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>java中提供了<em>synchronized</em>关键字和<em>java.util.concurrent.locks</em>包下的相关类来进行线程同步</p>
+<h3 id="synchronized关键字"><a href="#synchronized关键字" class="headerlink" title="synchronized关键字"></a>synchronized关键字</h3><p>在1.6之前<em>synchronized</em>是一个重量级锁，此同步方式同步成本非常高，因为阻塞线程会引起用户态和内核态之间切换。此后jvm对此同步方式进行了许多优化(偏向锁、轻量级锁)可以放心使用，而且因为是java关键字所以也可以享受以后的优化并且不需要更改代码</p>
+<table>
+<thead>
+<tr>
+<th>修饰</th>
+<th>锁对象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>静态方法</td>
+<td>当前类对象(class)</td>
+</tr>
+<tr>
+<td>实例方法</td>
+<td>当前实例(this)</td>
+</tr>
+<tr>
+<td>修饰代码块</td>
+<td>指定变量</td>
+</tr>
+</tbody></table>
+<p><em>synchronized</em>锁膨胀过程 [偏向锁] -&gt; [轻量级锁] -&gt; [重量级锁]</p>
+<ul>
+<li><strong>偏向锁</strong><br>偏向锁会在第一次进行同步访问时的将访问线程的线程ID使用<em>CAS</em>记录到互斥变量的<code>Mark word</code>。<br>以后每次访问则检查访问线程的ID是否等于<em>Mark word</em>中记录的线程ID，如果等于则可以无锁同步。如果线程ID不相同则说明有其他线程竞争，此时偏向锁会膨胀成<em>轻量级锁</em><br>适用场景：自始至终仅有同一线程访问<br>优点：可以实现无锁同步<br>缺点：如果很明显有其他线程竞争则很快将膨胀成轻量级锁</li>
+<li><strong>轻量级锁</strong><br>加锁：为访问线程创建<code>Lock record</code>，将锁对象的<code>Mark word</code>复制到<code>Lock record</code>称为<code>Displaced mark word</code>，尝试使用<em>CAS</em>将<code>Mark word</code>指向<code>Displaced mark word</code>，如果成功则获取锁成功，否则循环重试<br>解锁：使用<code>Displaced mark word</code>替换原对象的<code>Mark word</code><br>轻量级锁会在重试次数过多时膨胀成<em>重量级锁</em><br>适用场景：线程竞争少，非耗时操作<br>优点：可以避免线程阻塞造成的造成的用户态和内核态切换成本<br>缺点：如果进行耗时操作则会循环获取锁占用CPU资源</li>
+<li><strong>重量级锁</strong><br>重量级锁会在利用操作系统底层创建互斥量实现，同步时会造成内核态切换<br>适用场景：线程竞争激烈，耗时操作<br>优点：线程直接阻塞无CPU资源占用<br>缺点：线程阻塞，阻塞和唤醒线程耗时可能会超过代码本身执行时间，性能可能低于<em>轻量级锁</em></li>
+</ul>
+<h3 id="ReentrantLock锁"><a href="#ReentrantLock锁" class="headerlink" title="ReentrantLock锁"></a>ReentrantLock锁</h3><p>ReentrantLock分为公平锁和非公平锁，内部使用<em>CAS</em>方式实现具体原理类似于<em>轻量级锁</em></p>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
+<li><strong>synchronized</strong><ol>
+<li>java关键字，易用</li>
+<li>无需改代码享受jdk优化</li>
+</ol>
+</li>
+<li><strong>ReentrantLock</strong><ol>
+<li>java类，加锁解锁都是实例方法，可以更灵活的控制</li>
+<li>提供<em>Condition</em>可以灵活的控制要唤醒的线程</li>
+<li>可以实现公平锁</li>
+<li>可以中断等待</li>
+</ol>
+</li>
+</ul>
+
+</article>
+<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E5%BC%95%E8%A8%80"><span class="animated rollIn hannah-toc-text">引言</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#synchronized%E5%85%B3%E9%94%AE%E5%AD%97"><span class="animated rollIn hannah-toc-text">synchronized关键字</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#ReentrantLock%E9%94%81"><span class="animated rollIn hannah-toc-text">ReentrantLock锁</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E5%AF%B9%E6%AF%94"><span class="animated rollIn hannah-toc-text">对比</span></a></li></ol>
+<div class="animated bounceInDown paginations">
+    <div class="col-md-8 col-md-push-2 col-xs-12">
+        <nav>
             
-            <a class="label label-info tags" href="/tags/java/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
-                    </a>
+            <span
+                class="page-content col-md-8 col-md-offset-2 col-xs-offset-4 col-xs-4 text-center">
+                
+            </span>
             
-            <a class="label label-info tags" href="/tags/%E9%9B%86%E5%90%88/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;集合
-                    </a>
+            <a href="/2020/01/27/java-array-list/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
             
-        </span>
-        
-        <a class="look" href="/2020/01/27/java-array-list/">Look >></a>
+        </nav>
+        <div>
+            <div class="col-md-6 col-xs-6 text-left">
+                
+            </div>
+            <div class="col-md-6 col-xs-6 text-right">
+                
+                java集合-List类
+                
+            </div>
+        </div>
     </div>
-</div>
-    
 </div>
 
-    
-</div>
             <!--end body-->
             <!--begin comments-->
             
+<div class="comments">
+    
+
+    
+    
+<div id="gitalk-container">
+</div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script>
+    var loadJs = function (d, a) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document
+            .documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("src", d);
+        if (typeof a === "function") {
+            if (window.attachEvent) {
+                b.onreadystatechange = function () {
+                    var e = b.readyState;
+                    if (e === "loaded" || e === "complete") {
+                        b.onreadystatechange = null;
+                        a()
+                    }
+                }
+            } else {
+                b.onload = a
+            }
+        }
+        c.appendChild(b)
+    };
+    loadJs("https://unpkg.com/gitalk/dist/gitalk.min.js", function () {
+        var gitalk = new Gitalk({
+            clientID: 'e82b50d554e32a851ae7',
+            clientSecret: '95923aeaddb44e6de22d088703c6bbde978f505c',
+            repo: 'ilubov.github.io',
+            owner: 'ilubov',
+            admin: ['ilubov'],
+            id: decodeURIComponent(location.pathname),
+            distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')
+    });
+</script>
+
+</div>
+
 
             <!--end comments-->
         </div>

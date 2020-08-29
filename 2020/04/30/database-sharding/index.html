@@ -10,7 +10,7 @@
 
 <title>
     
-    java集合-List类 |
+    sharding jdbc |
     
     ilubov</title>
 <!--end title-->
@@ -185,14 +185,14 @@
     <ul class="bread-crumb-menu animated rubberBand">
         <li><a href="/"><i class="fh fh-ravelry" aria-hidden="true"></i> Home</a></li>
         
-        <li><a href="/categories/java/"><i class="fh fh-cube" aria-hidden="true"></i> java</a>
+        <li><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="fh fh-cube" aria-hidden="true"></i> 数据库</a>
         </li>
         
         <li>
             
             <i class="fh fh-newspaper-o" aria-hidden="true"></i>
             
-            java集合-List类
+            sharding jdbc
         </li>
         
     </ul>
@@ -210,19 +210,19 @@
             <!--end breadcrumb-->
             <!--begin body-->
             <article class="post animated rollIn">
-    <h1 class="post-title">java集合-List类</h1>
+    <h1 class="post-title">sharding jdbc</h1>
     <div class="post-subtitle">
         
-        <time datetime="2020-01-27T14:47:17.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-01-27
+        <time datetime="2020-04-30T15:22:17.000Z" class="item">
+            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-04-30
         </time>
         
         
         <span class="item">
       <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-primary tags" href="/categories/java/">
-           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
+            <a class="label label-primary tags" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;数据库
         </a>
             
         </span>
@@ -231,97 +231,50 @@
         <span class="item">
         <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-info tags" href="/tags/java/">
-            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
+            <a class="label label-info tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;数据库
             </a>
             
-            <a class="label label-info tags" href="/tags/%E9%9B%86%E5%90%88/">
-            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;集合
+            <a class="label label-info tags" href="/tags/sharding-jdbc/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;sharding jdbc
             </a>
             
         </span>
         
     </div>
     
-    <h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p>ArrayList内部使用数组实现<br>内部关键变量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认初始容量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;</span><br><span class="line"><span class="comment">// 空列表常量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"><span class="comment">// 默认空列表常量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"><span class="comment">// 存放数据数组</span></span><br><span class="line"><span class="keyword">transient</span> Object[] elementData;</span><br><span class="line"><span class="comment">// 列表大小(列表大小并不总是等于elementData.length，因为elementData会有冗余)</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> size;</span><br></pre></td></tr></table></figure>
-<p>构造方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * 创建一个初始容量为0空列表</span></span><br><span class="line"><span class="comment"> * 使用DEFAULTCAPACITY_EMPTY_ELEMENTDATA填充elementData</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * 如果initialCapacity大于0，创建一个初始容量为initialCapacity的列表</span></span><br><span class="line"><span class="comment"> * 为elementData创建一个大小为initialCapacity的数组</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 如果initialCapacity等于0，创建一个初始容量为0的数组</span></span><br><span class="line"><span class="comment"> * 使用EMPTY_ELEMENTDATA填充elementData</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 如果initialCapacity小于0，抛出IllegalArgumentException</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span></span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 传入一个集合如果c长度不为0，将c的数组复制到elementData</span></span><br><span class="line"><span class="comment"> * c的长度赋值到size</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</span><br></pre></td></tr></table></figure>
-<h4 id="扩容机制"><a href="#扩容机制" class="headerlink" title="扩容机制"></a>扩容机制</h4><p>如果使用无参构造创建List，在第一次扩容时如果如果期望容量小于10则会将容量设置为10<br>后续扩容<code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)</code>也就是说每次扩容后大小是原数组大小的1.5倍</p>
-<h4 id="RandomAccess"><a href="#RandomAccess" class="headerlink" title="RandomAccess"></a>RandomAccess</h4><p>ArrayList实现了<em>RandomAccess</em>接口，实际上<em>RandomAccess</em>内部并无需要实现的方法<br>此接口只是为了标识该列表支持随机访问，也就是支持按下标访问<br>主要用于<code>Collections.binarySearch</code>等方法区分查找方式</p>
-<h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><p>LinkedList内部使用双向链表实现</p>
-<p>内部关键变量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 列表大小</span></span><br><span class="line"><span class="keyword">transient</span> <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 第一个节点指针</span></span><br><span class="line"><span class="keyword">transient</span> Node&lt;E&gt; first;</span><br><span class="line"><span class="comment">// 最后一个节点指针</span></span><br><span class="line"><span class="keyword">transient</span> Node&lt;E&gt; last;</span><br><span class="line"><span class="comment">// 内部Node</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">// 实际对象</span></span><br><span class="line">    E item;</span><br><span class="line">    <span class="comment">// 指向上一个对象</span></span><br><span class="line">    Node&lt;E&gt; next;</span><br><span class="line">    <span class="comment">// 指向下一个对象</span></span><br><span class="line">    Node&lt;E&gt; prev;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="运行原理"><a href="#运行原理" class="headerlink" title="运行原理"></a>运行原理</h4><p>向头部添加对象会创建一个next指向first的新节点，将first指向新节点<br>向指定位置添加对象创建一个prev指向该位置元素的prev，last指向该对象的新节点，原对象prev指向新节点<br>向尾部添加对象会创建一个prev指向last的新节点，将last指向新节点</p>
-<h4 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h4><p>LinkedList实现了<em>Deque</em>接口，说明LinkedList实现了可以当做一个双向队列使用，LinkedList使用的数据结构完美的支持双向队列</p>
-<h3 id="时间复杂度对比"><a href="#时间复杂度对比" class="headerlink" title="时间复杂度对比"></a>时间复杂度对比</h3><table>
-<thead>
-<tr>
-<th>操作\类型</th>
-<th align="center">ArrayList</th>
-<th align="center">LinkedList</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>获取指定位置对象</td>
-<td align="center">$O(1)$</td>
-<td align="center">$O(n)$</td>
-</tr>
-<tr>
-<td>向头部添加对象</td>
-<td align="center">$O(n)$</td>
-<td align="center">$O(1)$</td>
-</tr>
-<tr>
-<td>向指定位置添加对象</td>
-<td align="center">$O(n)$</td>
-<td align="center">$O(n)$</td>
-</tr>
-<tr>
-<td>向尾部添加对象</td>
-<td align="center">$O(1)$</td>
-<td align="center">$O(1)$</td>
-</tr>
-<tr>
-<td>删除头部对象</td>
-<td align="center">$O(n)$</td>
-<td align="center">$O(1)$</td>
-</tr>
-<tr>
-<td>删除指定位置对象</td>
-<td align="center">$O(n)$</td>
-<td align="center">$O(n)$</td>
-</tr>
-<tr>
-<td>删除尾部对象</td>
-<td align="center">$O(1)$</td>
-<td align="center">$O(1)$</td>
-</tr>
-</tbody></table>
-<h3 id="Vector与ArrayList区别"><a href="#Vector与ArrayList区别" class="headerlink" title="Vector与ArrayList区别"></a>Vector与ArrayList区别</h3><p><em>Vector</em>与<em>ArrayList</em>实现原理基本类似<br>主要区别在于，<em>Vector</em>每个方法都是加了<em>synchronized</em>同步的，是线程安全的<br>而<em>ArrayList</em>是非线程安全的</p>
+    <h3 id="sharding-jdbc"><a href="#sharding-jdbc" class="headerlink" title="sharding jdbc"></a>sharding jdbc</h3><h4 id="分片策略"><a href="#分片策略" class="headerlink" title="分片策略"></a>分片策略</h4><h5 id="StandardShardingStrategy"><a href="#StandardShardingStrategy" class="headerlink" title="StandardShardingStrategy"></a>StandardShardingStrategy</h5><p>标准分片策略。提供对SQL语句中的=, IN和BETWEEN AND的分片操作支持。StandardShardingStrategy只支持单分片键，提供PreciseShardingAlgorithm和RangeShardingAlgorithm两个分片算法。PreciseShardingAlgorithm是必选的，用于处理=和IN的分片；RangeShardingAlgorithm是可选的，用于处理BETWEEN AND分片，如果不配置RangeShardingAlgorithm，SQL中的BETWEEN AND将按照全库路由处理。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">i_order:</span><br><span class="line">  actual-data-nodes: ds$-&gt;&#123;0..11&#125;.i_order</span><br><span class="line">  database-strategy:</span><br><span class="line">    standard:</span><br><span class="line">      shardingColumn: input_time</span><br><span class="line">      preciseAlgorithmClassName: com.i.lubov.algorithm.DatabaseMonthDividedPrecise</span><br><span class="line">      rangeAlgorithmClassName: com.i.lubov.algorithm.DatabaseMonthDividedRange</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DatabaseMonthDividedPrecise</span> <span class="keyword">implements</span> <span class="title">PreciseShardingAlgorithm</span>&lt;<span class="title">Date</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 按input_time所属月份选择数据库</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> availableTargetNames 数据库</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> shardingValue 分片键值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> database</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">doSharding</span><span class="params">(Collection&lt;String&gt; availableTargetNames, PreciseShardingValue&lt;Date&gt; shardingValue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> month = LocalDate.fromDateFields(shardingValue.getValue()).getMonthOfYear();</span><br><span class="line">        <span class="keyword">return</span> availableTargetNames.toArray(<span class="keyword">new</span> String[]&#123;&#125;)[(month - <span class="number">1</span>)];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="ComplexShardingStrategy"><a href="#ComplexShardingStrategy" class="headerlink" title="ComplexShardingStrategy"></a>ComplexShardingStrategy</h5><p>复合分片策略。提供对SQL语句中的=, IN和BETWEEN AND的分片操作支持。ComplexShardingStrategy支持多分片键，由于多分片键之间的关系复杂，因此Sharding-JDBC并未做过多的封装，而是直接将分片键值组合以及分片操作符交于算法接口，完全由应用开发者实现，提供最大的灵活度。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">i_order_info:</span><br><span class="line">  actual-data-nodes: ds$-&gt;&#123;0..15&#125;.i_order_info_$-&gt;&#123;0..15&#125;</span><br><span class="line">  database-strategy:</span><br><span class="line">    complex:</span><br><span class="line">      shardingColumns: order_no</span><br><span class="line">      algorithmClassName: com.i.lubov.algorithm.DatabaseComplexKeys</span><br><span class="line">  table-strategy:</span><br><span class="line">    complex:</span><br><span class="line">      shardingColumns: order_no</span><br><span class="line">      algorithmClassName: com.i.lubov.algorithm.TableComplexKeysTable</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DatabaseComplexKeys</span> <span class="keyword">implements</span> <span class="title">ComplexKeysShardingAlgorithm</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_SHARDING = <span class="number">16</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 按单号后两位抹除16选择数据库</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> availableTargetNames 数据库</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> shardingValue 分片键值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> database</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Collection&lt;String&gt; <span class="title">doSharding</span><span class="params">(Collection&lt;String&gt; availableTargetNames,</span></span></span><br><span class="line"><span class="function"><span class="params">                                         ComplexKeysShardingValue&lt;String&gt; shardingValue)</span> </span>&#123;</span><br><span class="line">        Map&lt;String, Collection&lt;String&gt;&gt; shardingMap = shardingValue.getColumnNameAndShardingValuesMap();</span><br><span class="line">        Set&lt;String&gt; sharding = <span class="keyword">new</span> HashSet&lt;&gt;(MAX_SHARDING);</span><br><span class="line">        shardingMap.forEach((k, v) -&gt; v.forEach(no -&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (StrUtil.isNotBlank(no) &amp;&amp; no.length() &gt; <span class="number">4</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> datasourceIndex = Integer.parseInt(no.substring(no.length() - <span class="number">2</span>));</span><br><span class="line">                sharding.add(availableTargetNames.toArray(<span class="keyword">new</span> String[]&#123;&#125;)[(datasourceIndex % MAX_SHARDING)]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;));</span><br><span class="line">        <span class="keyword">return</span> sharding;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="InlineShardingStrategy"><a href="#InlineShardingStrategy" class="headerlink" title="InlineShardingStrategy"></a>InlineShardingStrategy</h5><p>Inline表达式分片策略。使用Groovy的Inline表达式，提供对SQL语句中的=和IN的分片操作支持。InlineShardingStrategy只支持单分片键，对于简单的分片算法，可以通过简单的配置使用，从而避免繁琐的Java代码开发，如: ds$-&gt;{0..15}.i_waybill 表示i_waybill表按照user_id按16取模分成16个库，库名称为ds_0到ds_15。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i_waybill:</span><br><span class="line">  actual-data-nodes: ds$-&gt;&#123;0..15&#125;.i_waybill</span><br><span class="line">  database-strategy:</span><br><span class="line">    inline:</span><br><span class="line">      algorithm-expression: ds$-&gt;&#123;user_id % 16&#125;</span><br><span class="line">      sharding-column: user_id</span><br></pre></td></tr></table></figure>
+<h5 id="HintShardingStrategy"><a href="#HintShardingStrategy" class="headerlink" title="HintShardingStrategy"></a>HintShardingStrategy</h5><p>通过Hint而非SQL解析的方式分片的策略。</p>
+<h5 id="NoneShardingStrategy"><a href="#NoneShardingStrategy" class="headerlink" title="NoneShardingStrategy"></a>NoneShardingStrategy</h5><p>不分片的策略。</p>
 
 </article>
-<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#ArrayList"><span class="animated rollIn hannah-toc-text">ArrayList</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="animated rollIn hannah-toc-text">扩容机制</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#RandomAccess"><span class="animated rollIn hannah-toc-text">RandomAccess</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#LinkedList"><span class="animated rollIn hannah-toc-text">LinkedList</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="animated rollIn hannah-toc-text">运行原理</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#Deque"><span class="animated rollIn hannah-toc-text">Deque</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%AF%B9%E6%AF%94"><span class="animated rollIn hannah-toc-text">时间复杂度对比</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#Vector%E4%B8%8EArrayList%E5%8C%BA%E5%88%AB"><span class="animated rollIn hannah-toc-text">Vector与ArrayList区别</span></a></li></ol>
+<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#sharding-jdbc"><span class="animated rollIn hannah-toc-text">sharding jdbc</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E5%88%86%E7%89%87%E7%AD%96%E7%95%A5"><span class="animated rollIn hannah-toc-text">分片策略</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#StandardShardingStrategy"><span class="animated rollIn hannah-toc-text">StandardShardingStrategy</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#ComplexShardingStrategy"><span class="animated rollIn hannah-toc-text">ComplexShardingStrategy</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#InlineShardingStrategy"><span class="animated rollIn hannah-toc-text">InlineShardingStrategy</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#HintShardingStrategy"><span class="animated rollIn hannah-toc-text">HintShardingStrategy</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#NoneShardingStrategy"><span class="animated rollIn hannah-toc-text">NoneShardingStrategy</span></a></li></ol></li></ol></li></ol>
 <div class="animated bounceInDown paginations">
     <div class="col-md-8 col-md-push-2 col-xs-12">
         <nav>
             
-            <a href="/2020/02/20/java-spring-transcational/" class="prev col-md-2 col-xs-4 text-left">&larr; Prev</a>
-            
             <span
-                class="page-content col-md-8  col-xs-4 text-center">
+                class="page-content col-md-8 col-md-offset-2 col-xs-offset-4 col-xs-4 text-center">
                 
             </span>
+            
+            <a href="/2020/04/01/database-mysql-indexes/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
             
         </nav>
         <div>
             <div class="col-md-6 col-xs-6 text-left">
                 
-                Transactional
-                
             </div>
             <div class="col-md-6 col-xs-6 text-right">
+                
+                数据库-mysql索引失效
                 
             </div>
         </div>

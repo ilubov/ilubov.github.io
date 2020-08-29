@@ -259,7 +259,7 @@
 <li>同一个事件的多个订阅者，在接收到事件的顺序上面有不同。谁先注册到EventBus的，谁先执行，如果是在同一个类中的两个订阅者一起被注册到EventBus的情况，收到事件的顺序跟方法名有关。<h4 id="AsyncEventBus-异步事件总线"><a href="#AsyncEventBus-异步事件总线" class="headerlink" title="AsyncEventBus:异步事件总线"></a>AsyncEventBus:异步事件总线</h4></li>
 <li>异步执行，事件发送方异步发出事件，不会等待事件消费方是否收到，直接执行自己后面的代码。</li>
 <li>在定义AsyncEventBus时，构造函数中会传入一个线程池。事件消费方收到异步事件时，消费方会从线程池中获取一个新的线程来执行自己的任务。</li>
-<li>同一个事件的多个订阅者，它们的注册顺序跟接收到事件的顺序上没有任何联系，都会同时收到事件，并且都是在新的线程中，异步并发的执行自己的任务。<h3 id="aop、AsyncEventBus实现log记录"><a href="#aop、AsyncEventBus实现log记录" class="headerlink" title="aop、AsyncEventBus实现log记录"></a>aop、AsyncEventBus实现log记录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;ilubov&#x2F;operation-log</span><br></pre></td></tr></table></figure></li>
+<li>同一个事件的多个订阅者，它们的注册顺序跟接收到事件的顺序上没有任何联系，都会同时收到事件，并且都是在新的线程中，异步并发的执行自己的任务。<h3 id="aop、AsyncEventBus实现log记录"><a href="#aop、AsyncEventBus实现log记录" class="headerlink" title="aop、AsyncEventBus实现log记录"></a>aop、AsyncEventBus实现log记录</h3><code>https://github.com/ilubov/operation-log</code></li>
 </ul>
 
 </article>

@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<!--begin head-->
+
+<head>
+    <meta charset="utf-8">
+<!--begin title-->
+
+<title>
+    
+    java虚拟机 |
+    
+    ilubov</title>
+<!--end title-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!--begin mete-->
+
+<meta name="description" content="Get busy living or get busy dying."/>
+
+<meta name="author" content="ilubov"/>
+
+<!--end mete-->
+<!--begin keywords-->
+<meta name="keywords" content="database,guava,java,jvm,mysql,redis,sharding jdbc,spring,spring cloud,并发,支付,数据库,集合"/>
+<!--end keywords-->
+<!--begin rss-->
+
+<!--end rss-->
+<!--begin favicon-->
+
+<link rel="icon" href="/favicon.ico">
+
+<!--end favicon-->
+<!--begin style-->
+
+<!-- stylesheets list from config.yml -->
+
+<link rel="stylesheet" href="/css/hannah.css">
+
+
+<!--end style-->
+<meta name="generator" content="Hexo 5.0.2"></head>
+<!--end head-->
+<!--begin body-->
+
+<body class="container-fluid">
+
+    <!--begin menu-->
+    <div class="hannah-menu">
+    <i class="fh fh-ravelry fa-2x btn fixed-menu animated bounce" id="btn_menu" aria-hidden="true"></i>
+    <div class="menu-outer container-fluid hide animated" id="div_menu">
+        <div class="row" style="margin-bottom: 5px;">
+            
+            <div class="col-md-offset-2 col-md-3 col-xs-4 text-center left-social">
+                
+                <a target="_blank" href="https://github.com/ilubov" title="GitHub"><i class="fh fh-github"></i></a>
+                
+                <style>
+                    .left-social {
+                        height: 132px;
+                        line-height: 132px;
+                        font-size: 66px;
+                    }
+
+                    .left-social * {
+                        color: #f1ce8e;
+                    }
+
+                    @media (max-width: 767px) {
+                        .left-social {
+                            line-height: 132px;
+                            font-size: 33px;
+                        }
+                    }
+                </style>
+            </div>
+            <!--begin handImg-->
+            <div class="col-md-2 col-xs-4 text-center">
+                
+                <img src="/img/logo.jpg" alt="Head Image" class="img-circle">
+                
+            </div>
+            <!--end handImg-->
+            <div class="col-md-3 col-xs-4 text-center right-social">
+                
+                <style>
+                    .right-social {
+                        height: 132px;
+                        line-height: 132px;
+                        font-size: 66px;
+                    }
+
+                    @media (max-width: 767px) {
+                        .right-social {
+                            line-height: 132px;
+                            font-size: 33px;
+                        }
+                    }
+
+                    .right-social * {
+                        color: #f1ce8e;
+                    }
+                </style>
+            </div>
+        </div>
+        <div class="row">
+            <div class="menu-content col-md-8 col-md-push-2 col-xs-12 ">
+                <dl class="menu-content-item">
+                    <dt class="menu-content-title">
+                        <i class="fh fh-bars" aria-hidden="true"></i> Menu
+                    </dt>
+                    <dd class="menu-content-content">
+                        
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center animated tada">
+                            <a href="/" class="btn btn-block">
+                                
+                                <i class="fh fh-ravelry"></i>
+                                Home
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center animated tada">
+                            <a href="/categories/index.html" class="btn btn-block">
+                                
+                                <i class="fh fh-cubes"></i>
+                                Category
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center animated tada">
+                            <a href="/tags/index.html" class="btn btn-block">
+                                
+                                <i class="fh fh-tags"></i>
+                                Tag
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center animated tada">
+                            <a target="_blank" rel="noopener" href="https://www.ilubov.cn" class="btn btn-block">
+                                
+                                <i class="fh fh-about"></i>
+                                About
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center animated tada">
+                            <a href="" class="btn btn-block">
+                                <i class="fh fh-rss" aria-hidden="true"></i> RSS
+                            </a>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="row">
+            <div class="menu-content col-md-8 col-md-offset-2 col-xs-12 ">
+                <dl class="col-md-6 col-xs-6 menu-content-item">
+                    <dt class="menu-content-title">
+                        <i class="fh fh-cubes" aria-hidden="true"></i> Category
+                    </dt>
+                    <dd class="menu-content-content animated zoomIn">
+                        <ul class="menu-cate-list"><li class="menu-cate-list-item"><a class="menu-cate-list-link" href="/categories/database/"><i class="fh fh-cube" aria-hidden="true"></i> database</a><span class="menu-cate-list-count">1</span></li><li class="menu-cate-list-item"><a class="menu-cate-list-link" href="/categories/java/"><i class="fh fh-cube" aria-hidden="true"></i> java</a><span class="menu-cate-list-count">8</span></li><li class="menu-cate-list-item"><a class="menu-cate-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="fh fh-cube" aria-hidden="true"></i> 数据库</a><span class="menu-cate-list-count">2</span></li></ul>
+                    </dd>
+                </dl>
+                <dl class="col-md-6 col-xs-6 menu-content-item">
+                    <dt class="menu-content-title">
+                        <i class="fh fh-tag" aria-hidden="true"></i> Tags
+                    </dt>
+                    <dd class="menu-content-content animated zoomIn">
+                        <ul class="menu-tag-list" itemprop="keywords"><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/database/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> database</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/guava/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> guava</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/java/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> java</a><span class="menu-tag-list-count">8</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/jvm/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> jvm</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/mysql/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> mysql</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/redis/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> redis</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/sharding-jdbc/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> sharding jdbc</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/spring/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> spring</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/spring-cloud/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> spring cloud</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> 并发</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> 支付</a><span class="menu-tag-list-count">2</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> 数据库</a><span class="menu-tag-list-count">2</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> 集合</a><span class="menu-tag-list-count">1</span></li></ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--end menu-->
+
+    <div class="row hannah-body">
+        <div class="col-md-8 col-md-push-2 col-xs-12">
+            <!--begin breadcrumb-->
+            <div class="bread-crumb">
+    <ul class="bread-crumb-menu animated rubberBand">
+        <li><a href="/"><i class="fh fh-ravelry" aria-hidden="true"></i> Home</a></li>
+        
+        <li><a href="/categories/java/"><i class="fh fh-cube" aria-hidden="true"></i> java</a>
+        </li>
+        
+        <li>
+            
+            <i class="fh fh-newspaper-o" aria-hidden="true"></i>
+            
+            java虚拟机
+        </li>
+        
+    </ul>
+    <div class="bread-crumb-search">
+        <div class="search">
+    <i class="fh fh-search icon-search"></i>
+    <input placeholder="Search ..." onkeyup="searchFunc(this,event,'/search.xml')"
+           class="input-search animated fadeInRight"/>
+    <div class="search-result animated fadeInRight">
+        <a class="animated tada col-lg-12 search-result-item result-link" href="/2020/08/10/java-guava-eventbus/">EventBus、AsyncEventBus</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/06/13/java-jvm/">java虚拟机</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/05/11/database-redis-introduce/">Redis</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/04/30/database-sharding/">sharding jdbc</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/04/01/database-mysql-indexes/">mysql索引失效</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/03/28/java-pay-icbc/">工行支付</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/03/25/java-pay-alipay/">支付宝支付</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/03/22/java-spring-cloud-component/">spring cloud生态圈</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/02/26/java-concurrent-synchronized-cas-lock/">java并发-synchronized关键字&CAS锁</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/02/20/java-spring-transcational/">Transactional</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/01/27/java-array-list/">java集合-List类</a>
+    </div>
+</div>
+    </div>
+</div>
+            <!--end breadcrumb-->
+            <!--begin body-->
+            <article class="post animated rollIn">
+    <h1 class="post-title">java虚拟机</h1>
+    <div class="post-subtitle">
+        
+        <time datetime="2020-06-13T05:05:10.000Z" class="item">
+            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-06-13
+        </time>
+        
+        
+        <span class="item">
+      <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
+            
+            <a class="label label-primary tags" href="/categories/java/">
+           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
+        </a>
+            
+        </span>
+        
+        
+        <span class="item">
+        <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
+            
+            <a class="label label-info tags" href="/tags/java/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
+            </a>
+            
+            <a class="label label-info tags" href="/tags/jvm/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;jvm
+            </a>
+            
+        </span>
+        
+    </div>
+    
+    <h3 id="java虚拟机"><a href="#java虚拟机" class="headerlink" title="java虚拟机"></a>java虚拟机</h3><p><img src="../../public/img/jvm/p1.png" alt="avatar"></p>
+<h4 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h4><p>Java程序在运行时，会为JVM单独划出一块内存区域，而这块内存区域又可以再次划分出一块运行时数据区，运行时数据区域大致可以分为五个部分：</p>
+<p><img src="../../public/img/jvm/p2.png" alt="avatar"></p>
+<p>从上面的图中，有两种颜色不同的区域，红色的是线程共享区域，绿色的是线程私有区域。</p>
+<h5 id="堆（Heap）"><a href="#堆（Heap）" class="headerlink" title="堆（Heap）"></a>堆（Heap）</h5><ul>
+<li>存储的是我们new来的对象，不存放基本类型和对象引用。</li>
+<li>由于创建了大量的对象，垃圾回收器主要工作在这块区域。</li>
+<li>线程共享区域，因此是线程不安全的。</li>
+<li>能够发生内存溢出，主要有OutOfMemoryError和StackOverflowError。</li>
+</ul>
+<p>虚拟机在扩展栈时无法申请到足够的内存空间，<strong>将抛出OutOfMemoryError异常</strong>；</p>
+<p>线程请求的栈深度超过虚拟机所允许的最大深度，<strong>将抛出StackOverflowError异常</strong>。</p>
+<p>Java堆区还可以划分为新生代和老年代，新生代又可以进一步划分为Eden区、Survivor 1区、Survivor 2区。具体比例参数的话，可以看一下下面这张图。</p>
+<p><img src="../../public/img/jvm/p3.png" alt="avatar"></p>
+<h5 id="虚拟机栈-VM-Stack"><a href="#虚拟机栈-VM-Stack" class="headerlink" title="虚拟机栈(VM Stack)"></a>虚拟机栈(VM Stack)</h5><ul>
+<li>线程私有区域，每一个线程都有独享一个虚拟机栈，因此这是线程安全的区域。</li>
+<li>存放基本数据类型以及对象的引用。</li>
+<li>每一个方法执行的时候会在虚拟机栈中创建一个相应栈帧，方法执行完毕后该栈帧就会被销毁。方法栈帧是以先进后出的方式虚拟机栈的。</li>
+<li>每一个栈帧又可以划分为局部变量表、操作数栈、动态链接、方法出口以及额外的附加信息。</li>
+<li>这个区域可能有两种异常：如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常（通常是递归导致的）；JVM动态扩展时无法申请到足够内存则抛出OutOfMemoryError异常。</li>
+</ul>
+<h5 id="本地方法栈-Native-Method-Stack"><a href="#本地方法栈-Native-Method-Stack" class="headerlink" title="本地方法栈(Native Method Stack)"></a>本地方法栈(Native Method Stack)</h5><p>本地方法栈其实可以和Java虚拟机栈进行对比理解，<br>唯一不同的是本地方法栈是Java程序在调用本地方法的时候创建栈帧的地方。<br>和JVM栈一样，这个区域也会抛出StackOverflowError和OutOfMemoryError。</p>
+<h5 id="方法区-Method-Area"><a href="#方法区-Method-Area" class="headerlink" title="方法区(Method Area)"></a>方法区(Method Area)</h5><ul>
+<li>线程共享区域，因此这是线程不安全的区域。</li>
+<li>方法区也是一个可能会发生OutOfMemoryError的区域。</li>
+<li>方法区存储的是从Class文件加载进来的静态变量、类信息、常量池以及编译器编译后的代码。</li>
+</ul>
+<p>常量池可以分为Class文件常量池以及运行时常量池，Java程序运行后，Class文件中的信息被字节码执行引擎加载到了方法区，从而形成了运行时常量池。</p>
+<p>方法区是Java虚拟机规范中的定义，是一种规范，而永久代是一种实现，一个是标准一个是实现。不过Java 8以后就没有永久代这个说法了，元空间取代了永久代。</p>
+<h5 id="程序计数器-Program-Counter-Register"><a href="#程序计数器-Program-Counter-Register" class="headerlink" title="程序计数器(Program Counter Register)"></a>程序计数器(Program Counter Register)</h5><p>进程是资源分配的最小单位，线程是CPU调度的最小单位，一个进程可以包含多个线程， Java线程通过抢占的方法获得CPU的执行权。现在可以思考下面这个场景。</p>
+<p>某一次，线程A获得CPU的执行权，开始执行内部程序。但是线程A的程序还没有执行完，在某一时刻CPU的执行权被另一个线程B抢走了。后来经过线程A的不懈努力，又抢回了CPU的执行权，那么线程A的程序又要从头开始执行？</p>
+<p>这个时候程序计数器就粉墨登场了，它的作用就是记录当前线程所执行的位置。  这样，当线程重新获得CPU的执行权的时候，就直接从记录的位置开始执行，分支、循环、跳转、异常处理也都依赖这个程序计数器来完成。此外，程序计数器还具有以下特点：</p>
+<ul>
+<li>线程私有，每一个线程都有一个程序计数器，因此它是线程安全的。</li>
+<li>唯一一块不存在OutOfMemoryError的区域，可能是设计者觉得没必要。</li>
+</ul>
+<h4 id="对象的创建与访问"><a href="#对象的创建与访问" class="headerlink" title="对象的创建与访问"></a>对象的创建与访问</h4><h5 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h5><p>当虚拟机遇到字节码new指令时，就会去运行时常量池寻找该实例化对象相对应的类是否被加载、解析和初始化。如果没有被加载，就会先加载该类的信息，否则就为新生对象分配内存。</p>
+<p>分配内存无非有两种方法：</p>
+<ul>
+<li>指针碰撞：通过一个类似于指针的东西为对象分配内存，前提是堆空间是相对规整的。</li>
+<li>空闲列表：堆空间不规整，使用一个列表记录了哪些空间是空闲的，分配内存的时候会更新列表。</li>
+</ul>
+<p>以上是两种不同的方法，至于虚拟机使用哪一种方法，这个就取决虚拟机的类型了。</p>
+<h5 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h5><p>对象在堆中的存储布局可以分为三个部分：</p>
+<ul>
+<li><p>对象头</p>
+<ul>
+<li>第一类信息：存储对象自身的运行时数据，例如哈希码、GC分代年龄、锁状态标志等等。</li>
+<li>第二类信息：指针类型，Java虚拟机通过这个指针来确定该对象是那个类的实例。</li>
+</ul>
+</li>
+<li><p>实例数据：对象真正存储的有效信息。</p>
+</li>
+<li><p>对齐填充：没有实际的意义，起着占位符的作用。</p>
+</li>
+</ul>
+<h5 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h5><p>对象实例存储在Java堆中，通过这个对象引用我们就可以找到对象在堆中的位置。但是，对于如何定位到这个对象，不同的Java虚拟机又有不同的方法。</p>
+<ul>
+<li>使用句柄访问，通常会在Java堆中划分一块句柄池。</li>
+<li>使用直接指针，这样Java虚拟机栈中存储的就是该对象在堆中的地址。</li>
+</ul>
+<p><img src="../../public/img/jvm/p4.png" alt="avatar"></p>
+<p><img src="../../public/img/jvm/p5.png" alt="avatar"></p>
+<p>这两种访问对象的方法各有优势。使用直接指针进行访问，就可以直接定位到对象，减小了一次指针定位的时间开销（使用句柄的话会通过句柄池的指针二次定位对象），最大的好处就是速度更快。但是使用句柄的话，就是当对象发生移动的时候，可以不用改变栈中存储的reference，只需要改变句柄池中实例数据的指针。</p>
+<h4 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h4><h5 id="论对象已死？"><a href="#论对象已死？" class="headerlink" title="论对象已死？"></a>论对象已死？</h5><p>判断一个对象是否被销毁有两种方法：</p>
+<ul>
+<li>引用计数算法： 为对象添加一个引用计数器，每当对象在一个地方被引用，则该计数器加1；每当对象引用失效时，计数器减1。但计数器为0的时候，就表白该对象没有被引用。</li>
+<li>可达性分析算法： 通过一系列被称之为“GC Roots”的根节点开始，沿着引用链进行搜索，凡是在引用链上的对象都不会被回收。</li>
+</ul>
+<p><img src="../../public/img/jvm/p6.png" alt="avatar"></p>
+<p>就像上图的那样，绿色部分的对象都在GC Roots的引用链上，就不会被垃圾回收器回收，灰色部分的对象没有在引用链上，自然就被判定为可回收对象。</p>
+<p>下面列举可以作为GC Roots的对象：</p>
+<ul>
+<li>Java虚拟机栈中被引用的对象，各个线程调用的参数、局部变量、临时变量等。</li>
+<li>方法区中类静态属性引用的对象，比如引用类型的静态变量。</li>
+<li>方法区中常量引用的对象。</li>
+<li>本地方法栈中所引用的对象。</li>
+<li>Java虚拟机内部的引用，基本数据类型对应的Class对象，一些常驻的异常对象。</li>
+<li>被同步锁（synchronized）持有的对象。</li>
+</ul>
+<p>垃圾回收算法主要有三种，依次是<strong>标记-清除算法、标记-复制算法、标记-整理算法</strong>。</p>
+<h6 id="标记–清除算法"><a href="#标记–清除算法" class="headerlink" title="标记–清除算法"></a><strong>标记–清除算法</strong></h6><p>见名知义，标记–清除算法就是对无效的对象进行标记，然后清除。如下图：</p>
+<p><img src="../../public/img/jvm/p7.png" alt="avatar"></p>
+<p>对于标记–清除算法，你一定会清楚看到，在进行垃圾回收之后，堆空间有大量的碎片，出现了不规整的情况。在给大对象分配内存的时候，由于无法找到足够的连续的内存空间，就不得不再一次触发垃圾收集。另外，如果Java堆中存在大量的垃圾对象，那么垃圾回收的就必然进行大量的标记和清除动作，这个势必造成回收效率的降低。</p>
+<h6 id="标记–复制算法"><a href="#标记–复制算法" class="headerlink" title="标记–复制算法"></a><strong>标记–复制算法</strong></h6><p>标记–复制算法就是把Java堆分成两块，每次垃圾回收时只使用其中一块，然后把存活的对象全部移动到另一块区域。如下图：</p>
+<p><img src="../../public/img/jvm/p8.png" alt="avatar"></p>
+<p>标记–复制算法有一个很明显的缺点，那就是每次只使用堆空间的一半，造成了Java堆空间使用率的的下降。</p>
+<p>现在大部分Java虚拟机的垃圾回收器使用的就是标记–复制算法，但是，对于Java堆空间的划分，并不是简单地一分为二。</p>
+<p><img src="../../public/img/jvm/p3.png" alt="avatar"></p>
+<p>首先得从两个分代收集理论说起：</p>
+<ul>
+<li>弱分代假说：大多数对象的生命存活时间很短。</li>
+<li>强分代假说：经过越多次垃圾收集的对象，存活的时间就越久。</li>
+</ul>
+<p>正是这两个分代假说，使得设计者对Java堆的划分更加合理。下面，来说一下GC的分类：</p>
+<ul>
+<li>Minor GC/Young GC：针对新生代的垃圾收集。</li>
+<li>Major GC/Old GC：针对老年代的垃圾收集。</li>
+<li>Full GC：针对整个Java堆以及方法区的垃圾收集。</li>
+</ul>
+<p>好了，知道了GC的分类，是时候知道GC的流程了。</p>
+<p>通常情况下，初次被创建的对象存放在新生代的Eden区，当第一次触发Minor GC，Eden区存活的对象被转移到Survivor区的某一块区域。以后再次触发Minor GC的时候，Eden区的对象连同一块Survivor区的对象一起，被转移到了另一块Survivor区。可以看到，这两块Survivor区我们每一次只使用其中的一块，这样也仅仅是浪费了一块Survivor区。</p>
+<p>每经历过一次垃圾回收的对象，它的分代年龄就加1，当分代年龄达到15以后，就直接被存放到老年代中。</p>
+<p>还有一种情况，给大对象分配内存的时候，Eden区已经没有足够的内存空间了，这时候该怎么办？对于这种情况，大对象就会直接进入老年代。</p>
+<h5 id="标记–整理算法"><a href="#标记–整理算法" class="headerlink" title="标记–整理算法"></a>标记–整理算法</h5><p>标记–整理算法算是一种折中的垃圾收集算法，在对象标记的过程，和前面两个执行的是一样步骤。但是，进行标记之后，存活的对象会移动到堆的一端，然后直接清理存活对象以外的区域就可以了。这样，既避免了内存碎片，也不存在堆空间浪费的说法了。但是，每次进行垃圾回收的时候，都要暂停所有的用户线程，特别是对老年代的对象回收，则需要更长的回收时间，这对用户体验是非常不好的。如下图：</p>
+<p><img src="../../public/img/jvm/p9.png" alt="avatar"></p>
+<h4 id="HotSpot的算法细节"><a href="#HotSpot的算法细节" class="headerlink" title="HotSpot的算法细节"></a>HotSpot的算法细节</h4><h5 id="根节点枚举"><a href="#根节点枚举" class="headerlink" title="根节点枚举"></a>根节点枚举</h5><p>根节点枚举，其实就是找出可以作为GC Roots的对象，在这个过程中，所有的用户线程都必须停下。<br>到目前为止，几乎还没有虚拟机可以做到GC Roots遍历与用户线程并发执行。<br>当然，可达性分析算法中<strong>最耗时的寻找引用链的过程</strong>已经可以做到和用户线程并发执行了。那么，为什么需要在根节点枚举的时候停止用户线程？</p>
+<p>其实也不难考虑，如果进行GC Roots遍历的时候，用户线程没有暂停，根节点集合的对象引用关系还在不断发生变化，这样遍历到的结果是不准确的。那么，Java虚拟机在查找GC Roots的时候，是真的需要进行全局遍历？</p>
+<p>其实不是这样的，HotSpot虚拟机通过一个叫做OopMap的数据结构，可以知道哪些地方存储了对象引用。这样，大大减小了GC Roots的遍历时间。</p>
+<h5 id="安全点"><a href="#安全点" class="headerlink" title="安全点"></a>安全点</h5><p>安全点，是线程能够中断的点。我们在GC Roots遍历的时候，是一定要让用户线程停下来的。<br>为了使得线程到达最近的安全点停下来，有两种思路：</p>
+<ul>
+<li><strong>抢先式中断</strong>： 暂停所有的用户线程，如果哪条线程没有在安全点，就恢复这条线程执行，直到它跑到安全点上在中断。不过没有Java虚拟机采用这种思路。</li>
+<li><strong>主动式中断</strong>： 不对线程进行操作，仅仅设置一个简单的标志位，线程执行的时候不断区轮询这个标志位，当这个标志位为真的时候，线程就在离自己最近的安全点挂起。</li>
+</ul>
+<h5 id="安全区域"><a href="#安全区域" class="headerlink" title="安全区域"></a>安全区域</h5><p><strong>安全区域是安全点的拉伸和扩展</strong>，安全点解决了如何让线程停下，却没有解决如何让虚拟机进入垃圾回收状态。</p>
+<p>安全区域是指能能够确保在某一代码片段中，引用关系不会发生变化的区域。因此，一旦线程进入了安全区域，就可以不去理会这些处于安全区域的线程。当线程离开安全区域的时候，虚拟机就会检查是否完成了根节点枚举。</p>
+<h5 id="记忆集与卡表"><a href="#记忆集与卡表" class="headerlink" title="记忆集与卡表"></a>记忆集与卡表</h5><p>首先，<strong>跨代引用是存在的</strong>。因此，垃圾收集器在新生代建立了一个叫做记忆集的数据结构，用来避免把整个老年代假如GC Roots的扫描范围。</p>
+<p><strong>记忆集是抽象的数据结构，而卡表是记忆集的具体实现</strong>，这种关系就类似与方法区与元空间。</p>
+<h5 id="写屏障"><a href="#写屏障" class="headerlink" title="写屏障"></a>写屏障</h5><p>写屏障的作用很简单，就是对卡表进行<strong>维护和更新</strong>。</p>
+<h5 id="并发的可达性分析"><a href="#并发的可达性分析" class="headerlink" title="并发的可达性分析"></a>并发的可达性分析</h5><p>前面我们说到过为什么要暂停所有的用户线程（这个动作也被称之为<strong>Stop The World</strong>）？<br><strong>这其实是为了不让用户线程改变GC Roots对象的引用</strong>。试想，如果用户线程能够随便把死亡的对象重新标记为存活，或者把存活的对象标记为死亡，这岂不是会使的程序发生意想不到的错误。</p>
+<h4 id="经典的垃圾收集器"><a href="#经典的垃圾收集器" class="headerlink" title="经典的垃圾收集器"></a>经典的垃圾收集器</h4><h5 id="Serial-收集器"><a href="#Serial-收集器" class="headerlink" title="Serial 收集器"></a>Serial 收集器</h5><p>Serial 收集器是最基础、历史最悠久的收集器，它在进行垃圾收集的时候会暂停所有的工作线程，直到完成垃圾收集过程。<br>下面是Serial垃圾收集器的运行示意图：<br><img src="../../public/img/jvm/p10.png" alt="avatar"></p>
+<h5 id="ParNew-收集器"><a href="#ParNew-收集器" class="headerlink" title="ParNew 收集器"></a>ParNew 收集器</h5><p>ParNew 垃圾收集器实则是Serial 垃圾收集器的多线程版本，这个多线程在于ParNew垃圾收集器可以使用多条线程进行垃圾回收。<br><img src="../../public/img/jvm/p11.png" alt="avatar"></p>
+<h5 id="Parallel-Scavenge-收集器"><a href="#Parallel-Scavenge-收集器" class="headerlink" title="Parallel Scavenge 收集器"></a>Parallel Scavenge 收集器</h5><p>也是一款新生代垃圾收集器，同样的基于标记–复制算法实现的。<br><strong>它最大的特点是可以控制吞吐量</strong>。<br><img src="../../public/img/jvm/p12.png" alt="avatar"></p>
+<h5 id="Serial-Old-收集器"><a href="#Serial-Old-收集器" class="headerlink" title="Serial Old 收集器"></a>Serial Old 收集器</h5><p>Serial Old 收集器是Serial 收集器的老年代版本。<br>其垃圾收集器的运行原理和Serial 收集器是一样的。<br><img src="../../public/img/jvm/p13.png" alt="avatar"></p>
+<h5 id="Parallel-Old-收集器"><a href="#Parallel-Old-收集器" class="headerlink" title="Parallel Old 收集器"></a>Parallel Old 收集器</h5><p>Parallel Old 收集器同样是Parallel Scavenge 收集器的老年代版本，支持多线程并发收集。<br>下面就是它的运行示意图：<br><img src="../../public/img/jvm/p14.png" alt="avatar"></p>
+<h5 id="CMS-收集器"><a href="#CMS-收集器" class="headerlink" title="CMS 收集器"></a>CMS 收集器</h5><p>前面说到过Parallel Scavenge 收集器，它是一个可以控制吞吐量的垃圾收集器。现在要说的CMS 收集器，它是一个追求最短停顿时间的垃圾收集器，基于标记–清除算法实现的。<br>CMS 垃圾收集器的运作过程相对前面几个垃圾收集器来说比较复杂，整个过程可以分为四个部分：</p>
+<ul>
+<li><strong>初始标记</strong>： 需要Stop The World，这里仅仅标记GC Roots能够直接关联的对象，所以速度很快。</li>
+<li><strong>并发标记</strong>： 从关联对象遍历整个GC Roots的引用链，这个过程耗时最长，但是却可以和用户线程并发运行。</li>
+<li><strong>重新标记</strong>： 修正并发时间，因为用户线程可能会导致标记产生变动，同样需要Stop The World。</li>
+<li><strong>并发清除</strong>： 清除已经死亡的对象。</li>
+</ul>
+<h5 id="Garbage-First-收集器"><a href="#Garbage-First-收集器" class="headerlink" title="Garbage First 收集器"></a>Garbage First 收集器</h5><p>Garbage First（简称G 1）收集器是垃圾收集器发展史上里程碑式的成果，主要面向服务端应用程序。<br>另外G 1收集器虽然还保留新生代和老年代的概念，但是新生代和老年代不在固定，它们都是一系列区域的动态集合。</p>
+
+</article>
+<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#java%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="animated rollIn hannah-toc-text">java虚拟机</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F"><span class="animated rollIn hannah-toc-text">运行时数据区域</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%A0%86%EF%BC%88Heap%EF%BC%89"><span class="animated rollIn hannah-toc-text">堆（Heap）</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88-VM-Stack"><span class="animated rollIn hannah-toc-text">虚拟机栈(VM Stack)</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88-Native-Method-Stack"><span class="animated rollIn hannah-toc-text">本地方法栈(Native Method Stack)</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA-Method-Area"><span class="animated rollIn hannah-toc-text">方法区(Method Area)</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8-Program-Counter-Register"><span class="animated rollIn hannah-toc-text">程序计数器(Program Counter Register)</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E8%AE%BF%E9%97%AE"><span class="animated rollIn hannah-toc-text">对象的创建与访问</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="animated rollIn hannah-toc-text">对象的创建</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="animated rollIn hannah-toc-text">对象的内存布局</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="animated rollIn hannah-toc-text">对象的访问定位</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="animated rollIn hannah-toc-text">垃圾收集算法</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E8%AE%BA%E5%AF%B9%E8%B1%A1%E5%B7%B2%E6%AD%BB%EF%BC%9F"><span class="animated rollIn hannah-toc-text">论对象已死？</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-6"><a class="animated rollIn hannah-toc-link" href="#%E6%A0%87%E8%AE%B0%E2%80%93%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="animated rollIn hannah-toc-text">标记–清除算法</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-6"><a class="animated rollIn hannah-toc-link" href="#%E6%A0%87%E8%AE%B0%E2%80%93%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="animated rollIn hannah-toc-text">标记–复制算法</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E6%A0%87%E8%AE%B0%E2%80%93%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="animated rollIn hannah-toc-text">标记–整理算法</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#HotSpot%E7%9A%84%E7%AE%97%E6%B3%95%E7%BB%86%E8%8A%82"><span class="animated rollIn hannah-toc-text">HotSpot的算法细节</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E6%A0%B9%E8%8A%82%E7%82%B9%E6%9E%9A%E4%B8%BE"><span class="animated rollIn hannah-toc-text">根节点枚举</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%AE%89%E5%85%A8%E7%82%B9"><span class="animated rollIn hannah-toc-text">安全点</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%AE%89%E5%85%A8%E5%8C%BA%E5%9F%9F"><span class="animated rollIn hannah-toc-text">安全区域</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E8%AE%B0%E5%BF%86%E9%9B%86%E4%B8%8E%E5%8D%A1%E8%A1%A8"><span class="animated rollIn hannah-toc-text">记忆集与卡表</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%86%99%E5%B1%8F%E9%9A%9C"><span class="animated rollIn hannah-toc-text">写屏障</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%B9%B6%E5%8F%91%E7%9A%84%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90"><span class="animated rollIn hannah-toc-text">并发的可达性分析</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E7%BB%8F%E5%85%B8%E7%9A%84%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="animated rollIn hannah-toc-text">经典的垃圾收集器</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#Serial-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="animated rollIn hannah-toc-text">Serial 收集器</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#ParNew-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="animated rollIn hannah-toc-text">ParNew 收集器</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#Parallel-Scavenge-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="animated rollIn hannah-toc-text">Parallel Scavenge 收集器</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#Serial-Old-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="animated rollIn hannah-toc-text">Serial Old 收集器</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#Parallel-Old-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="animated rollIn hannah-toc-text">Parallel Old 收集器</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#CMS-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="animated rollIn hannah-toc-text">CMS 收集器</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#Garbage-First-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="animated rollIn hannah-toc-text">Garbage First 收集器</span></a></li></ol></li></ol></li></ol>
+<div class="animated bounceInDown paginations">
+    <div class="col-md-8 col-md-push-2 col-xs-12">
+        <nav>
+            
+            <a href="/2020/08/10/java-guava-eventbus/" class="prev col-md-2 col-xs-4 text-left">&larr; Prev</a>
+            
+            <span
+                class="page-content col-md-8  col-xs-4 text-center">
+                
+            </span>
+            
+            <a href="/2020/05/11/database-redis-introduce/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
+            
+        </nav>
+        <div>
+            <div class="col-md-6 col-xs-6 text-left">
+                
+                EventBus、AsyncEventBus
+                
+            </div>
+            <div class="col-md-6 col-xs-6 text-right">
+                
+                Redis
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!--end body-->
+            <!--begin comments-->
+            
+<div class="comments">
+    
+
+    
+    
+<div id="gitalk-container">
+</div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script>
+    var loadJs = function (d, a) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document
+            .documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("src", d);
+        if (typeof a === "function") {
+            if (window.attachEvent) {
+                b.onreadystatechange = function () {
+                    var e = b.readyState;
+                    if (e === "loaded" || e === "complete") {
+                        b.onreadystatechange = null;
+                        a()
+                    }
+                }
+            } else {
+                b.onload = a
+            }
+        }
+        c.appendChild(b)
+    };
+    loadJs("https://unpkg.com/gitalk/dist/gitalk.min.js", function () {
+        var gitalk = new Gitalk({
+            clientID: 'e82b50d554e32a851ae7',
+            clientSecret: '95923aeaddb44e6de22d088703c6bbde978f505c',
+            repo: 'ilubov.github.io',
+            owner: 'ilubov',
+            admin: ['ilubov'],
+            id: decodeURIComponent(location.pathname),
+            distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')
+    });
+</script>
+
+</div>
+
+
+            <!--end comments-->
+        </div>
+    </div>
+
+    <!--begin footer-->
+    <footer id="footer" class="footer animated fadeInUp hide">
+    <p><i class="copy">&copy;</i> 2020 <a href="http://yoursite.com">ilubov</a> All Right Reserved.</p>
+    <p>Powered by <a target="_blank" href="http://hexo.io" rel="external nofollow noopener">Hexo</a>. Theme by <a target="_blank" href="https://github.com/objectyan/hexo-theme-hannah" rel="external nofollow noopener">hannah</a></p>
+</footer>
+    <!--end footer-->
+
+    
+    <!-- scripts list from theme config.yml -->
+    
+    <script src="/js/hannah.js"></script>
+    
+    
+    <!--begin analytics-->
+    
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8fb2a05be303b36faebf141d7317de43";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+    <!--end analytics-->
+</body>
+<!--end body-->
+<!--begin canvas-nest-->
+<script>
+    var nesturl = "https://unpkg.com/canvas-nest.js/dist/canvas-nest.js";
+    var c = document.getElementsByTagName("body")[0] || document.body || document.documentElement;
+    var b = document.createElement("script");
+    b.setAttribute("type", "text/javascript");
+    b.setAttribute("src", nesturl);
+    b.setAttribute("color",
+        `${ Math.floor(Math.random()*256)},${ Math.floor(Math.random()*256)},${ Math.floor(Math.random()*256)}`);
+    b.setAttribute("opacity", Math.random());
+    b.setAttribute("count", parseInt((Math.random() * 500) || 99));
+    c.appendChild(b)
+</script>
+<!--end canvas-nest-->
+
+</html>

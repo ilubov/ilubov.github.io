@@ -10,7 +10,7 @@
 
 <title>
     
-    java并发-synchronized关键字&amp;CAS锁 |
+    IO |
     
     ilubov</title>
 <!--end title-->
@@ -185,14 +185,14 @@
     <ul class="bread-crumb-menu animated rubberBand">
         <li><a href="/"><i class="fh fh-ravelry" aria-hidden="true"></i> Home</a></li>
         
-        <li><a href="/categories/java/"><i class="fh fh-cube" aria-hidden="true"></i> java</a>
+        <li><a href="/categories/IO/"><i class="fh fh-cube" aria-hidden="true"></i> IO</a>
         </li>
         
         <li>
             
             <i class="fh fh-newspaper-o" aria-hidden="true"></i>
             
-            java并发-synchronized关键字&CAS锁
+            IO
         </li>
         
     </ul>
@@ -210,19 +210,19 @@
             <!--end breadcrumb-->
             <!--begin body-->
             <article class="post animated rollIn">
-    <h1 class="post-title">java并发-synchronized关键字&amp;CAS锁</h1>
+    <h1 class="post-title">IO</h1>
     <div class="post-subtitle">
         
-        <time datetime="2020-02-26T11:08:29.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-02-26
+        <time datetime="2020-06-13T06:01:19.000Z" class="item">
+            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-06-13
         </time>
         
         
         <span class="item">
       <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-primary tags" href="/categories/java/">
-           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
+            <a class="label label-primary tags" href="/categories/IO/">
+           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;IO
         </a>
             
         </span>
@@ -235,83 +235,89 @@
             <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
             </a>
             
-            <a class="label label-info tags" href="/tags/%E5%B9%B6%E5%8F%91/">
-            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;并发
+            <a class="label label-info tags" href="/tags/IO/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;IO
             </a>
             
         </span>
         
     </div>
     
-    <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>java中提供了<em>synchronized</em>关键字和<em>java.util.concurrent.locks</em>包下的相关类来进行线程同步</p>
-<h3 id="synchronized关键字"><a href="#synchronized关键字" class="headerlink" title="synchronized关键字"></a>synchronized关键字</h3><p>在1.6之前<em>synchronized</em>是一个重量级锁，此同步方式同步成本非常高，因为阻塞线程会引起用户态和内核态之间切换。此后jvm对此同步方式进行了许多优化(偏向锁、轻量级锁)可以放心使用，而且因为是java关键字所以也可以享受以后的优化并且不需要更改代码</p>
-<table>
-<thead>
-<tr>
-<th>修饰</th>
-<th>锁对象</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>静态方法</td>
-<td>当前类对象(class)</td>
-</tr>
-<tr>
-<td>实例方法</td>
-<td>当前实例(this)</td>
-</tr>
-<tr>
-<td>修饰代码块</td>
-<td>指定变量</td>
-</tr>
-</tbody></table>
-<p><em>synchronized</em>锁膨胀过程 [偏向锁] -&gt; [轻量级锁] -&gt; [重量级锁]</p>
+    <h3 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
+<li><p><strong>java中IO流分以下几种</strong></p>
 <ul>
-<li><strong>偏向锁</strong><br>偏向锁会在第一次进行同步访问时的将访问线程的线程ID使用<em>CAS</em>记录到互斥变量的<code>Mark word</code>。<br>以后每次访问则检查访问线程的ID是否等于<em>Mark word</em>中记录的线程ID，如果等于则可以无锁同步。如果线程ID不相同则说明有其他线程竞争，此时偏向锁会膨胀成<em>轻量级锁</em><br>适用场景：自始至终仅有同一线程访问<br>优点：可以实现无锁同步<br>缺点：如果很明显有其他线程竞争则很快将膨胀成轻量级锁</li>
-<li><strong>轻量级锁</strong><br>加锁：为访问线程创建<code>Lock record</code>，将锁对象的<code>Mark word</code>复制到<code>Lock record</code>称为<code>Displaced mark word</code>，尝试使用<em>CAS</em>将<code>Mark word</code>指向<code>Displaced mark word</code>，如果成功则获取锁成功，否则循环重试<br>解锁：使用<code>Displaced mark word</code>替换原对象的<code>Mark word</code><br>轻量级锁会在重试次数过多时膨胀成<em>重量级锁</em><br>适用场景：线程竞争少，非耗时操作<br>优点：可以避免线程阻塞造成的造成的用户态和内核态切换成本<br>缺点：如果进行耗时操作则会循环获取锁占用CPU资源</li>
-<li><strong>重量级锁</strong><br>重量级锁会在利用操作系统底层创建互斥量实现，同步时会造成内核态切换<br>适用场景：线程竞争激烈，耗时操作<br>优点：线程直接阻塞无CPU资源占用<br>缺点：线程阻塞，阻塞和唤醒线程耗时可能会超过代码本身执行时间，性能可能低于<em>轻量级锁</em></li>
+<li>按照流的流向分，可以分为输入流和输出流；</li>
+<li>按照操作单元划分，可以划分为字节流和字符流；</li>
+<li>按照流的角色划分为节点流和处理流。</li>
 </ul>
-<h3 id="ReentrantLock锁"><a href="#ReentrantLock锁" class="headerlink" title="ReentrantLock锁"></a>ReentrantLock锁</h3><p>ReentrantLock分为公平锁和非公平锁，内部使用<em>CAS</em>方式实现具体原理类似于<em>轻量级锁</em></p>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
-<li><strong>synchronized</strong><ol>
-<li>java关键字，易用</li>
-<li>无需改代码享受jdk优化</li>
-</ol>
 </li>
-<li><strong>ReentrantLock</strong><ol>
-<li>java类，加锁解锁都是实例方法，可以更灵活的控制</li>
-<li>提供<em>Condition</em>可以灵活的控制要唤醒的线程</li>
-<li>可以实现公平锁</li>
-<li>可以中断等待</li>
-</ol>
+<li><p><strong>Java Io流共涉及40多个类，这些类看上去很杂乱，但实际上很有规则，而且彼此之间存在非常紧密的联系， Java I0流的40多个类都是从如下4个抽象类基类中派生出来的。</strong></p>
+<ul>
+<li>InputStream/Reader: 所有的输入流的基类，前者是字节输入流，后者是字符输入流。</li>
+<li>OutputStream/Writer: 所有输出流的基类，前者是字节输出流，后者是字符输出流。</li>
+</ul>
+</li>
+</ul>
+<h4 id="按操作方式分类结构图："><a href="#按操作方式分类结构图：" class="headerlink" title="按操作方式分类结构图："></a>按操作方式分类结构图：</h4><p><img src="https://ilubov.cn/hexo/io/io1.jpeg" alt="image"></p>
+<h4 id="按操作对象分类结构图："><a href="#按操作对象分类结构图：" class="headerlink" title="按操作对象分类结构图："></a>按操作对象分类结构图：</h4><p><img src="https://ilubov.cn/hexo/io/io2.jpeg" alt="image"></p>
+<h4 id="BIO与NIO、AIO的区别"><a href="#BIO与NIO、AIO的区别" class="headerlink" title="BIO与NIO、AIO的区别"></a>BIO与NIO、AIO的区别</h4><ul>
+<li>BIO（Blocking I/O）：同步阻塞I/O模式，数据的读取写入必须阻塞在一个线程内等待其完成。在活动连接数不是特别高（小于单机1000）的情况下，这种模型是比较不错的，可以让每一个连接专注于自己的I/O并且编程模型简单，也不用过多考虑系统的过载、限流等问题。线程池本身就是一个天然的漏斗，可以缓冲一些系统处理不了的连接或请求。但是，当面对十万甚至百万级连接的时候，传统的BIO模型是无能为力的。因此，我们需要一种更高效的I/O处理模型来应对更高的并发量。</li>
+<li>NIO（New I/O）：NIO是一种同步非阻塞的I/O模型，在Java1.4中引入了NIO框架，对应java.nio包，提供了Channel,Selector，Buffer等抽象。NIO中的N可以理解为Non-blocking，不单纯是New。它支持面向缓冲的，基于通道的I/O操作方法。NIO提供了与传统BIO模型中的Socket和ServerSocket相对应的SocketChannel和ServerSocketChannel两种不同的套接字通道实现,两种通道都支持阻塞和非阻塞两种模式。阻塞模式使用就像传统中的支持一样，比较简单，但是性能和可靠性都不好；非阻塞模式正好与之相反。对于低负载、低并发的应用程序，可以使用同步阻塞I/O来提升开发速率和更好的维护性；对于高负载、高并发的（网络）应用，应使用NIO的非阻塞模式来开发</li>
+<li>AIO（Asynchronous I/O）：AIO也就是NIO2。在Java7中引入了NIO的改进版NIO2,它是异步非阻塞的IO模型。异步IO是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里，当后台处理完成，操作系统会通知相应的线程进行后续的操作。AIO是异步IO的缩写，虽然NIO在网络操作中，提供了非阻塞的方法，但是NIO的IO行为还是同步的。对于NIO来说，我们的业务线程是在IO操作准备好时，得到通知，接着就由这个线程自行进行IO操作，IO操作本身是同步的。查阅网上相关资料，我发现就目前来说AIO的应用还不是很广泛，Netty之前也尝试使用过AIO，不过又放弃了。</li>
+</ul>
+<h4 id="BIO与NIO、AIO的区别-1"><a href="#BIO与NIO、AIO的区别-1" class="headerlink" title="BIO与NIO、AIO的区别"></a>BIO与NIO、AIO的区别</h4><h5 id="BIO（Blocking-I-O）"><a href="#BIO（Blocking-I-O）" class="headerlink" title="BIO（Blocking I/O）"></a>BIO（Blocking I/O）</h5><p><strong>同步阻塞I/O，一个连接一个线程。</strong><br>在JDK1.4出来之前，我们建立网络连接的时候采用BIO模式，需要先在服务端启动一个ServerSocket，然后在客户端启动Socket来对服务端进行通信，默认情况下服务端需要对每个请求建立一堆线程等待请求，而客户端发送请求后，先咨询服务端是否有线程相应，如果没有则会一直等待或者遭到拒绝请求，如果有的话，客户端会线程会等待请求结束后才继续执行。<br>同步阻塞I/O，数据的读取写入必须阻塞在一个线程内等待其完成。在活动连接数不是特别高（小于单机1000）的情况下，这种模型是比较不错的，可以让每一个连接专注于自己的I/O并且编程模型简单，也不用过多考虑系统的过载、限流等问题。线程池本身就是一个天然的漏斗，可以缓冲一些系统处理不了的连接或请求。但是，当面对十万甚至百万级连接的时候，传统的BIO模型是无能为力的。因此，我们需要一种更高效的I/O处理模型来应对更高的并发量。</p>
+<h5 id="NIO（New-I-O）"><a href="#NIO（New-I-O）" class="headerlink" title="NIO（New I/O）"></a>NIO（New I/O）</h5><p><strong>同步非阻塞I/O，一个请求一个线程。</strong><br>NIO是一种同步非阻塞的I/O模型，在Java1.4中引入了NIO框架，对应java.nio包，提供了Channel，Selector，Buffer等抽象。NIO中的N可以理解为Non-blocking，不单纯是New。它支持面向缓冲的，基于通道的I/O操作方法。NIO提供了与传统BIO模型中的Socket和ServerSocket相对应的SocketChannel和ServerSocketChannel两种不同的套接字通道实现,两种通道都支持阻塞和非阻塞两种模式。阻塞模式使用就像传统中的支持一样，比较简单，但是性能和可靠性都不好；非阻塞模式正好与之相反。对于低负载、低并发的应用程序，可以使用同步阻塞I/O来提升开发速率和更好的维护性；对于高负载、高并发的（网络）应用，应使用NIO的非阻塞模式来开发。</p>
+<p>NIO本身是基于事件驱动思想来完成的，其主要想解决的是BIO的大并发问题：在使用同步I/O的网络应用中，如果要同时处理多个客户端请求，或是在客户端要同时和多个服务器进行通讯，就必须使用多线程来处理。也就是说，将每一个客户端请求分配给一个线程来单独处理。这样做虽然可以达到我们的要求，但同时又会带来另外一个问题。由于每创建一个线程，就要为这个线程分配一定的内存空间（也叫工作存储器），而且操作系统本身也对线程的总数有一定的限制。如果客户端的请求过多，服务端程序可能会因为不堪重负而拒绝客户端的请求，甚至服务器可能会因此而瘫痪。</p>
+<p>NIO基于Reactor，当socket有流可读或可写入socket时，操作系统会相应的通知引用程序进行处理，应用再将流读取到缓冲区或写入操作系统。也就是说，这个时候，已经不是一个连接就要对应一个处理线程了，而是有效的请求，对应一个线程，当连接没有数据时，是没有工作线程来处理的。</p>
+<p>BIO与NIO一个比较重要的不同，是我们使用BIO的时候往往会引入多线程，每个连接一个单独的线程；而NIO则是使用单线程或者只使用少量的多线程，每个连接共用一个线程。</p>
+<p><img src="https://ilubov.cn/hexo/io/io3.png" alt="image"></p>
+<p>NIO的最重要的地方是当一个连接创建后，不需要对应一个线程，这个连接会被注册到多路复用器上面，所以所有的连接只需要一个线程就可以搞定，当这个线程中的多路复用器进行轮询的时候，发现连接上有请求的话，才开启一个线程进行处理，也就是一个请求一个线程模式。</p>
+<p>在NIO的处理方式中，当一个请求来的话，开启线程进行处理，可能会等待后端应用的资源(JDBC连接等)，其实这个线程就被阻塞了，当并发上来的话，还是会有BIO一样的问题。</p>
+<p>HTTP/1.1出现后，有了Http长连接，这样除了超时和指明特定关闭的http header外，这个链接是一直打开的状态的，这样在NIO处理中可以进一步的进化，在后端资源中可以实现资源池或者队列，当请求来的话，开启的线程把请求和请求数据传送给后端资源池或者队列里面就返回，并且在全局的地方保持住这个现场(哪个连接的哪个请求等)，这样前面的线程还是可以去接受其他的请求，而后端的应用的处理只需要执行队列里面的就可以了，这样请求处理和后端应用是异步的。当后端处理完，到全局地方得到现场，产生响应，这个就实现了异步处理。</p>
+<h5 id="AIO（Asynchronous-I-O）"><a href="#AIO（Asynchronous-I-O）" class="headerlink" title="AIO（Asynchronous I/O）"></a>AIO（Asynchronous I/O）</h5><p><strong>异步非阻塞I/O，一个有效请求一个线程。</strong><br>与NIO不同，当进行读写操作时，只须直接调用API的read或write方法即可。这两种方法均为异步的，对于读操作而言，当有流可读取时，操作系统会将可读的流传入read方法的缓冲区，并通知应用程序；对于写操作而言，当操作系统将write方法传递的流写入完毕时，操作系统主动通知应用程序。  即可以理解为，read/write方法都是异步的，完成后会主动调用回调函数。  在JDK1.7中，这部分内容被称作NIO.2，主要在java.nio.channels包下增加了下面四个异步通道：</p>
+<ul>
+<li>AsynchronousSocketChannel</li>
+<li>AsynchronousServerSocketChannel</li>
+<li>AsynchronousFileChannel</li>
+<li>AsynchronousDatagramChannel</li>
+</ul>
+<p>其中的read/write方法，会返回一个带回调函数的对象，当执行完读取/写入操作后，直接调用回调函数。</p>
+<h4 id="一般来说I-O模型可以分为：同步阻塞，同步非阻塞，异步阻塞，异步非阻塞IO"><a href="#一般来说I-O模型可以分为：同步阻塞，同步非阻塞，异步阻塞，异步非阻塞IO" class="headerlink" title="一般来说I/O模型可以分为：同步阻塞，同步非阻塞，异步阻塞，异步非阻塞IO"></a>一般来说I/O模型可以分为：同步阻塞，同步非阻塞，异步阻塞，异步非阻塞IO</h4><ul>
+<li><p>同步阻塞IO：在此种方式下，用户进程在发起一个IO操作以后，必须等待IO操作的完成，只有当真正完成了IO操作以后，用户进程才能运行。JAVA传统的IO模型属于此种方式！</p>
+</li>
+<li><p>同步非阻塞IO：在此种方式下，用户进程发起一个IO操作以后边可返回做其它事情，但是用户进程需要时不时的询问IO操作是否就绪，这就要求用户进程不停的去询问，从而引入不必要的CPU资源浪费。其中目前JAVA的NIO就属于同步非阻塞IO。</p>
+</li>
+<li><p>异步阻塞IO：此种方式下是指应用发起一个IO操作以后，不等待内核IO操作的完成，等内核完成IO操作以后会通知应用程序，这其实就是同步和异步最关键的区别，同步必须等待或者主动的去询问IO是否完成，那么为什么说是阻塞的呢？因为此时是通过select系统调用来完成的，而select函数本身的实现方式是阻塞的，而采用select函数有个好处就是它可以同时监听多个文件句柄，从而提高系统的并发性！</p>
+</li>
+<li><p>异步非阻塞IO:在此种模式下，用户进程只需要发起一个IO操作然后立即返回，等IO操作真正的完成以后，应用程序会得到IO操作完成的通知，此时用户进程只需要对数据进行处理就好了，不需要进行实际的IO读写操作，因为真正的IO读取或者写入操作已经由内核完成了。 </p>
 </li>
 </ul>
 
 </article>
-<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E5%BC%95%E8%A8%80"><span class="animated rollIn hannah-toc-text">引言</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#synchronized%E5%85%B3%E9%94%AE%E5%AD%97"><span class="animated rollIn hannah-toc-text">synchronized关键字</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#ReentrantLock%E9%94%81"><span class="animated rollIn hannah-toc-text">ReentrantLock锁</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E5%AF%B9%E6%AF%94"><span class="animated rollIn hannah-toc-text">对比</span></a></li></ol>
+<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#IO"><span class="animated rollIn hannah-toc-text">IO</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="animated rollIn hannah-toc-text">简介</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E6%8C%89%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%84%E5%9B%BE%EF%BC%9A"><span class="animated rollIn hannah-toc-text">按操作方式分类结构图：</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E6%8C%89%E6%93%8D%E4%BD%9C%E5%AF%B9%E8%B1%A1%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%84%E5%9B%BE%EF%BC%9A"><span class="animated rollIn hannah-toc-text">按操作对象分类结构图：</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#BIO%E4%B8%8ENIO%E3%80%81AIO%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="animated rollIn hannah-toc-text">BIO与NIO、AIO的区别</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#BIO%E4%B8%8ENIO%E3%80%81AIO%E7%9A%84%E5%8C%BA%E5%88%AB-1"><span class="animated rollIn hannah-toc-text">BIO与NIO、AIO的区别</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#BIO%EF%BC%88Blocking-I-O%EF%BC%89"><span class="animated rollIn hannah-toc-text">BIO（Blocking I&#x2F;O）</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#NIO%EF%BC%88New-I-O%EF%BC%89"><span class="animated rollIn hannah-toc-text">NIO（New I&#x2F;O）</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#AIO%EF%BC%88Asynchronous-I-O%EF%BC%89"><span class="animated rollIn hannah-toc-text">AIO（Asynchronous I&#x2F;O）</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E4%B8%80%E8%88%AC%E6%9D%A5%E8%AF%B4I-O%E6%A8%A1%E5%9E%8B%E5%8F%AF%E4%BB%A5%E5%88%86%E4%B8%BA%EF%BC%9A%E5%90%8C%E6%AD%A5%E9%98%BB%E5%A1%9E%EF%BC%8C%E5%90%8C%E6%AD%A5%E9%9D%9E%E9%98%BB%E5%A1%9E%EF%BC%8C%E5%BC%82%E6%AD%A5%E9%98%BB%E5%A1%9E%EF%BC%8C%E5%BC%82%E6%AD%A5%E9%9D%9E%E9%98%BB%E5%A1%9EIO"><span class="animated rollIn hannah-toc-text">一般来说I&#x2F;O模型可以分为：同步阻塞，同步非阻塞，异步阻塞，异步非阻塞IO</span></a></li></ol></li></ol>
 <div class="animated bounceInDown paginations">
     <div class="col-md-8 col-md-push-2 col-xs-12">
         <nav>
             
-            <a href="/2020/03/22/java-spring-cloud-component/" class="prev col-md-2 col-xs-4 text-left">&larr; Prev</a>
+            <a href="/2020/08/10/java-guava-eventbus/" class="prev col-md-2 col-xs-4 text-left">&larr; Prev</a>
             
             <span
                 class="page-content col-md-8  col-xs-4 text-center">
                 
             </span>
             
-            <a href="/2020/02/20/java-spring-transcational/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
+            <a href="/2020/05/11/database-redis-introduce/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
             
         </nav>
         <div>
             <div class="col-md-6 col-xs-6 text-left">
                 
-                spring cloud生态圈
+                EventBus、AsyncEventBus
                 
             </div>
             <div class="col-md-6 col-xs-6 text-right">
                 
-                Transactional
+                Redis
                 
             </div>
         </div>

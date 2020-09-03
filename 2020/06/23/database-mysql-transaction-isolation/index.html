@@ -10,7 +10,7 @@
 
 <title>
     
-    tag: spring cloud |
+    mysql-事务隔离级别 |
     
     ilubov</title>
 <!--end title-->
@@ -185,13 +185,14 @@
     <ul class="bread-crumb-menu animated rubberBand">
         <li><a href="/"><i class="fh fh-ravelry" aria-hidden="true"></i> Home</a></li>
         
-        <li><a href="/tags"><i class="fh fh-tags" aria-hidden="true"></i> Tags</a></li>
+        <li><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="fh fh-cube" aria-hidden="true"></i> 数据库</a>
+        </li>
         
         <li>
             
-            <i class="fh fh-tag" aria-hidden="true"></i>
+            <i class="fh fh-newspaper-o" aria-hidden="true"></i>
             
-            spring cloud
+            mysql-事务隔离级别
         </li>
         
     </ul>
@@ -208,66 +209,251 @@
 </div>
             <!--end breadcrumb-->
             <!--begin body-->
-            <div id="tag">
-    <h2><i class="fh fh-tags" aria-hidden="true"></i>&nbsp;spring cloud</h2>
-    
-    <div class="row recent-posts">
-    
-    <h2>
+            <article class="post animated rollIn">
+    <h1 class="post-title">mysql-事务隔离级别</h1>
+    <div class="post-subtitle">
         
-        <a href="/archives/2020" title="2020">2020</a>
-    </h2>
-    
-    <div class="recent-post-item animated fadeInLeftBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/03/22/java-spring-cloud-component/">
-                spring cloud生态圈
-            </a>
-        </h3>
-        
-        <time datetime="2020-03-22T10:33:12.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-03-22
+        <time datetime="2020-06-23T02:20:33.000Z" class="item">
+            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-06-23
         </time>
         
         
         <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
+      <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-primary tags" href="/categories/java/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
-                    </a>
+            <a class="label label-primary tags" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;数据库
+        </a>
             
         </span>
         
-    </div>
-    
-    <div class="item-footer">
         
         <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
+        <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-info tags" href="/tags/java/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
-                    </a>
+            <a class="label label-info tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;数据库
+            </a>
             
-            <a class="label label-info tags" href="/tags/spring-cloud/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;spring cloud
-                    </a>
+            <a class="label label-info tags" href="/tags/mysql/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;mysql
+            </a>
             
         </span>
         
-        <a class="look" href="/2020/03/22/java-spring-cloud-component/">Look >></a>
+    </div>
+    
+    <h3 id="事务ACID特性"><a href="#事务ACID特性" class="headerlink" title="事务ACID特性"></a>事务ACID特性</h3><h4 id="原子性-Atomicity"><a href="#原子性-Atomicity" class="headerlink" title="* 原子性(Atomicity)"></a>* 原子性(Atomicity)</h4><p>一个事物内的所有操作视为一个不可分割的操作，事务内所有操要么全执行成功要么全失败<br>例如：一个事务内A给B转账，先从A账户中扣钱，然后向B账户中加对应的钱数，这两次数据库操作要么全成功要么全失败，不能某个操作成功了，其他的失败了</p>
+<h4 id="一致性-Consistency"><a href="#一致性-Consistency" class="headerlink" title="* 一致性(Consistency)"></a>* 一致性(Consistency)</h4><p>一个事务可以封装状态改变（除非它是一个只读的）。事务必须始终保持系统处于一致的状态，不管在任何给定的时间并发事务有多少(摘自百度)<br>例如：一共有2个账户，这些账户的总余额为100，无论如何进行并发操作最终这2个账户的余额的和必须为100</p>
+<h4 id="隔离性-Isolation"><a href="#隔离性-Isolation" class="headerlink" title="* 隔离性(Isolation)"></a>* 隔离性(Isolation)</h4><p>隔离状态执行事务，使它们好像是系统在给定时间内执行的唯一操作</p>
+<ul>
+<li><p>MVCC(Mutil-Version Concurrency Control) 多版本并发控制</p>
+<p>  如果没有MVCC，当想要读取的数据被其他事务用排它锁锁住时，只能互斥等待；而这时MVCC可以通过提供历史版本从而实现读取被锁的数据的历史版本，从而避免了互斥等待。</p>
+</li>
+<li><p>锁</p>
+<ul>
+<li><p>Shared Locks(共享锁/S锁)</p>
+<p>  若事务T对数据对象A加上S锁，则事务T只能读A；其他事务只能再对A加S锁，而不能加X锁，直到T释放A上的S锁。这就保证了其他事务可以读A，但在T释放A上的S锁之前不能对A做任何修改。</p>
+</li>
+<li><p>Exclusive Locks(排它锁/X锁)</p>
+<p>  若事务T对数据对象A加上X锁，则只允许T读取和修改A，其它任何事务都不能再对A加任何类型的锁，直到T释放A上的锁。它防止任何其它事务获取资源上的锁，直到在事务的末尾将资源上的原始锁释放为止。在更新操作(INSERT、UPDATE 或 DELETE)过程中始终应用排它锁。</p>
+<p>  <strong>注意</strong>：排他锁会阻止其它事务再对其锁定的数据加读或写的锁，但是不加锁的就没办法控制了。</p>
+</li>
+<li><p>Record Locks(行锁)</p>
+<p>  是加在索引行(对！是索引行！不是数据行！)上的锁。比如select * from user where id=1 and id=10 for update，就会在id=1和id=10的索引行上加Record Lock。</p>
+</li>
+<li><p>Gap Locks(间隙锁)</p>
+<p>  间隙锁，它会锁住两个索引之间的区域。比如select * from user where id&gt;1 and id&lt;10 for update，就会在id为(1,10)的索引区间上加Gap Lock。</p>
+</li>
+<li><p>Next-Key Locks(间隙锁)</p>
+<p>  也叫间隙锁，它是Record Lock + Gap Lock形成的一个闭区间锁。比如select * from user where id&gt;=1 and id&lt;=10 for update，就会在id为[1,10]的索引闭区间上加Next-Key Lock。</p>
+<p>组合起来就有，行级共享锁，表级共享锁，行级排它锁，表级排它锁。</p>
+</li>
+</ul>
+</li>
+<li><p>加锁</p>
+<ul>
+<li>insert、delete和update都是会加排它锁(Exclusive Locks)</li>
+<li>select只有显式声明才会加锁<ul>
+<li>select: 即最常用的查询，是不加任何锁的</li>
+<li>select … lock in share mode: 会加共享锁(Shared Locks)</li>
+<li>select … for update: 会加排它锁</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="持久性-Durability"><a href="#持久性-Durability" class="headerlink" title="* 持久性(Durability)"></a>* 持久性(Durability)</h4><p>在事务完成以后，该事务对数据库所作的更改便持久的保存在数据库之中，并不会被回滚</p>
+<h3 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h3><p><strong>完全隔离</strong>是不现实的，因为完全隔离会使事务串行化，严重影响并发性能，所以引入隔离级别来控制并发访问</p>
+<p>MySQl支持4中隔离级别</p>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>读未提交(read uncommitted)</td>
+<td>一个事务可以读其他事务未提交的数据</td>
+</tr>
+<tr>
+<td>读已提交(read committed)</td>
+<td>一个事务只能读其他事务已提交的数据</td>
+</tr>
+<tr>
+<td>可重复读(repeatable read)</td>
+<td>一个事务内多次读同一数据必须一致(MySQL默认隔离级别)</td>
+</tr>
+<tr>
+<td>串行化(serializable)</td>
+<td>事务串行化，同一个表同时只能有一个事务进行操作</td>
+</tr>
+</tbody></table>
+<h3 id="并发引发问题"><a href="#并发引发问题" class="headerlink" title="并发引发问题"></a>并发引发问题</h3><ul>
+<li><p>脏读</p>
+<p>  A事务读取了B事务未提交的数据并在此基础上进行操作，结果B事务回滚了，那么A所进行的操作就是有问题的</p>
+</li>
+<li><p>不可重复读</p>
+<p>  不可重复读指同一事务中两次读取的数据不一致，A事务读取了一条数据，B事务修改了数据并且提交了，A事务又读了此条数据结果与上一读取的数据不一致</p>
+</li>
+<li><p>幻读</p>
+<p>  事务A统计了数据量，事务B添加了N条记录，事务B又查了一次，结果两次结果数量不一致</p>
+</li>
+</ul>
+<h3 id="隔离级别对应问题"><a href="#隔离级别对应问题" class="headerlink" title="隔离级别对应问题"></a>隔离级别对应问题</h3><ul>
+<li>隔离级别越往下并发效率越低，可重复读行级锁，串行化表级锁</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>级别\问题</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+<th>实现方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>读未提交(read uncommitted)</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>读没有控制，写加排他锁</td>
+</tr>
+<tr>
+<td>读已提交(read committed)</td>
+<td>√</td>
+<td>x</td>
+<td>x</td>
+<td>快照读：读MVCC，写加排他锁 当前读：读加行锁，写加排它锁</td>
+</tr>
+<tr>
+<td>可重复读(repeatable read)</td>
+<td>√</td>
+<td>√</td>
+<td>x</td>
+<td>读MVCC，写加排他锁 当前读：读加间隙锁，写加排它锁</td>
+</tr>
+<tr>
+<td>串行化(serializable)</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>读加共享锁，写加排他锁</td>
+</tr>
+</tbody></table>
+<ul>
+<li>在读未提交、读已提交、可重复读的隔离级别中：<ul>
+<li>两个读的事务，可并发；</li>
+<li>一读、一写的事务，可并发；（因为只有写加锁）</li>
+<li>两个写的事务，不可以并发。（以内都加了排他锁）</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>只有<strong>InnoDB</strong>引擎支持事务并且支持行级锁，<strong>MyISAM</strong>引擎并不支持事务且仅支持表级锁<br><strong>InnoDB</strong>适合频繁update业务场景(交易系统)，<strong>MyISAM</strong>适用于大量select、insert业务场景(日志类系统)<br>处理数据库并发问题并非只能依靠数据来处理，可以结合代码进行合理的加锁，例如依靠外部<strong>redis/zookeeper</strong>做分布式锁</p>
+
+</article>
+<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E4%BA%8B%E5%8A%A1ACID%E7%89%B9%E6%80%A7"><span class="animated rollIn hannah-toc-text">事务ACID特性</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E5%8E%9F%E5%AD%90%E6%80%A7-Atomicity"><span class="animated rollIn hannah-toc-text">* 原子性(Atomicity)</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7-Consistency"><span class="animated rollIn hannah-toc-text">* 一致性(Consistency)</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E9%9A%94%E7%A6%BB%E6%80%A7-Isolation"><span class="animated rollIn hannah-toc-text">* 隔离性(Isolation)</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E6%8C%81%E4%B9%85%E6%80%A7-Durability"><span class="animated rollIn hannah-toc-text">* 持久性(Durability)</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="animated rollIn hannah-toc-text">事务隔离级别</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E5%B9%B6%E5%8F%91%E5%BC%95%E5%8F%91%E9%97%AE%E9%A2%98"><span class="animated rollIn hannah-toc-text">并发引发问题</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%AF%B9%E5%BA%94%E9%97%AE%E9%A2%98"><span class="animated rollIn hannah-toc-text">隔离级别对应问题</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="animated rollIn hannah-toc-text">总结</span></a></li></ol>
+<div class="animated bounceInDown paginations">
+    <div class="col-md-8 col-md-push-2 col-xs-12">
+        <nav>
+            
+            <a href="/2020/08/10/java-guava-eventbus/" class="prev col-md-2 col-xs-4 text-left">&larr; Prev</a>
+            
+            <span
+                class="page-content col-md-8  col-xs-4 text-center">
+                
+            </span>
+            
+            <a href="/2020/06/13/java-io/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
+            
+        </nav>
+        <div>
+            <div class="col-md-6 col-xs-6 text-left">
+                
+                EventBus、AsyncEventBus
+                
+            </div>
+            <div class="col-md-6 col-xs-6 text-right">
+                
+                IO
+                
+            </div>
+        </div>
     </div>
 </div>
-    
-</div>
 
-    
-</div>
             <!--end body-->
             <!--begin comments-->
             
+<div class="comments">
+    
+
+    
+    
+<div id="gitalk-container">
+</div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script>
+    var loadJs = function (d, a) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document
+            .documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("src", d);
+        if (typeof a === "function") {
+            if (window.attachEvent) {
+                b.onreadystatechange = function () {
+                    var e = b.readyState;
+                    if (e === "loaded" || e === "complete") {
+                        b.onreadystatechange = null;
+                        a()
+                    }
+                }
+            } else {
+                b.onload = a
+            }
+        }
+        c.appendChild(b)
+    };
+    loadJs("https://unpkg.com/gitalk/dist/gitalk.min.js", function () {
+        var gitalk = new Gitalk({
+            clientID: 'e82b50d554e32a851ae7',
+            clientSecret: '95923aeaddb44e6de22d088703c6bbde978f505c',
+            repo: 'ilubov.github.io',
+            owner: 'ilubov',
+            admin: ['ilubov'],
+            id: decodeURIComponent(location.pathname),
+            distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')
+    });
+</script>
+
+</div>
+
 
             <!--end comments-->
         </div>

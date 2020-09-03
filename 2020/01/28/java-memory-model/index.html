@@ -10,7 +10,7 @@
 
 <title>
     
-    java集合-List类 |
+    java-内存模型 |
     
     ilubov</title>
 <!--end title-->
@@ -192,7 +192,7 @@
             
             <i class="fh fh-newspaper-o" aria-hidden="true"></i>
             
-            java集合-List类
+            java-内存模型
         </li>
         
     </ul>
@@ -202,7 +202,7 @@
     <input placeholder="Search ..." onkeyup="searchFunc(this,event,'/search.xml')"
            class="input-search animated fadeInRight"/>
     <div class="search-result animated fadeInRight">
-        <a class="animated tada col-lg-12 search-result-item result-link" href="/2020/08/27/java-jvm/">java虚拟机</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/08/10/java-guava-eventbus/">EventBus、AsyncEventBus</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/06/13/java-io/">IO</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/05/11/database-redis-introduce/">Redis</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/04/30/database-sharding/">sharding jdbc</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/04/30/database-mysql-transaction-isolation/">mysql-事务隔离级别</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/04/01/database-mysql-indexes/">mysql索引失效</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/03/28/java-pay-icbc/">工行支付</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/03/25/java-pay-alipay/">支付宝支付</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/03/22/java-spring-cloud-component/">spring cloud生态圈</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/02/26/java-concurrent-synchronized-cas-lock/">java并发-synchronized关键字&CAS锁</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/02/20/java-spring-transcational/">Transactional</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/01/23/java-memory-model/">java-内存模型</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/01/10/java-array-list/">java集合-List类</a>
+        <a class="animated tada col-lg-12 search-result-item result-link" href="/2020/08/27/java-jvm/">java虚拟机</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/08/10/java-guava-eventbus/">EventBus、AsyncEventBus</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/06/13/java-io/">IO</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/05/11/database-redis-introduce/">Redis</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/04/30/database-sharding/">sharding jdbc</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/04/30/database-mysql-transaction-isolation/">mysql-事务隔离级别</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/04/01/database-mysql-indexes/">mysql索引失效</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/03/28/java-pay-icbc/">工行支付</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/03/25/java-pay-alipay/">支付宝支付</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/03/22/java-spring-cloud-component/">spring cloud生态圈</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/02/26/java-concurrent-synchronized-cas-lock/">java并发-synchronized关键字&CAS锁</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/02/20/java-spring-transcational/">Transactional</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/01/28/java-memory-model/">java-内存模型</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/01/27/java-array-list/">java集合-List类</a>
     </div>
 </div>
     </div>
@@ -210,11 +210,11 @@
             <!--end breadcrumb-->
             <!--begin body-->
             <article class="post animated rollIn">
-    <h1 class="post-title">java集合-List类</h1>
+    <h1 class="post-title">java-内存模型</h1>
     <div class="post-subtitle">
         
-        <time datetime="2020-01-10T14:47:17.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-01-10
+        <time datetime="2020-01-28T02:20:33.000Z" class="item">
+            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-01-28
         </time>
         
         
@@ -235,93 +235,46 @@
             <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
             </a>
             
-            <a class="label label-info tags" href="/tags/%E9%9B%86%E5%90%88/">
-            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;集合
-            </a>
-            
         </span>
         
     </div>
     
-    <h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p>ArrayList内部使用数组实现<br>内部关键变量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认初始容量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;</span><br><span class="line"><span class="comment">// 空列表常量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"><span class="comment">// 默认空列表常量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"><span class="comment">// 存放数据数组</span></span><br><span class="line"><span class="keyword">transient</span> Object[] elementData;</span><br><span class="line"><span class="comment">// 列表大小(列表大小并不总是等于elementData.length，因为elementData会有冗余)</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> size;</span><br></pre></td></tr></table></figure>
-<p>构造方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * 创建一个初始容量为0空列表</span></span><br><span class="line"><span class="comment"> * 使用DEFAULTCAPACITY_EMPTY_ELEMENTDATA填充elementData</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * 如果initialCapacity大于0，创建一个初始容量为initialCapacity的列表</span></span><br><span class="line"><span class="comment"> * 为elementData创建一个大小为initialCapacity的数组</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 如果initialCapacity等于0，创建一个初始容量为0的数组</span></span><br><span class="line"><span class="comment"> * 使用EMPTY_ELEMENTDATA填充elementData</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 如果initialCapacity小于0，抛出IllegalArgumentException</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span></span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 传入一个集合如果c长度不为0，将c的数组复制到elementData</span></span><br><span class="line"><span class="comment"> * c的长度赋值到size</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</span><br></pre></td></tr></table></figure>
-<h4 id="扩容机制"><a href="#扩容机制" class="headerlink" title="扩容机制"></a>扩容机制</h4><p>如果使用无参构造创建List，在第一次扩容时如果如果期望容量小于10则会将容量设置为10<br>后续扩容<code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)</code>也就是说每次扩容后大小是原数组大小的1.5倍</p>
-<h4 id="RandomAccess"><a href="#RandomAccess" class="headerlink" title="RandomAccess"></a>RandomAccess</h4><p>ArrayList实现了<em>RandomAccess</em>接口，实际上<em>RandomAccess</em>内部并无需要实现的方法<br>此接口只是为了标识该列表支持随机访问，也就是支持按下标访问<br>主要用于<code>Collections.binarySearch</code>等方法区分查找方式</p>
-<h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><p>LinkedList内部使用双向链表实现</p>
-<p>内部关键变量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 列表大小</span></span><br><span class="line"><span class="keyword">transient</span> <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 第一个节点指针</span></span><br><span class="line"><span class="keyword">transient</span> Node&lt;E&gt; first;</span><br><span class="line"><span class="comment">// 最后一个节点指针</span></span><br><span class="line"><span class="keyword">transient</span> Node&lt;E&gt; last;</span><br><span class="line"><span class="comment">// 内部Node</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">// 实际对象</span></span><br><span class="line">    E item;</span><br><span class="line">    <span class="comment">// 指向上一个对象</span></span><br><span class="line">    Node&lt;E&gt; next;</span><br><span class="line">    <span class="comment">// 指向下一个对象</span></span><br><span class="line">    Node&lt;E&gt; prev;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="运行原理"><a href="#运行原理" class="headerlink" title="运行原理"></a>运行原理</h4><p>向头部添加对象会创建一个next指向first的新节点，将first指向新节点<br>向指定位置添加对象创建一个prev指向该位置元素的prev，last指向该对象的新节点，原对象prev指向新节点<br>向尾部添加对象会创建一个prev指向last的新节点，将last指向新节点</p>
-<h4 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h4><p>LinkedList实现了<em>Deque</em>接口，说明LinkedList实现了可以当做一个双向队列使用，LinkedList使用的数据结构完美的支持双向队列</p>
-<h3 id="时间复杂度对比"><a href="#时间复杂度对比" class="headerlink" title="时间复杂度对比"></a>时间复杂度对比</h3><table>
-<thead>
-<tr>
-<th>操作\类型</th>
-<th align="center">ArrayList</th>
-<th align="center">LinkedList</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>获取指定位置对象</td>
-<td align="center">$O(1)$</td>
-<td align="center">$O(n)$</td>
-</tr>
-<tr>
-<td>向头部添加对象</td>
-<td align="center">$O(n)$</td>
-<td align="center">$O(1)$</td>
-</tr>
-<tr>
-<td>向指定位置添加对象</td>
-<td align="center">$O(n)$</td>
-<td align="center">$O(n)$</td>
-</tr>
-<tr>
-<td>向尾部添加对象</td>
-<td align="center">$O(1)$</td>
-<td align="center">$O(1)$</td>
-</tr>
-<tr>
-<td>删除头部对象</td>
-<td align="center">$O(n)$</td>
-<td align="center">$O(1)$</td>
-</tr>
-<tr>
-<td>删除指定位置对象</td>
-<td align="center">$O(n)$</td>
-<td align="center">$O(n)$</td>
-</tr>
-<tr>
-<td>删除尾部对象</td>
-<td align="center">$O(1)$</td>
-<td align="center">$O(1)$</td>
-</tr>
-</tbody></table>
-<h3 id="Vector与ArrayList区别"><a href="#Vector与ArrayList区别" class="headerlink" title="Vector与ArrayList区别"></a>Vector与ArrayList区别</h3><p><em>Vector</em>与<em>ArrayList</em>实现原理基本类似<br>主要区别在于，<em>Vector</em>每个方法都是加了<em>synchronized</em>同步的，是线程安全的<br>而<em>ArrayList</em>是非线程安全的</p>
+    <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>计算机程序每条指令都由CPU执行，执行过程中会对数据进行操作，程序运行时的临时数据都储存在内存中。<br>但是CPU执行指令的速度远远大于内存读取/写入速度，如果每次操作都需要对内存进行一次操作会大幅度降低CPU运行速度，所以CPU引入高速缓存(L1/L2/L3)来提高读写速度，如果需要对某条数据进行操作，CPU会从内存中复制数据到高速缓存中，然后对其进行一系列操作操作，结束后刷新到内存里。<br>引入高速缓存很好的解决了CPU执行的效率问题，但引发了一致性问题，即在多核心状态下，每个核心都有自己的高速缓存，无法保证同一数据不同核心下的高速缓存是一致的。<br>CPU通过缓存一致性协议来解决了这个问题，例如Intel MESI协议，这里不做过多说明。<br>Java虚拟机中定义了一种类似的Java内存模型，来屏蔽各硬件平台和操作系统之间的差异以及提高程序运行效率。</p>
+<h3 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h3><p><img src="https://www.ilubov.cn/hexo/jmm/jmm.jpg" alt="image"></p>
+<ul>
+<li>堆内存 共享区域 java虚拟机管理的最大内存区域，几乎所有的对象都会在此区域分配。 在需要时自行扩展，可以通过-Xmx|-Xms来控制大小，当此区域内存回收后无法为新对象分配空间且无法扩展，则会抛出OutOfMemoryError异常</li>
+<li>方法区 共享区域 用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</li>
+<li>栈内存 线程私有 用于存储局部变量表、操作栈、动态链接、方法出口等信息。 该区域内存用尽会抛出StackOverFlow异常，常见于递归操作，可以通过-Xss参数来调解栈内存大小</li>
+<li>本地方法区 线程私有 为Native方法服务，规范中并未明确定义数据结构和使用方式</li>
+<li>程序计数器 线程私有 用于记录当前执行的字节码的行号，java虚拟机利用计数器来实现循环、跳转以及线程切换恢复执行。</li>
+</ul>
+<h3 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h3><p><img src="https://www.ilubov.cn/hexo/jmm/jmm_1.png" alt="image"><br> 所有对象都储存在主内存中，不包括局部变量和方法参数，局部变量与方法参数是线程私有的。<br> 每个线程还有自己的工作内存，类似于CPU的高速缓存。当每个线程工作时会从主内存中拷贝一份数据到工作内存，在工作内存进行操作，操作完成后才会刷新到主内存中。</p>
 
 </article>
-<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#ArrayList"><span class="animated rollIn hannah-toc-text">ArrayList</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="animated rollIn hannah-toc-text">扩容机制</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#RandomAccess"><span class="animated rollIn hannah-toc-text">RandomAccess</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#LinkedList"><span class="animated rollIn hannah-toc-text">LinkedList</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="animated rollIn hannah-toc-text">运行原理</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#Deque"><span class="animated rollIn hannah-toc-text">Deque</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%AF%B9%E6%AF%94"><span class="animated rollIn hannah-toc-text">时间复杂度对比</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#Vector%E4%B8%8EArrayList%E5%8C%BA%E5%88%AB"><span class="animated rollIn hannah-toc-text">Vector与ArrayList区别</span></a></li></ol>
+<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E5%BC%95%E8%A8%80"><span class="animated rollIn hannah-toc-text">引言</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="animated rollIn hannah-toc-text">内存模型</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="animated rollIn hannah-toc-text">运行机制</span></a></li></ol>
 <div class="animated bounceInDown paginations">
     <div class="col-md-8 col-md-push-2 col-xs-12">
         <nav>
             
-            <a href="/2020/01/23/java-memory-model/" class="prev col-md-2 col-xs-4 text-left">&larr; Prev</a>
+            <a href="/2020/02/20/java-spring-transcational/" class="prev col-md-2 col-xs-4 text-left">&larr; Prev</a>
             
             <span
                 class="page-content col-md-8  col-xs-4 text-center">
                 
             </span>
             
+            <a href="/2020/01/27/java-array-list/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
+            
         </nav>
         <div>
             <div class="col-md-6 col-xs-6 text-left">
                 
-                java-内存模型
+                Transactional
                 
             </div>
             <div class="col-md-6 col-xs-6 text-right">
+                
+                java集合-List类
                 
             </div>
         </div>

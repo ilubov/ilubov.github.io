@@ -252,8 +252,9 @@
 <li>**volatile-lru:**只限于设置了 expire 的部分; 优先删除最近最少使用(less recently used ,LRU) 的 key。</li>
 <li>**allkeys-random:**所有key通用; 随机删除一部分 key。</li>
 <li>volatile-random: 只限于设置了 expire 的部分; 随机删除一部分 key。</li>
-<li>volatile-ttl: 只限于设置了 expire 的部分; 优先删除剩余时间(time to live,TTL) 短的key。<h4 id="6-Redis的并发竞争问题如何解决"><a href="#6-Redis的并发竞争问题如何解决" class="headerlink" title="6.Redis的并发竞争问题如何解决?"></a>6.Redis的并发竞争问题如何解决?</h4>单进程单线程模式，采用队列模式将并发访问变为串行访问。Redis本身没有锁的概念，Redis对于多个客户端连接并不存在竞争，利用setnx实现锁。</li>
+<li>volatile-ttl: 只限于设置了 expire 的部分; 优先删除剩余时间(time to live,TTL) 短的key。</li>
 </ul>
+<h4 id="6-Redis的并发竞争问题如何解决"><a href="#6-Redis的并发竞争问题如何解决" class="headerlink" title="6.Redis的并发竞争问题如何解决?"></a>6.Redis的并发竞争问题如何解决?</h4><p>单进程单线程模式，采用队列模式将并发访问变为串行访问。Redis本身没有锁的概念，Redis对于多个客户端连接并不存在竞争，利用setnx实现锁。</p>
 <h4 id="7-Redis是使用c语言开发的。"><a href="#7-Redis是使用c语言开发的。" class="headerlink" title="7.Redis是使用c语言开发的。"></a>7.Redis是使用c语言开发的。</h4><h4 id="8-Redis前端启动命令"><a href="#8-Redis前端启动命令" class="headerlink" title="8.Redis前端启动命令"></a>8.Redis前端启动命令</h4><p>./redis-server</p>
 <h4 id="9-Reids支持的语言："><a href="#9-Reids支持的语言：" class="headerlink" title="9.Reids支持的语言："></a>9.Reids支持的语言：</h4><p>java、C、C#、C++、php、Node.js、Go等。</p>
 <h4 id="10-Redis-持久化方案："><a href="#10-Redis-持久化方案：" class="headerlink" title="10.Redis 持久化方案："></a>10.Redis 持久化方案：</h4><p>Rdb 和 Aof</p>

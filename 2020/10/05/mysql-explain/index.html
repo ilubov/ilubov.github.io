@@ -245,7 +245,7 @@
     
     <h4 id="mysql-explain"><a href="#mysql-explain" class="headerlink" title="mysql explain"></a>mysql explain</h4><p>MySQL中的<strong>explain</strong>命令显示了mysql如何使用索引来处理select语句以及连接表。<strong>explain</strong>显示的信息可以帮助选择更好的索引和写出更优化的查询语句。</p>
 <h4 id="一、格式"><a href="#一、格式" class="headerlink" title="一、格式"></a>一、格式</h4><p><strong>explain + select</strong> 语句；</p>
-<p>例如：*<em>explain select * from tb_student;*</em></p>
+<p>例如：explain select * from tb_student;</p>
 <h4 id="二、5-5和5-7版本explain的区别"><a href="#二、5-5和5-7版本explain的区别" class="headerlink" title="二、5.5和5.7版本explain的区别"></a>二、5.5和5.7版本explain的区别</h4><p>5.7之后的版本默认会有 partitions 和 filtered两列，但是5.5版本中是没有的，需要</p>
 <p>使用explain partitions select ……来显示带有partitions 的列，</p>
 <p>使用explain extended select ……来显示带有filtered的列。</p>
@@ -269,7 +269,7 @@
 <li><strong>select _type</strong>：查询类型</li>
 <li><strong>table</strong>：输出行所引用的表</li>
 <li><strong>partitions</strong>：使用的哪个分区，需要结合表分区才可以看到</li>
-<li><strong>type</strong>：表示按某种类型来查询，例如按照索引类型查找，按照范围查找。从最好到最差的连接类型为const、eq_reg、ref、range、indexhe和all</li>
+<li><strong>type</strong>：表示按某种类型来查询，例如按照索引类型查找，按照范围查找。从最好到最差的连接类型为const、eq_reg、ref、range、index和all</li>
 <li><strong>possible_keys</strong>：可能用到的索引，保存的是索引名称，如果是多个索引的话，用逗号隔开</li>
 <li><strong>key</strong>：实际用到的索引，保存的是索引名称，如果是多个索引的话，用逗号隔开</li>
 <li><strong>key_len</strong>：表示本次查询中，所选择的索引长度有多少字节</li>

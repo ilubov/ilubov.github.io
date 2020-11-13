@@ -10,7 +10,7 @@
 
 <title>
     
-    tag: 并发 |
+    Linux 创建自定义命令 |
     
     ilubov</title>
 <!--end title-->
@@ -185,13 +185,14 @@
     <ul class="bread-crumb-menu animated rubberBand">
         <li><a href="/"><i class="fh fh-ravelry" aria-hidden="true"></i> Home</a></li>
         
-        <li><a href="/tags"><i class="fh fh-tags" aria-hidden="true"></i> Tags</a></li>
+        <li><a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fh fh-cube" aria-hidden="true"></i> 服务器</a>
+        </li>
         
         <li>
             
-            <i class="fh fh-tag" aria-hidden="true"></i>
+            <i class="fh fh-newspaper-o" aria-hidden="true"></i>
             
-            并发
+            Linux 创建自定义命令
         </li>
         
     </ul>
@@ -208,66 +209,136 @@
 </div>
             <!--end breadcrumb-->
             <!--begin body-->
-            <div id="tag">
-    <h2><i class="fh fh-tags" aria-hidden="true"></i>&nbsp;并发</h2>
-    
-    <div class="row recent-posts">
-    
-    <h2>
+            <article class="post animated rollIn">
+    <h1 class="post-title">Linux 创建自定义命令</h1>
+    <div class="post-subtitle">
         
-        <a href="/archives/2020" title="2020">2020</a>
-    </h2>
-    
-    <div class="recent-post-item animated fadeInLeftBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/02/26/java-concurrent-synchronized-cas-lock/">
-                java并发-synchronized关键字&amp;CAS锁
-            </a>
-        </h3>
-        
-        <time datetime="2020-02-26T11:08:29.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-02-26
+        <time datetime="2020-11-01T02:22:17.000Z" class="item">
+            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-11-01
         </time>
         
         
         <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
+      <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-primary tags" href="/categories/java/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
-                    </a>
+            <a class="label label-primary tags" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;服务器
+        </a>
             
         </span>
         
-    </div>
-    
-    <div class="item-footer">
         
         <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
+        <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-info tags" href="/tags/java/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
-                    </a>
+            <a class="label label-info tags" href="/tags/%E6%95%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8D%AE%E5%BA%93/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;数服务器据库
+            </a>
             
-            <a class="label label-info tags" href="/tags/%E5%B9%B6%E5%8F%91/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;并发
-                    </a>
+            <a class="label label-info tags" href="/tags/linux/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;linux
+            </a>
             
         </span>
         
-        <a class="look" href="/2020/02/26/java-concurrent-synchronized-cas-lock/">Look >></a>
+    </div>
+    
+    <p>###Linux 创建自定义命令</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias[别名]=[指令名称]</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
+<li><p>临时生效</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 直接在终端使用命令</span></span><br><span class="line">alias ls=&#x27;top&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 取消自定命令</span></span><br><span class="line">unalias ls</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当前用户永久生效</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 文件内容尾行添加 </span></span><br><span class="line">alias show=&quot;netstat -npl | grep $1&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 立即生效</span></span><br><span class="line">source /etc/bashrc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>所用用户永久生效</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 文件内容尾行添加 </span></span><br><span class="line">alias show=&quot;netstat -npl | grep $1&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 立即生效</span></span><br><span class="line">source /etc/bashrc</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+</article>
+<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="animated rollIn hannah-toc-text">语法</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="animated rollIn hannah-toc-text">使用</span></a></li></ol>
+<div class="animated bounceInDown paginations">
+    <div class="col-md-8 col-md-push-2 col-xs-12">
+        <nav>
+            
+            <a href="/2020/11/12/java-xxl-job/" class="prev col-md-2 col-xs-4 text-left">&larr; Prev</a>
+            
+            <span
+                class="page-content col-md-8  col-xs-4 text-center">
+                
+            </span>
+            
+            <a href="/2020/10/05/mysql-explain/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
+            
+        </nav>
+        <div>
+            <div class="col-md-6 col-xs-6 text-left">
+                
+                xxl job
+                
+            </div>
+            <div class="col-md-6 col-xs-6 text-right">
+                
+                mysql explain
+                
+            </div>
+        </div>
     </div>
 </div>
-    
-</div>
 
-    
-</div>
             <!--end body-->
             <!--begin comments-->
             
+<div class="comments">
+    
+
+    
+    
+<div id="gitalk-container">
+</div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script>
+    var loadJs = function (d, a) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document
+            .documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("src", d);
+        if (typeof a === "function") {
+            if (window.attachEvent) {
+                b.onreadystatechange = function () {
+                    var e = b.readyState;
+                    if (e === "loaded" || e === "complete") {
+                        b.onreadystatechange = null;
+                        a()
+                    }
+                }
+            } else {
+                b.onload = a
+            }
+        }
+        c.appendChild(b)
+    };
+    loadJs("https://unpkg.com/gitalk/dist/gitalk.min.js", function () {
+        var gitalk = new Gitalk({
+            clientID: 'e82b50d554e32a851ae7',
+            clientSecret: '95923aeaddb44e6de22d088703c6bbde978f505c',
+            repo: 'ilubov.github.io',
+            owner: 'ilubov',
+            admin: ['ilubov'],
+            id: decodeURIComponent(location.pathname),
+            distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')
+    });
+</script>
+
+</div>
+
 
             <!--end comments-->
         </div>

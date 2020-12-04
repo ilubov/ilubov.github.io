@@ -243,9 +243,9 @@
         
     </div>
     
-    <h3 id="java虚拟机"><a href="#java虚拟机" class="headerlink" title="java虚拟机"></a>java虚拟机</h3><p><img src="https://ilubov.cn/hexo/jvm/p1.png" alt="image"></p>
+    <h3 id="java虚拟机"><a href="#java虚拟机" class="headerlink" title="java虚拟机"></a>java虚拟机</h3><p><img src="/images/jvm/p1.png" alt="image"></p>
 <h4 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h4><p>Java程序在运行时，会为JVM单独划出一块内存区域，而这块内存区域又可以再次划分出一块运行时数据区，运行时数据区域大致可以分为五个部分：</p>
-<p><img src="https://ilubov.cn/hexo/jvm/p2.png" alt="image"></p>
+<p><img src="/images/jvm/p2.png" alt="image"></p>
 <p>从上面的图中，有两种颜色不同的区域，红色的是线程共享区域，绿色的是线程私有区域。</p>
 <h5 id="堆（Heap）"><a href="#堆（Heap）" class="headerlink" title="堆（Heap）"></a>堆（Heap）</h5><ul>
 <li>存储的是我们new来的对象，不存放基本类型和对象引用。</li>
@@ -256,7 +256,7 @@
 <p>虚拟机在扩展栈时无法申请到足够的内存空间，<strong>将抛出OutOfMemoryError异常</strong>；</p>
 <p>线程请求的栈深度超过虚拟机所允许的最大深度，<strong>将抛出StackOverflowError异常</strong>。</p>
 <p>Java堆区还可以划分为新生代和老年代，新生代又可以进一步划分为Eden区、Survivor 1区、Survivor 2区。具体比例参数的话，可以看一下下面这张图。</p>
-<p><img src="https://ilubov.cn/hexo/jvm/p3.png" alt="image"></p>
+<p><img src="/images/jvm/p3.png" alt="image"></p>
 <h5 id="虚拟机栈-VM-Stack"><a href="#虚拟机栈-VM-Stack" class="headerlink" title="虚拟机栈(VM Stack)"></a>虚拟机栈(VM Stack)</h5><ul>
 <li>线程私有区域，每一个线程都有独享一个虚拟机栈，因此这是线程安全的区域。</li>
 <li>存放基本数据类型以及对象的引用。</li>
@@ -304,15 +304,15 @@
 <li>使用句柄访问，通常会在Java堆中划分一块句柄池。</li>
 <li>使用直接指针，这样Java虚拟机栈中存储的就是该对象在堆中的地址。</li>
 </ul>
-<p><img src="https://ilubov.cn/hexo/jvm/p4.png" alt="image"></p>
-<p><img src="https://ilubov.cn/hexo/jvm/p5.png" alt="image"></p>
+<p><img src="/images/jvm/p4.png" alt="image"></p>
+<p><img src="/images/jvm/p5.png" alt="image"></p>
 <p>这两种访问对象的方法各有优势。使用直接指针进行访问，就可以直接定位到对象，减小了一次指针定位的时间开销（使用句柄的话会通过句柄池的指针二次定位对象），最大的好处就是速度更快。但是使用句柄的话，就是当对象发生移动的时候，可以不用改变栈中存储的reference，只需要改变句柄池中实例数据的指针。</p>
 <h4 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h4><h5 id="论对象已死？"><a href="#论对象已死？" class="headerlink" title="论对象已死？"></a>论对象已死？</h5><p>判断一个对象是否被销毁有两种方法：</p>
 <ul>
 <li>引用计数算法： 为对象添加一个引用计数器，每当对象在一个地方被引用，则该计数器加1；每当对象引用失效时，计数器减1。但计数器为0的时候，就表白该对象没有被引用。</li>
 <li>可达性分析算法： 通过一系列被称之为“GC Roots”的根节点开始，沿着引用链进行搜索，凡是在引用链上的对象都不会被回收。</li>
 </ul>
-<p><img src="https://ilubov.cn/hexo/jvm/p6.png" alt="image"></p>
+<p><img src="/images/jvm/p6.png" alt="image"></p>
 <p>就像上图的那样，绿色部分的对象都在GC Roots的引用链上，就不会被垃圾回收器回收，灰色部分的对象没有在引用链上，自然就被判定为可回收对象。</p>
 <p>下面列举可以作为GC Roots的对象：</p>
 <ul>
@@ -325,13 +325,13 @@
 </ul>
 <p>垃圾回收算法主要有三种，依次是<strong>标记-清除算法、标记-复制算法、标记-整理算法</strong>。</p>
 <h6 id="标记–清除算法"><a href="#标记–清除算法" class="headerlink" title="标记–清除算法"></a><strong>标记–清除算法</strong></h6><p>见名知义，标记–清除算法就是对无效的对象进行标记，然后清除。如下图：</p>
-<p><img src="https://ilubov.cn/hexo/jvm/p7.png" alt="image"></p>
+<p><img src="/images/jvm/p7.png" alt="image"></p>
 <p>对于标记–清除算法，你一定会清楚看到，在进行垃圾回收之后，堆空间有大量的碎片，出现了不规整的情况。在给大对象分配内存的时候，由于无法找到足够的连续的内存空间，就不得不再一次触发垃圾收集。另外，如果Java堆中存在大量的垃圾对象，那么垃圾回收的就必然进行大量的标记和清除动作，这个势必造成回收效率的降低。</p>
 <h6 id="标记–复制算法"><a href="#标记–复制算法" class="headerlink" title="标记–复制算法"></a><strong>标记–复制算法</strong></h6><p>标记–复制算法就是把Java堆分成两块，每次垃圾回收时只使用其中一块，然后把存活的对象全部移动到另一块区域。如下图：</p>
-<p><img src="https://ilubov.cn/hexo/jvm/p8.png" alt="image"></p>
+<p><img src="/images/jvm/p8.png" alt="image"></p>
 <p>标记–复制算法有一个很明显的缺点，那就是每次只使用堆空间的一半，造成了Java堆空间使用率的的下降。</p>
 <p>现在大部分Java虚拟机的垃圾回收器使用的就是标记–复制算法，但是，对于Java堆空间的划分，并不是简单地一分为二。</p>
-<p><img src="https://ilubov.cn/hexo/jvm/p3.png" alt="image"></p>
+<p><img src="/images/jvm/p3.png" alt="image"></p>
 <p>首先得从两个分代收集理论说起：</p>
 <ul>
 <li>弱分代假说：大多数对象的生命存活时间很短。</li>
@@ -348,7 +348,7 @@
 <p>每经历过一次垃圾回收的对象，它的分代年龄就加1，当分代年龄达到15以后，就直接被存放到老年代中。</p>
 <p>还有一种情况，给大对象分配内存的时候，Eden区已经没有足够的内存空间了，这时候该怎么办？对于这种情况，大对象就会直接进入老年代。</p>
 <h5 id="标记–整理算法"><a href="#标记–整理算法" class="headerlink" title="标记–整理算法"></a>标记–整理算法</h5><p>标记–整理算法算是一种折中的垃圾收集算法，在对象标记的过程，和前面两个执行的是一样步骤。但是，进行标记之后，存活的对象会移动到堆的一端，然后直接清理存活对象以外的区域就可以了。这样，既避免了内存碎片，也不存在堆空间浪费的说法了。但是，每次进行垃圾回收的时候，都要暂停所有的用户线程，特别是对老年代的对象回收，则需要更长的回收时间，这对用户体验是非常不好的。如下图：</p>
-<p><img src="https://ilubov.cn/hexo/jvm/p9.png" alt="image"></p>
+<p><img src="/images/jvm/p9.png" alt="image"></p>
 <h4 id="HotSpot的算法细节"><a href="#HotSpot的算法细节" class="headerlink" title="HotSpot的算法细节"></a>HotSpot的算法细节</h4><h5 id="根节点枚举"><a href="#根节点枚举" class="headerlink" title="根节点枚举"></a>根节点枚举</h5><p>根节点枚举，其实就是找出可以作为GC Roots的对象，在这个过程中，所有的用户线程都必须停下。<br>到目前为止，几乎还没有虚拟机可以做到GC Roots遍历与用户线程并发执行。<br>当然，可达性分析算法中<strong>最耗时的寻找引用链的过程</strong>已经可以做到和用户线程并发执行了。那么，为什么需要在根节点枚举的时候停止用户线程？</p>
 <p>其实也不难考虑，如果进行GC Roots遍历的时候，用户线程没有暂停，根节点集合的对象引用关系还在不断发生变化，这样遍历到的结果是不准确的。那么，Java虚拟机在查找GC Roots的时候，是真的需要进行全局遍历？</p>
 <p>其实不是这样的，HotSpot虚拟机通过一个叫做OopMap的数据结构，可以知道哪些地方存储了对象引用。这样，大大减小了GC Roots的遍历时间。</p>
@@ -363,11 +363,11 @@
 <p><strong>记忆集是抽象的数据结构，而卡表是记忆集的具体实现</strong>，这种关系就类似与方法区与元空间。</p>
 <h5 id="写屏障"><a href="#写屏障" class="headerlink" title="写屏障"></a>写屏障</h5><p>写屏障的作用很简单，就是对卡表进行<strong>维护和更新</strong>。</p>
 <h5 id="并发的可达性分析"><a href="#并发的可达性分析" class="headerlink" title="并发的可达性分析"></a>并发的可达性分析</h5><p>前面我们说到过为什么要暂停所有的用户线程（这个动作也被称之为<strong>Stop The World</strong>）？<br><strong>这其实是为了不让用户线程改变GC Roots对象的引用</strong>。试想，如果用户线程能够随便把死亡的对象重新标记为存活，或者把存活的对象标记为死亡，这岂不是会使的程序发生意想不到的错误。</p>
-<h4 id="经典的垃圾收集器"><a href="#经典的垃圾收集器" class="headerlink" title="经典的垃圾收集器"></a>经典的垃圾收集器</h4><h5 id="Serial-收集器"><a href="#Serial-收集器" class="headerlink" title="Serial 收集器"></a>Serial 收集器</h5><p>Serial 收集器是最基础、历史最悠久的收集器，它在进行垃圾收集的时候会暂停所有的工作线程，直到完成垃圾收集过程。<br>下面是Serial垃圾收集器的运行示意图：<br><img src="https://ilubov.cn/hexo/jvm/p10.png" alt="image"></p>
-<h5 id="ParNew-收集器"><a href="#ParNew-收集器" class="headerlink" title="ParNew 收集器"></a>ParNew 收集器</h5><p>ParNew 垃圾收集器实则是Serial 垃圾收集器的多线程版本，这个多线程在于ParNew垃圾收集器可以使用多条线程进行垃圾回收。<br><img src="https://ilubov.cn/hexo/jvm/p11.png" alt="image"></p>
-<h5 id="Parallel-Scavenge-收集器"><a href="#Parallel-Scavenge-收集器" class="headerlink" title="Parallel Scavenge 收集器"></a>Parallel Scavenge 收集器</h5><p>也是一款新生代垃圾收集器，同样的基于标记–复制算法实现的。<br><strong>它最大的特点是可以控制吞吐量</strong>。<br><img src="https://ilubov.cn/hexo/jvm/p12.png" alt="image"></p>
-<h5 id="Serial-Old-收集器"><a href="#Serial-Old-收集器" class="headerlink" title="Serial Old 收集器"></a>Serial Old 收集器</h5><p>Serial Old 收集器是Serial 收集器的老年代版本。<br>其垃圾收集器的运行原理和Serial 收集器是一样的。<br><img src="https://ilubov.cn/hexo/jvm/p13.png" alt="image"></p>
-<h5 id="Parallel-Old-收集器"><a href="#Parallel-Old-收集器" class="headerlink" title="Parallel Old 收集器"></a>Parallel Old 收集器</h5><p>Parallel Old 收集器同样是Parallel Scavenge 收集器的老年代版本，支持多线程并发收集。<br>下面就是它的运行示意图：<br><img src="https://ilubov.cn/hexo/jvm/p14.png" alt="image"></p>
+<h4 id="经典的垃圾收集器"><a href="#经典的垃圾收集器" class="headerlink" title="经典的垃圾收集器"></a>经典的垃圾收集器</h4><h5 id="Serial-收集器"><a href="#Serial-收集器" class="headerlink" title="Serial 收集器"></a>Serial 收集器</h5><p>Serial 收集器是最基础、历史最悠久的收集器，它在进行垃圾收集的时候会暂停所有的工作线程，直到完成垃圾收集过程。<br>下面是Serial垃圾收集器的运行示意图：<br><img src="/images/jvm/p10.png" alt="image"></p>
+<h5 id="ParNew-收集器"><a href="#ParNew-收集器" class="headerlink" title="ParNew 收集器"></a>ParNew 收集器</h5><p>ParNew 垃圾收集器实则是Serial 垃圾收集器的多线程版本，这个多线程在于ParNew垃圾收集器可以使用多条线程进行垃圾回收。<br><img src="/images/jvm/p11.png" alt="image"></p>
+<h5 id="Parallel-Scavenge-收集器"><a href="#Parallel-Scavenge-收集器" class="headerlink" title="Parallel Scavenge 收集器"></a>Parallel Scavenge 收集器</h5><p>也是一款新生代垃圾收集器，同样的基于标记–复制算法实现的。<br><strong>它最大的特点是可以控制吞吐量</strong>。<br><img src="/images/jvm/p12.png" alt="image"></p>
+<h5 id="Serial-Old-收集器"><a href="#Serial-Old-收集器" class="headerlink" title="Serial Old 收集器"></a>Serial Old 收集器</h5><p>Serial Old 收集器是Serial 收集器的老年代版本。<br>其垃圾收集器的运行原理和Serial 收集器是一样的。<br><img src="/images/jvm/p13.png" alt="image"></p>
+<h5 id="Parallel-Old-收集器"><a href="#Parallel-Old-收集器" class="headerlink" title="Parallel Old 收集器"></a>Parallel Old 收集器</h5><p>Parallel Old 收集器同样是Parallel Scavenge 收集器的老年代版本，支持多线程并发收集。<br>下面就是它的运行示意图：<br><img src="/images/jvm/p14.png" alt="image"></p>
 <h5 id="CMS-收集器"><a href="#CMS-收集器" class="headerlink" title="CMS 收集器"></a>CMS 收集器</h5><p>前面说到过Parallel Scavenge 收集器，它是一个可以控制吞吐量的垃圾收集器。现在要说的CMS 收集器，它是一个追求最短停顿时间的垃圾收集器，基于标记–清除算法实现的。<br>CMS 垃圾收集器的运作过程相对前面几个垃圾收集器来说比较复杂，整个过程可以分为四个部分：</p>
 <ul>
 <li><strong>初始标记</strong>： 需要Stop The World，这里仅仅标记GC Roots能够直接关联的对象，所以速度很快。</li>

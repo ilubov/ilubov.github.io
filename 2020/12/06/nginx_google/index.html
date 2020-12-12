@@ -10,7 +10,7 @@
 
 <title>
     
-    archive_a: 2020/1 |
+    Nginx反向代理Google |
     
     ilubov</title>
 <!--end title-->
@@ -185,7 +185,15 @@
     <ul class="bread-crumb-menu animated rubberBand">
         <li><a href="/"><i class="fh fh-ravelry" aria-hidden="true"></i> Home</a></li>
         
-        <li><a href="/archives"><i class="fh fh-archive" aria-hidden="true"></i> Archives</a></li>
+        <li><a href="/categories/nginx/"><i class="fh fh-cube" aria-hidden="true"></i> nginx</a>
+        </li>
+        
+        <li>
+            
+            <i class="fh fh-newspaper-o" aria-hidden="true"></i>
+            
+            Nginx反向代理Google
+        </li>
         
     </ul>
     <div class="bread-crumb-search">
@@ -201,104 +209,118 @@
 </div>
             <!--end breadcrumb-->
             <!--begin body-->
-            
-<div class="row recent-posts">
-    
-    <h2>
+            <article class="post animated rollIn">
+    <h1 class="post-title">Nginx反向代理Google</h1>
+    <div class="post-subtitle">
         
-        <a href="/archives/2020/01" title="01">01</a> /
-        
-        <a href="/archives/2020" title="2020">2020</a>
-    </h2>
-    
-    <div class="recent-post-item animated fadeInLeftBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/01/28/java-memory-model/">
-                java-内存模型
-            </a>
-        </h3>
-        
-        <time datetime="2020-01-28T02:20:33.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-01-28
+        <time datetime="2020-12-06T10:22:18.000Z" class="item">
+            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-12-06
         </time>
         
         
         <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
+      <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-primary tags" href="/categories/java/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
-                    </a>
+            <a class="label label-primary tags" href="/categories/nginx/">
+           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;nginx
+        </a>
             
         </span>
         
-    </div>
-    
-    <div class="item-footer">
         
         <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
+        <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-info tags" href="/tags/java/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
-                    </a>
-            
-        </span>
-        
-        <a class="look" href="/2020/01/28/java-memory-model/">Look >></a>
-    </div>
-</div>
-    
-    <div class="recent-post-item animated fadeInRightBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/01/27/java-array-list/">
-                java集合-List类
+            <a class="label label-info tags" href="/tags/nginx/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;nginx
             </a>
-        </h3>
-        
-        <time datetime="2020-01-27T14:47:17.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-01-27
-        </time>
-        
-        
-        <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-primary tags" href="/categories/java/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
-                    </a>
+            <a class="label label-info tags" href="/tags/google/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;google
+            </a>
             
         </span>
         
     </div>
     
-    <div class="item-footer">
-        
-        <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
+    <h3 id="Nginx反向代理Google"><a href="#Nginx反向代理Google" class="headerlink" title="Nginx反向代理Google"></a>Nginx反向代理Google</h3><h4 id="Nginx-配置"><a href="#Nginx-配置" class="headerlink" title="Nginx 配置"></a>Nginx 配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">upstream www.google.com &#123;</span><br><span class="line">    server 173.194.38.1:443;</span><br><span class="line">    server 173.194.38.2:443;</span><br><span class="line">    server 173.194.38.3:443;</span><br><span class="line">    server 173.194.38.4:443;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name ilubov.cn www.ilubov.cn;</span><br><span class="line">    rewrite ^(.*)$ https:&#x2F;&#x2F;$host$1 permanent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name ilubov.cn;</span><br><span class="line">    ssl_certificate &#x2F;etc&#x2F;nginx&#x2F;conf&#x2F;www_ilubov.cn.pem;</span><br><span class="line">    ssl_certificate_key &#x2F;etc&#x2F;nginx&#x2F;conf&#x2F;www_ilubov.cn.key;</span><br><span class="line">    ssl_protocols SSLv3 TLSv1;</span><br><span class="line">    ssl_ciphers ALL:-ADH:+HIGH:+MEDIUM:-LOW:-SSLv2:-EXP;</span><br><span class="line"></span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        proxy_redirect off;</span><br><span class="line">        proxy_set_header Accept-Language &quot;zh-CN&quot;;</span><br><span class="line">        proxy_set_header Accept-Encoding &quot;&quot;;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">        proxy_pass https:&#x2F;&#x2F;www.google.com.hk;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article>
+<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86Google"><span class="animated rollIn hannah-toc-text">Nginx反向代理Google</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#Nginx-%E9%85%8D%E7%BD%AE"><span class="animated rollIn hannah-toc-text">Nginx 配置</span></a></li></ol></li></ol>
+<div class="animated bounceInDown paginations">
+    <div class="col-md-8 col-md-push-2 col-xs-12">
+        <nav>
             
-            <a class="label label-info tags" href="/tags/java/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
-                    </a>
+            <span
+                class="page-content col-md-8 col-md-offset-2 col-xs-offset-4 col-xs-4 text-center">
+                
+            </span>
             
-            <a class="label label-info tags" href="/tags/%E9%9B%86%E5%90%88/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;集合
-                    </a>
+            <a href="/2020/12/04/hexo-source-file-backup/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
             
-        </span>
-        
-        <a class="look" href="/2020/01/27/java-array-list/">Look >></a>
+        </nav>
+        <div>
+            <div class="col-md-6 col-xs-6 text-left">
+                
+            </div>
+            <div class="col-md-6 col-xs-6 text-right">
+                
+                将hexo源文件备份到github
+                
+            </div>
+        </div>
     </div>
 </div>
-    
-</div>
-
 
             <!--end body-->
             <!--begin comments-->
             
+<div class="comments">
+    
+
+    
+    
+<div id="gitalk-container">
+</div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script>
+    var loadJs = function (d, a) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document
+            .documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("src", d);
+        if (typeof a === "function") {
+            if (window.attachEvent) {
+                b.onreadystatechange = function () {
+                    var e = b.readyState;
+                    if (e === "loaded" || e === "complete") {
+                        b.onreadystatechange = null;
+                        a()
+                    }
+                }
+            } else {
+                b.onload = a
+            }
+        }
+        c.appendChild(b)
+    };
+    loadJs("https://unpkg.com/gitalk/dist/gitalk.min.js", function () {
+        var gitalk = new Gitalk({
+            clientID: '93363d527b7abfb071ed',
+            clientSecret: 'e6d6ff61e51b30e6f838e4ca2e6626218f6dd468',
+            repo: 'ilubov.github.io',
+            owner: 'ilubov',
+            admin: ['ilubov'],
+            id: decodeURIComponent(location.pathname),
+            distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')
+    });
+</script>
+
+</div>
+
 
             <!--end comments-->
         </div>

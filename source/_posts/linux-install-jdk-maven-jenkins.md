@@ -1,5 +1,5 @@
 ---
-title: JetCache
+title: linux环境安装
 date: 2021-01-24 22:08:15
 tags:
     - linux

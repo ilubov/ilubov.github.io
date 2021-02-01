@@ -50,9 +50,9 @@ isWeChatOpen() {
 ```java
 public static Map<String, Object> getSignature(String url) {
     // 企业id
-    String corpId = "ww41b472dada54eaa4";
+    String corpId = "";
     // 应用Secret
-    String secret = "ns8uPdMr5U0FYy9CinJusT0xJ3-8tiNV9WPUPUP1B04";
+    String secret = "";
     // 获取access_token
     String getAccessTokenUrl = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=%s&corpsecret=%s";
     getAccessTokenUrl = String.format(getAccessTokenUrl, corpId, secret);
@@ -65,7 +65,7 @@ public static Map<String, Object> getSignature(String url) {
     String ticket = ticketMap.get("ticket").toString();
     // 获取签名
     long timestamp = System.currentTimeMillis() / 1000;
-    String nonceStr = UUID.randomUUID().toString();
+    String nonceStr = IdUtil.fastSimpleUUID();
     Map<String, Object> params = Maps.newTreeMap();
     params.put("jsapi_ticket", ticket);
     params.put("noncestr", nonceStr);

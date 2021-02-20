@@ -26,7 +26,7 @@ mybatis-plus:
 
 * #### 添加cache标签
 ```
-<mapper namespace="com.cloudyoung.competing.mapper.WechatUserMapper">
+<mapper namespace="com.ilubov.mapper.UserMapper">
     <cache eviction="FIFO" flushInterval="10800000" size="512" readOnly="true"/>
 </mapper>
 ```

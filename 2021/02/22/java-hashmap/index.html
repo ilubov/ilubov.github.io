@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<!--begin head-->
+
+<head>
+    <meta charset="utf-8">
+<!--begin title-->
+
+<title>
+    
+    HashMap |
+    
+    ilubov</title>
+<!--end title-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!--begin mete-->
+
+<meta name="description" content="Get busy living or get busy dying."/>
+
+<meta name="author" content="ilubov"/>
+
+<!--end mete-->
+<!--begin keywords-->
+<meta name="keywords" content="IO,github,google,guava,hexo,java,jvm,linux,mybatis,mysql,nginx,redis,sharding jdbc,spring,spring cloud,并发,支付,数据库,服务器,设计模式,集合"/>
+<!--end keywords-->
+<!--begin rss-->
+
+<!--end rss-->
+<!--begin favicon-->
+
+<link rel="icon" href="/favicon.ico">
+
+<!--end favicon-->
+<!--begin style-->
+
+<!-- stylesheets list from config.yml -->
+
+<link rel="stylesheet" href="/css/hannah.css">
+
+
+<!--end style-->
+<meta name="generator" content="Hexo 5.0.2"></head>
+<!--end head-->
+<!--begin body-->
+
+<body class="container-fluid">
+
+    <!--begin menu-->
+    <div class="hannah-menu">
+    <i class="fh fh-ravelry fa-2x btn fixed-menu animated bounce" id="btn_menu" aria-hidden="true"></i>
+    <div class="menu-outer container-fluid hide animated" id="div_menu">
+        <div class="row" style="margin-bottom: 5px;">
+            
+            <div class="col-md-offset-2 col-md-3 col-xs-4 text-center left-social">
+                
+                <a target="_blank" href="https://github.com/ilubov" title="GitHub"><i class="fh fh-github"></i></a>
+                
+                <style>
+                    .left-social {
+                        height: 132px;
+                        line-height: 132px;
+                        font-size: 66px;
+                    }
+
+                    .left-social * {
+                        color: #f1ce8e;
+                    }
+
+                    @media (max-width: 767px) {
+                        .left-social {
+                            line-height: 132px;
+                            font-size: 33px;
+                        }
+                    }
+                </style>
+            </div>
+            <!--begin handImg-->
+            <div class="col-md-2 col-xs-4 text-center">
+                
+                <img src="/img/logo.jpg" alt="Head Image" class="img-circle">
+                
+            </div>
+            <!--end handImg-->
+            <div class="col-md-3 col-xs-4 text-center right-social">
+                
+                <style>
+                    .right-social {
+                        height: 132px;
+                        line-height: 132px;
+                        font-size: 66px;
+                    }
+
+                    @media (max-width: 767px) {
+                        .right-social {
+                            line-height: 132px;
+                            font-size: 33px;
+                        }
+                    }
+
+                    .right-social * {
+                        color: #f1ce8e;
+                    }
+                </style>
+            </div>
+        </div>
+        <div class="row">
+            <div class="menu-content col-md-8 col-md-push-2 col-xs-12 ">
+                <dl class="menu-content-item">
+                    <dt class="menu-content-title">
+                        <i class="fh fh-bars" aria-hidden="true"></i> Menu
+                    </dt>
+                    <dd class="menu-content-content">
+                        
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center animated tada">
+                            <a href="/" class="btn btn-block">
+                                
+                                <i class="fh fh-ravelry"></i>
+                                Home
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center animated tada">
+                            <a href="/categories/index.html" class="btn btn-block">
+                                
+                                <i class="fh fh-cubes"></i>
+                                Category
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center animated tada">
+                            <a href="/tags/index.html" class="btn btn-block">
+                                
+                                <i class="fh fh-tags"></i>
+                                Tag
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center animated tada">
+                            <a target="_blank" rel="noopener" href="https://www.ilubov.cn" class="btn btn-block">
+                                
+                                <i class="fh fh-about"></i>
+                                About
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center animated tada">
+                            <a href="" class="btn btn-block">
+                                <i class="fh fh-rss" aria-hidden="true"></i> RSS
+                            </a>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="row">
+            <div class="menu-content col-md-8 col-md-offset-2 col-xs-12 ">
+                <dl class="col-md-6 col-xs-6 menu-content-item">
+                    <dt class="menu-content-title">
+                        <i class="fh fh-cubes" aria-hidden="true"></i> Category
+                    </dt>
+                    <dd class="menu-content-content animated zoomIn">
+                        <ul class="menu-cate-list"><li class="menu-cate-list-item"><a class="menu-cate-list-link" href="/categories/hexo/"><i class="fh fh-cube" aria-hidden="true"></i> hexo</a><span class="menu-cate-list-count">1</span></li><li class="menu-cate-list-item"><a class="menu-cate-list-link" href="/categories/java/"><i class="fh fh-cube" aria-hidden="true"></i> java</a><span class="menu-cate-list-count">22</span></li><li class="menu-cate-list-item"><a class="menu-cate-list-link" href="/categories/nginx/"><i class="fh fh-cube" aria-hidden="true"></i> nginx</a><span class="menu-cate-list-count">1</span></li><li class="menu-cate-list-item"><a class="menu-cate-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="fh fh-cube" aria-hidden="true"></i> 数据库</a><span class="menu-cate-list-count">7</span></li><li class="menu-cate-list-item"><a class="menu-cate-list-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fh fh-cube" aria-hidden="true"></i> 服务器</a><span class="menu-cate-list-count">1</span></li></ul>
+                    </dd>
+                </dl>
+                <dl class="col-md-6 col-xs-6 menu-content-item">
+                    <dt class="menu-content-title">
+                        <i class="fh fh-tag" aria-hidden="true"></i> Tags
+                    </dt>
+                    <dd class="menu-content-content animated zoomIn">
+                        <ul class="menu-tag-list" itemprop="keywords"><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/IO/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> IO</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/github/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> github</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/google/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> google</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/guava/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> guava</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/hexo/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> hexo</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/java/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> java</a><span class="menu-tag-list-count">22</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/jvm/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> jvm</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/linux/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> linux</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/mybatis/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> mybatis</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/mysql/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> mysql</a><span class="menu-tag-list-count">4</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/nginx/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> nginx</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/redis/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> redis</a><span class="menu-tag-list-count">2</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/sharding-jdbc/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> sharding jdbc</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/spring/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> spring</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/spring-cloud/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> spring cloud</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> 并发</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> 支付</a><span class="menu-tag-list-count">2</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> 数据库</a><span class="menu-tag-list-count">7</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> 服务器</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> 设计模式</a><span class="menu-tag-list-count">1</span></li><li class="menu-tag-list-item"><a class="menu-tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag"><i class="fh fh-tag" aria-hidden="true"></i> 集合</a><span class="menu-tag-list-count">1</span></li></ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--end menu-->
+
+    <div class="row hannah-body">
+        <div class="col-md-8 col-md-push-2 col-xs-12">
+            <!--begin breadcrumb-->
+            <div class="bread-crumb">
+    <ul class="bread-crumb-menu animated rubberBand">
+        <li><a href="/"><i class="fh fh-ravelry" aria-hidden="true"></i> Home</a></li>
+        
+        <li><a href="/categories/java/"><i class="fh fh-cube" aria-hidden="true"></i> java</a>
+        </li>
+        
+        <li>
+            
+            <i class="fh fh-newspaper-o" aria-hidden="true"></i>
+            
+            HashMap
+        </li>
+        
+    </ul>
+    <div class="bread-crumb-search">
+        <div class="search">
+    <i class="fh fh-search icon-search"></i>
+    <input placeholder="Search ..." onkeyup="searchFunc(this,event,'/search.xml')"
+           class="input-search animated fadeInRight"/>
+    <div class="search-result animated fadeInRight">
+        <a class="animated tada col-lg-12 search-result-item result-link" href="/2021/02/23/docker-es/">ElasticSearch</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2021/02/22/java-hashmap/">HashMap</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2021/02/20/java-youdao-translate/">有道翻译api</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2021/01/24/java8-foreach/">可以break的forEach</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2021/01/22/jet-cache/">JetCache</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2021/01/18/caching-algorithm/">缓存算法</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2021/01/17/work-wx-open-default-browser/">企业微信电脑客户端打开系统默认浏览器</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2021/01/15/mybatis-second-level-cache/">mybatis-plus二级缓存</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2021/01/02/java-try-with-resources/">try-with-resources语句</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/12/06/nginx_google/">Nginx反向代理Google</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/12/04/hexo-source-file-backup/">将hexo源文件备份到github</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/11/13/mysql-function/">mysql使用函数递归查找父级或子级id</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/11/12/java-xxl-job/">xxl job</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/11/01/linux-custom-command/">Linux 创建自定义命令</a><a class="animated tada col-lg-12 search-result-item result-link" href="/2020/10/05/mysql-explain/">mysql explain</a>
+    </div>
+</div>
+    </div>
+</div>
+            <!--end breadcrumb-->
+            <!--begin body-->
+            <article class="post animated rollIn">
+    <h1 class="post-title">HashMap</h1>
+    <div class="post-subtitle">
+        
+        <time datetime="2021-02-22T15:11:28.000Z" class="item">
+            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2021-02-22
+        </time>
+        
+        
+        <span class="item">
+      <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
+            
+            <a class="label label-primary tags" href="/categories/java/">
+           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
+        </a>
+            
+        </span>
+        
+        
+        <span class="item">
+        <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
+            
+            <a class="label label-info tags" href="/tags/java/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
+            </a>
+            
+        </span>
+        
+    </div>
+    
+    <h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 默认初始容量2^4，必须为2的N次方</span><br><span class="line">static final int DEFAULT_INITIAL_CAPACITY &#x3D; 1 &lt;&lt; 4;</span><br><span class="line">&#x2F;&#x2F; 最大容量2^30</span><br><span class="line">static final int MAXIMUM_CAPACITY &#x3D; 1 &lt;&lt; 30;</span><br><span class="line">&#x2F;&#x2F; 默认扩容因子，当容量达到75%时进行扩容</span><br><span class="line">static final float DEFAULT_LOAD_FACTOR &#x3D; 0.75f;</span><br><span class="line">&#x2F;&#x2F; 树化阈值，当链表长度&gt;&#x3D;8时将链表转换成红黑树 </span><br><span class="line">static final int TREEIFY_THRESHOLD &#x3D; 8;</span><br><span class="line">&#x2F;&#x2F; 链表化阈值，当红黑树节点数量&lt;&#x3D;6时将红黑树转换成链表</span><br><span class="line">static final int UNTREEIFY_THRESHOLD &#x3D; 6;</span><br><span class="line">&#x2F;&#x2F; 最小树化阈值，只有map容量大于此值才进行链表树化，否则直接扩容</span><br><span class="line">static final int MIN_TREEIFY_CAPACITY &#x3D; 64; &#x2F;&#x2F; 不能小于 4 * TREEIFY_THRESHOLD</span><br></pre></td></tr></table></figure>
+
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 存放数据的数组</span><br><span class="line">transient Node&lt;K,V&gt;[] table;</span><br><span class="line">&#x2F;&#x2F; entity集合</span><br><span class="line">transient Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet;</span><br><span class="line">&#x2F;&#x2F; 大小</span><br><span class="line">transient int size;</span><br><span class="line">&#x2F;&#x2F; 扩容阈值，大于阈值将进行扩容</span><br><span class="line">int threshold; &#x2F;&#x2F; 容量 * 扩容因子</span><br><span class="line">&#x2F;&#x2F; 扩容因子</span><br><span class="line">final float loadFactor;</span><br></pre></td></tr></table></figure>
+
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public HashMap(int initialCapacity, float loadFactor) &#123;</span><br><span class="line">    if (initialCapacity &lt; 0)</span><br><span class="line">        throw new IllegalArgumentException(&quot;Illegal initial capacity: &quot; +</span><br><span class="line">                                           initialCapacity);</span><br><span class="line">    &#x2F;&#x2F; 如果初始容量大于最大容量则初始容量等于最大容量</span><br><span class="line">    if (initialCapacity &gt; MAXIMUM_CAPACITY)</span><br><span class="line">        initialCapacity &#x3D; MAXIMUM_CAPACITY;</span><br><span class="line">    if (loadFactor &lt;&#x3D; 0 || Float.isNaN(loadFactor))</span><br><span class="line">        throw new IllegalArgumentException(&quot;Illegal load factor: &quot; +</span><br><span class="line">                                           loadFactor);</span><br><span class="line">    &#x2F;&#x2F; 扩容因子</span><br><span class="line">    this.loadFactor &#x3D; loadFactor;</span><br><span class="line">    &#x2F;&#x2F; 扩容阈值</span><br><span class="line">    this.threshold &#x3D; tableSizeFor(initialCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">static class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;</span><br><span class="line">    &#x2F;&#x2F; 节点hash值</span><br><span class="line">    final int hash;</span><br><span class="line">    &#x2F;&#x2F; key</span><br><span class="line">    final K key;</span><br><span class="line">    &#x2F;&#x2F; value</span><br><span class="line">    V value;</span><br><span class="line">    &#x2F;&#x2F; 链表下一个节点</span><br><span class="line">    Node&lt;K,V&gt; next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="ableSizeFor-int-cap"><a href="#ableSizeFor-int-cap" class="headerlink" title="ableSizeFor(int cap)"></a>ableSizeFor(int cap)</h5><p>返回大于等于输入参数且最近的2的整数次幂的数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 规定table数组的长度必须为2的n次方</span><br><span class="line">&#x2F;&#x2F; 2的n次方的数的特点为第n位为1其他均为0</span><br><span class="line">&#x2F;&#x2F; -1操作会使第1-(n-1)位全为1</span><br><span class="line">&#x2F;&#x2F; 假如cap的二进制位01xxxxxx</span><br><span class="line">&#x2F;&#x2F; 则大于等于cap且最近的2的整数次幂的数的二进制为10xxxxxx</span><br><span class="line">static final int tableSizeFor(int cap) &#123;</span><br><span class="line">    int n &#x3D; cap - 1;    &#x2F;&#x2F; 假设n&#x3D;1xxxxx</span><br><span class="line">    n |&#x3D; n &gt;&gt;&gt; 1;       &#x2F;&#x2F; n &#x3D; 1xxxxx | 01xxxx &#x3D; 11xxxx</span><br><span class="line">    n |&#x3D; n &gt;&gt;&gt; 2;       &#x2F;&#x2F; n &#x3D; 11xxxx | 0011xx &#x3D; 1111xx</span><br><span class="line">    n |&#x3D; n &gt;&gt;&gt; 4;       &#x2F;&#x2F; n &#x3D; 1111xx | 000011 &#x3D; 111111</span><br><span class="line">    n |&#x3D; n &gt;&gt;&gt; 8;       &#x2F;&#x2F; n &#x3D; 111111 | 000000 &#x3D; 111111</span><br><span class="line">    n |&#x3D; n &gt;&gt;&gt; 16;      &#x2F;&#x2F; n &#x3D; 111111 | 000000 &#x3D; 111111</span><br><span class="line">    return (n &lt; 0) ? 1 : (n &gt;&#x3D; MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1; &#x2F;&#x2F; +1得出最终的cap</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="put-K-key-V-value"><a href="#put-K-key-V-value" class="headerlink" title="put(K key, V value)"></a>put(K key, V value)</h4><p>向map放入key-value</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public V put(K key, V value) &#123;</span><br><span class="line">    return putVal(hash(key), key, value, false, true);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="hash-Object-key"><a href="#hash-Object-key" class="headerlink" title="hash(Object key)"></a>hash(Object key)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 计算hash值</span><br><span class="line">static final int hash(Object key) &#123;</span><br><span class="line">    int h;</span><br><span class="line">    &#x2F;&#x2F; 如果key为null则hash值为0</span><br><span class="line">    &#x2F;&#x2F; 否则调用key的hashCode方法获取hash值</span><br><span class="line">    &#x2F;&#x2F; 然后与其高16位进行异或返回</span><br><span class="line">    &#x2F;&#x2F; 这样做的原因是当数组很短的时候只有低位参与了运算</span><br><span class="line">    &#x2F;&#x2F; 让高十六位特征参与运算会更好的减少散列冲突</span><br><span class="line">    return (key &#x3D;&#x3D; null) ? 0 : (h &#x3D; key.hashCode()) ^ (h &gt;&gt;&gt; 16);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="putVal-int-hash-K-key-V-value-boolean-onlyIfAbsent-boolean-evict"><a href="#putVal-int-hash-K-key-V-value-boolean-onlyIfAbsent-boolean-evict" class="headerlink" title="putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict)"></a>putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * @param hash hash值</span><br><span class="line"> * @param key key</span><br><span class="line"> * @param value value</span><br><span class="line"> * @param onlyIfAbsent 如果是true则不改变已有值</span><br><span class="line"> * @param evict 如果是false则为创建模式</span><br><span class="line"> * @return 返回改变之前的值</span><br><span class="line"> *&#x2F;</span><br><span class="line">final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) &#123;</span><br><span class="line">    Node&lt;K,V&gt;[] tab; &#x2F;&#x2F; 局部变量table</span><br><span class="line">    Node&lt;K,V&gt; p; &#x2F;&#x2F; 原始node</span><br><span class="line">    int n; &#x2F;&#x2F; table长度</span><br><span class="line">    int i; &#x2F;&#x2F; node在table中的位置</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 判断table是否等于null或者为空</span><br><span class="line">    &#x2F;&#x2F; 如果为空则进行扩容</span><br><span class="line">    if ((tab &#x3D; table) &#x3D;&#x3D; null || (n &#x3D; tab.length) &#x3D;&#x3D; 0)</span><br><span class="line">        n &#x3D; (tab &#x3D; resize()).length;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 对hash值进行取模得到i</span><br><span class="line">    &#x2F;&#x2F; 当hash为2的次幂，x % hash &#x3D;&#x3D; x &amp; (hash - 1)</span><br><span class="line">    &#x2F;&#x2F; 位运算效率远远高于取模运算，所以这里使用位运算代替取模</span><br><span class="line">    if ((p &#x3D; tab[i &#x3D; (n - 1) &amp; hash]) &#x3D;&#x3D; null)</span><br><span class="line">        &#x2F;&#x2F; 如果没有原始值，则new一个新node放入table</span><br><span class="line">        tab[i] &#x3D; newNode(hash, key, value, null);</span><br><span class="line">    else &#123;</span><br><span class="line">        Node&lt;K,V&gt; e; &#x2F;&#x2F; 已存在节点e</span><br><span class="line">        K k; &#x2F;&#x2F; 已存在节点的key</span><br><span class="line">        if (p.hash &#x3D;&#x3D; hash &amp;&amp; ((k &#x3D; p.key) &#x3D;&#x3D; key || (key !&#x3D; null &amp;&amp; key.equals(k))))</span><br><span class="line">            &#x2F;&#x2F; 如果hash值相等并且key相等</span><br><span class="line">            e &#x3D; p;</span><br><span class="line">        else if (p instanceof TreeNode)</span><br><span class="line">            &#x2F;&#x2F; 如果p是一个红黑树则放入树中</span><br><span class="line">            e &#x3D; ((TreeNode&lt;K,V&gt;)p).putTreeVal(this, tab, hash, key, value);</span><br><span class="line">        else &#123;</span><br><span class="line">            &#x2F;&#x2F; hash冲突情况，遍历链表</span><br><span class="line">            for (int binCount &#x3D; 0; ; ++binCount) &#123;</span><br><span class="line">                &#x2F;&#x2F; 如果到链表尾，将节点添加到链表尾</span><br><span class="line">                if ((e &#x3D; p.next) &#x3D;&#x3D; null) &#123;</span><br><span class="line">                    p.next &#x3D; newNode(hash, key, value, null);</span><br><span class="line">                    &#x2F;&#x2F; 如果链表长度大于等于阈值则进行树化</span><br><span class="line">                    if (binCount &gt;&#x3D; TREEIFY_THRESHOLD - 1) &#x2F;&#x2F; -1 for 1st</span><br><span class="line">                        treeifyBin(tab, hash);</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                &#x2F;&#x2F; 如果hash值相等并且key相等</span><br><span class="line">                if (e.hash &#x3D;&#x3D; hash &amp;&amp;</span><br><span class="line">                    ((k &#x3D; e.key) &#x3D;&#x3D; key || (key !&#x3D; null &amp;&amp; key.equals(k))))</span><br><span class="line">                    break;</span><br><span class="line">                &#x2F;&#x2F; 设置p为当前链表节点</span><br><span class="line">                p &#x3D; e;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; 判断是否存在旧值</span><br><span class="line">        if (e !&#x3D; null) &#123; &#x2F;&#x2F; existing mapping for key</span><br><span class="line">            V oldValue &#x3D; e.value;</span><br><span class="line">            &#x2F;&#x2F; 改变旧值</span><br><span class="line">            if (!onlyIfAbsent || oldValue &#x3D;&#x3D; null)</span><br><span class="line">                e.value &#x3D; value;</span><br><span class="line">            afterNodeAccess(e);</span><br><span class="line">            &#x2F;&#x2F; 返回旧值</span><br><span class="line">            return oldValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ++modCount;</span><br><span class="line">    &#x2F;&#x2F; 如果长度大于阈值则进行扩容</span><br><span class="line">    if (++size &gt; threshold)</span><br><span class="line">        resize();</span><br><span class="line">    afterNodeInsertion(evict);</span><br><span class="line">    return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="resize"><a href="#resize" class="headerlink" title="resize()"></a>resize()</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">final Node&lt;K,V&gt;[] resize() &#123;</span><br><span class="line">    Node&lt;K,V&gt;[] oldTab &#x3D; table;</span><br><span class="line">    int oldCap &#x3D; (oldTab &#x3D;&#x3D; null) ? 0 : oldTab.length;</span><br><span class="line">    int oldThr &#x3D; threshold;</span><br><span class="line">    int newCap, newThr &#x3D; 0;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 如果旧容量大于0</span><br><span class="line">    if (oldCap &gt; 0) &#123;</span><br><span class="line">        &#x2F;&#x2F; 如果旧容量大于等于最大容量，将扩容阈值改为int最大值</span><br><span class="line">        if (oldCap &gt;&#x3D; MAXIMUM_CAPACITY) &#123;</span><br><span class="line">            threshold &#x3D; Integer.MAX_VALUE;</span><br><span class="line">            return oldTab;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; 新容量等于旧容量x2</span><br><span class="line">        &#x2F;&#x2F; 如果新容量小于最大容量，新阈值等于旧阈值*2</span><br><span class="line">        else if ((newCap &#x3D; oldCap &lt;&lt; 1) &lt; MAXIMUM_CAPACITY &amp;&amp;</span><br><span class="line">                 oldCap &gt;&#x3D; DEFAULT_INITIAL_CAPACITY)</span><br><span class="line">            newThr &#x3D; oldThr &lt;&lt; 1; &#x2F;&#x2F; double threshold</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 如果旧阈值大于0，设置容量为阈值</span><br><span class="line">    else if (oldThr &gt; 0)</span><br><span class="line">        newCap &#x3D; oldThr;</span><br><span class="line">    &#x2F;&#x2F; 默认容量和阈值</span><br><span class="line">    else &#123;</span><br><span class="line">        newCap &#x3D; DEFAULT_INITIAL_CAPACITY;</span><br><span class="line">        newThr &#x3D; (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 如果新阈值为0计算新阈值</span><br><span class="line">    if (newThr &#x3D;&#x3D; 0) &#123;</span><br><span class="line">        float ft &#x3D; (float)newCap * loadFactor;</span><br><span class="line">        newThr &#x3D; (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (float)MAXIMUM_CAPACITY ?</span><br><span class="line">                  (int)ft : Integer.MAX_VALUE);</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 设置新阈值</span><br><span class="line">    threshold &#x3D; newThr;</span><br><span class="line">    @SuppressWarnings(&#123;&quot;rawtypes&quot;,&quot;unchecked&quot;&#125;)</span><br><span class="line">    &#x2F;&#x2F; 创建新table</span><br><span class="line">    Node&lt;K,V&gt;[] newTab &#x3D; (Node&lt;K,V&gt;[])new Node[newCap];</span><br><span class="line">    table &#x3D; newTab;</span><br><span class="line">    if (oldTab !&#x3D; null) &#123;</span><br><span class="line">        &#x2F;&#x2F; 遍历旧table</span><br><span class="line">        for (int j &#x3D; 0; j &lt; oldCap; ++j) &#123;</span><br><span class="line">            &#x2F;&#x2F; 当前节点</span><br><span class="line">            Node&lt;K,V&gt; e;</span><br><span class="line">            &#x2F;&#x2F; 如果旧table里的node不为null</span><br><span class="line">            if ((e &#x3D; oldTab[j]) !&#x3D; null) &#123;</span><br><span class="line">                &#x2F;&#x2F; 将旧table的node设置为null</span><br><span class="line">                oldTab[j] &#x3D; null;</span><br><span class="line">                &#x2F;&#x2F; 如果没有后继节点（即没有hash冲突）</span><br><span class="line">                &#x2F;&#x2F; 将当前节点放入新的table</span><br><span class="line">                if (e.next &#x3D;&#x3D; null)</span><br><span class="line">                    newTab[e.hash &amp; (newCap - 1)] &#x3D; e;</span><br><span class="line">                &#x2F;&#x2F; 如果当前节点是红黑树，将红黑树拆分放入新的table</span><br><span class="line">                else if (e instanceof TreeNode)</span><br><span class="line">                    ((TreeNode&lt;K,V&gt;)e).split(this, newTab, j, oldCap);</span><br><span class="line">                else &#123; &#x2F;&#x2F; 如果有后继节点的情况（即有hash冲突）</span><br><span class="line">                    Node&lt;K,V&gt; loHead &#x3D; null;</span><br><span class="line">                    Node&lt;K,V&gt; loTail &#x3D; null;</span><br><span class="line">                    Node&lt;K,V&gt; hiHead &#x3D; null;</span><br><span class="line">                    Node&lt;K,V&gt; hiTail &#x3D; null;</span><br><span class="line">                    &#x2F;&#x2F; 下一个节点</span><br><span class="line">                    Node&lt;K,V&gt; next;</span><br><span class="line">                    do &#123;</span><br><span class="line">                        &#x2F;&#x2F; 将next设置为当前节点的下一个节点</span><br><span class="line">                        next &#x3D; e.next;</span><br><span class="line">                        &#x2F;&#x2F; 如果扩容后index在原来的位置</span><br><span class="line">                        if ((e.hash &amp; oldCap) &#x3D;&#x3D; 0) &#123;</span><br><span class="line">                            &#x2F;&#x2F; 如果是初始状态，将当前节点设置为loHead</span><br><span class="line">                            if (loTail &#x3D;&#x3D; null)</span><br><span class="line">                                loHead &#x3D; e;</span><br><span class="line">                            &#x2F;&#x2F; 如果不是初始状态，将当前节点拼接到链表上</span><br><span class="line">                            else</span><br><span class="line">                                loTail.next &#x3D; e;</span><br><span class="line">                            &#x2F;&#x2F; 设置loTail为当前节点</span><br><span class="line">                            loTail &#x3D; e;</span><br><span class="line">                        &#125;</span><br><span class="line">                        &#x2F;&#x2F; 如果扩容后index不在原来的位置</span><br><span class="line">                        else &#123;</span><br><span class="line">                            &#x2F;&#x2F; 同上</span><br><span class="line">                            if (hiTail &#x3D;&#x3D; null)</span><br><span class="line">                                hiHead &#x3D; e;</span><br><span class="line">                            else</span><br><span class="line">                                hiTail.next &#x3D; e;</span><br><span class="line">                            hiTail &#x3D; e;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; while ((e &#x3D; next) !&#x3D; null);</span><br><span class="line">                    &#x2F;&#x2F; 将扩容后未改变index的元素复制到新数组</span><br><span class="line">                    if (loTail !&#x3D; null) &#123;</span><br><span class="line">                        loTail.next &#x3D; null;</span><br><span class="line">                        newTab[j] &#x3D; loHead;</span><br><span class="line">                    &#125;</span><br><span class="line">                    &#x2F;&#x2F; 将扩容后改变了index位置的元素复制到新数组</span><br><span class="line">                    if (hiTail !&#x3D; null) &#123;</span><br><span class="line">                        hiTail.next &#x3D; null;</span><br><span class="line">                        newTab[j + oldCap] &#x3D; hiHead;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return newTab;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(e.hash &amp; oldCap) == 0用来判断扩容后的index是否改变<br>假设capacity=8、threshold=6，在添加第7个元素时进行扩容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 容量</span><br><span class="line">capacity    &#x3D; 8</span><br><span class="line"># 扩容阈值</span><br><span class="line">threshold   &#x3D; 6</span><br><span class="line"># 碰撞的index</span><br><span class="line">index       &#x3D; 5</span><br><span class="line"># 碰撞的hash</span><br><span class="line">keys        &#x3D; [13, 21, 29, 37, 45, 53, 61]</span><br><span class="line"># 根据index &#x3D; hash &amp; (n - 1)</span><br><span class="line">#    cap - 1 &#x3D; 8 - 1 &#x3D; 0b00001000 - 1 &#x3D; 0b00000111</span><br><span class="line"># newCap - 1 &#x3D; 8 - 1 &#x3D; 0b00010000 - 1 &#x3D; 0b00001111</span><br><span class="line"># 可知当cap&#x3D;8时index由后3位决定，当cap&#x3D;16时index由后4位决定</span><br><span class="line"># 想要判断index是否改变仅需要判断第4位是否为1，因为0xxx &amp; 0111 &#x3D;&#x3D; 0xxx &amp; 1111</span><br><span class="line"></span><br><span class="line"># hash  bin           index(cap&#x3D;8)    index(cap&#x3D;16)  &amp;8</span><br><span class="line"># -----------------------------------------------------</span><br><span class="line"># 13    0b001101      0b0101&#x3D;5        0b1101&#x3D;13      0b1000</span><br><span class="line"># 21    0b010101      0b0101&#x3D;5        0b0101&#x3D; 5      0b0000</span><br><span class="line"># 29    0b011101      0b0101&#x3D;5        0b1101&#x3D;13      0b1000</span><br><span class="line"># 37    0b100101      0b0101&#x3D;5        0b0101&#x3D; 5      0b0000</span><br><span class="line"># 45    0b101101      0b0101&#x3D;5        0b1101&#x3D;13      0b1000</span><br><span class="line"># 53    0b110101      0b0101&#x3D;5        0b0101&#x3D; 5      0b0000</span><br><span class="line"># 61    0b111101      0b0101&#x3D;5        0b1101&#x3D;13      0b1000</span><br><span class="line"></span><br><span class="line"># 如果&amp;8不等于0，计算新index也很简单+0b1000(即旧cap)即可</span><br></pre></td></tr></table></figure>
+
+</article>
+<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#HashMap"><span class="animated rollIn hannah-toc-text">HashMap</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="animated rollIn hannah-toc-text">常量</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E5%8F%98%E9%87%8F"><span class="animated rollIn hannah-toc-text">变量</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="animated rollIn hannah-toc-text">构造函数</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#Node"><span class="animated rollIn hannah-toc-text">Node</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#ableSizeFor-int-cap"><span class="animated rollIn hannah-toc-text">ableSizeFor(int cap)</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#put-K-key-V-value"><span class="animated rollIn hannah-toc-text">put(K key, V value)</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#hash-Object-key"><span class="animated rollIn hannah-toc-text">hash(Object key)</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#putVal-int-hash-K-key-V-value-boolean-onlyIfAbsent-boolean-evict"><span class="animated rollIn hannah-toc-text">putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict)</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-6"><a class="animated rollIn hannah-toc-link" href="#resize"><span class="animated rollIn hannah-toc-text">resize()</span></a></li></ol></li></ol></li></ol></li></ol>
+<div class="animated bounceInDown paginations">
+    <div class="col-md-8 col-md-push-2 col-xs-12">
+        <nav>
+            
+            <a href="/2021/02/23/docker-es/" class="prev col-md-2 col-xs-4 text-left">&larr; Prev</a>
+            
+            <span
+                class="page-content col-md-8  col-xs-4 text-center">
+                
+            </span>
+            
+            <a href="/2021/02/20/java-youdao-translate/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
+            
+        </nav>
+        <div>
+            <div class="col-md-6 col-xs-6 text-left">
+                
+                ElasticSearch
+                
+            </div>
+            <div class="col-md-6 col-xs-6 text-right">
+                
+                有道翻译api
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!--end body-->
+            <!--begin comments-->
+            
+<div class="comments">
+    
+
+    
+    
+<div id="gitalk-container">
+</div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script>
+    var loadJs = function (d, a) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document
+            .documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("src", d);
+        if (typeof a === "function") {
+            if (window.attachEvent) {
+                b.onreadystatechange = function () {
+                    var e = b.readyState;
+                    if (e === "loaded" || e === "complete") {
+                        b.onreadystatechange = null;
+                        a()
+                    }
+                }
+            } else {
+                b.onload = a
+            }
+        }
+        c.appendChild(b)
+    };
+    loadJs("https://unpkg.com/gitalk/dist/gitalk.min.js", function () {
+        var gitalk = new Gitalk({
+            clientID: '93363d527b7abfb071ed',
+            clientSecret: 'e6d6ff61e51b30e6f838e4ca2e6626218f6dd468',
+            repo: 'ilubov.github.io',
+            owner: 'ilubov',
+            admin: ['ilubov'],
+            id: decodeURIComponent(location.pathname),
+            distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')
+    });
+</script>
+
+</div>
+
+
+            <!--end comments-->
+        </div>
+    </div>
+
+    <!--begin footer-->
+    <footer id="footer" class="footer animated fadeInUp hide">
+    <p><i class="copy">&copy;</i> 2021 <a href="http://yoursite.com">ilubov</a> All Right Reserved.</p>
+    <p>Powered by <a target="_blank" href="http://hexo.io" rel="external nofollow noopener">Hexo</a>. Theme by <a target="_blank" href="https://github.com/objectyan/hexo-theme-hannah" rel="external nofollow noopener">hannah</a></p>
+</footer>
+    <!--end footer-->
+
+    
+    <!-- scripts list from theme config.yml -->
+    
+    <script src="/js/hannah.js"></script>
+    
+    
+    <!--begin analytics-->
+    
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8fb2a05be303b36faebf141d7317de43";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+    <!--end analytics-->
+</body>
+<!--end body-->
+<!--begin canvas-nest-->
+<script>
+    var nesturl = "https://unpkg.com/canvas-nest.js/dist/canvas-nest.js";
+    var c = document.getElementsByTagName("body")[0] || document.body || document.documentElement;
+    var b = document.createElement("script");
+    b.setAttribute("type", "text/javascript");
+    b.setAttribute("src", nesturl);
+    b.setAttribute("color",
+        `${ Math.floor(Math.random()*256)},${ Math.floor(Math.random()*256)},${ Math.floor(Math.random()*256)}`);
+    b.setAttribute("opacity", Math.random());
+    b.setAttribute("count", parseInt((Math.random() * 500) || 99));
+    c.appendChild(b)
+</script>
+<!--end canvas-nest-->
+
+</html>

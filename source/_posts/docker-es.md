@@ -2,9 +2,10 @@
 title: ElasticSearch
 date: 2021-02-23 20:10:18
 tags:
-    - java
+    - linux
+    - docker
 categories:
-    - java
+    - linux
 ---
 
 ### Docker部署ElasticSearch（7.9.3）

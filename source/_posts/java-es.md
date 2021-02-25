@@ -135,3 +135,24 @@ public Object update(@RequestBody EsTestVo entity) {
 ```
 
 #### sql
+```
+# yml
+es:
+  # 地址
+  name-server: ip:9200
+  # sql查询路径
+  es-sql: /_nlpcn/sql
+  type: /_doc
+  # index
+  index:
+    test: /test
+
+# 插入
+String url = "http://ip:9200/test/_doc";
+HttpRequest.post(url).body(JSON.toJSONString(entity)).execute();
+
+# 查询
+String url = "http://ip:9200/_nlpcn/sql";
+String sql = "select * from test";
+String body = HttpRequest.post(url).header("Content-Type", "application/json").body(sql).execute().body();
+```

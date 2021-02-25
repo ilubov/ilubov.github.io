@@ -1,5 +1,5 @@
 ---
-title: ElasticSearch
+title: ElasticSearch环境搭建
 date: 2021-02-23 20:10:18
 tags:
     - linux
@@ -83,7 +83,4 @@ docker exec -it es /bin/bash
 # 退出容器并重启es
 exit
 docker restart es
-
-# 访问
-http://ip:9200/_plugin/sql/
 ```

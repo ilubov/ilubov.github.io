@@ -10,7 +10,7 @@
 
 <title>
     
-    Redis集群 |
+    多线程&amp;线程池 |
     
     ilubov</title>
 <!--end title-->
@@ -185,14 +185,14 @@
     <ul class="bread-crumb-menu animated rubberBand">
         <li><a href="/"><i class="fh fh-ravelry" aria-hidden="true"></i> Home</a></li>
         
-        <li><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="fh fh-cube" aria-hidden="true"></i> 数据库</a>
+        <li><a href="/categories/java/"><i class="fh fh-cube" aria-hidden="true"></i> java</a>
         </li>
         
         <li>
             
             <i class="fh fh-newspaper-o" aria-hidden="true"></i>
             
-            Redis集群
+            多线程&线程池
         </li>
         
     </ul>
@@ -210,19 +210,19 @@
             <!--end breadcrumb-->
             <!--begin body-->
             <article class="post animated rollIn">
-    <h1 class="post-title">Redis集群</h1>
+    <h1 class="post-title">多线程&amp;线程池</h1>
     <div class="post-subtitle">
         
-        <time datetime="2020-09-15T14:11:20.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-09-15
+        <time datetime="2020-02-27T14:32:50.000Z" class="item">
+            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-02-27
         </time>
         
         
         <span class="item">
       <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-primary tags" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;数据库
+            <a class="label label-primary tags" href="/categories/java/">
+           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
         </a>
             
         </span>
@@ -231,194 +231,161 @@
         <span class="item">
         <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-info tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;数据库
-            </a>
-            
-            <a class="label label-info tags" href="/tags/redis/">
-            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;redis
+            <a class="label label-info tags" href="/tags/java/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
             </a>
             
         </span>
         
     </div>
     
-    <h4 id="Redis-简介"><a href="#Redis-简介" class="headerlink" title="Redis 简介"></a>Redis 简介</h4><p>Redis 是用 C 语言开发的一个开源的高性能键值对（key-value）数据库。它通过提供多种键值数据类型来适应不同场景下的存储需求，目前为止 Redis 支持的键值数据类型如下：</p>
-<ul>
-<li>字符串类型</li>
-<li>散列类型</li>
-<li>列表类型</li>
-<li>集合类型</li>
-<li>有序集合类型</li>
+    <h3 id="多线程-amp-线程池"><a href="#多线程-amp-线程池" class="headerlink" title="多线程&amp;线程池"></a>多线程&amp;线程池</h3><h4 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h4><h5 id="相关API"><a href="#相关API" class="headerlink" title="相关API"></a>相关API</h5><ul>
+<li>start()：启动当前线程，调用线程中的run方法</li>
+<li>run()：通常需要重写Thread类中的此方法，将创建的线程要执行的操作声明在此方法中</li>
+<li>currentThread()：静态方法，返回执行当前代码的线程</li>
+<li>getName()：获取当前线程的名字（Thread.currentThread().getName()）</li>
+<li>setName()：设置当前线程的名字</li>
+<li>yield()：主动释放当前线程的执行权</li>
+<li>join()：在线程中插入执行另一个线程，该线程被阻塞，直到插入执行的线程完全执行完毕以后，该线程才继续执行下去</li>
+<li>stop()：过时方法。当执行此方法时，强制结束当前线程。</li>
+<li>sleep（long millis）：线程休眠一段时间（单位ms）</li>
+<li>isAlive（）：判断当前线程是否存活</li>
 </ul>
-<h4 id="Redis-的应用场景"><a href="#Redis-的应用场景" class="headerlink" title="Redis 的应用场景"></a>Redis 的应用场景</h4><ul>
-<li>缓存（数据查询、新闻内容、商品内容等等）</li>
-<li>分布式集群架构中的 session 分离</li>
-<li>聊天室的在线好友列表</li>
-<li>任务队列（秒杀、抢购等等）</li>
-<li>应用排行榜</li>
-<li>网站访问统计</li>
-<li>数据过期处理（可以精确到毫秒）</li>
+<h5 id="线程的调度"><a href="#线程的调度" class="headerlink" title="线程的调度"></a>线程的调度</h5><ul>
+<li>调度策略<ul>
+<li>时间片：线程的调度采用时间片轮转的方式</li>
+<li>抢占式：高优先级的线程抢占CPU</li>
 </ul>
-<h4 id="使用-Docker-Compose-搭建-Redis-集群"><a href="#使用-Docker-Compose-搭建-Redis-集群" class="headerlink" title="使用 Docker Compose 搭建 Redis 集群"></a>使用 Docker Compose 搭建 Redis 集群</h4><ul>
-<li>创建目录<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/docker/redis</span><br></pre></td></tr></table></figure></li>
-<li>创建 docker-compose.yml<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3.1&#x27;</span><br><span class="line">services:</span><br><span class="line">  master:</span><br><span class="line">    image: redis</span><br><span class="line">    container_name: redis-master</span><br><span class="line">    ports:</span><br><span class="line">      - 6379:6379</span><br><span class="line"></span><br><span class="line">  slave1:</span><br><span class="line">    image: redis</span><br><span class="line">    container_name: redis-slave-1</span><br><span class="line">    ports:</span><br><span class="line">      - 6380:6379</span><br><span class="line">    command: redis-server --slaveof redis-master 6379</span><br><span class="line"></span><br><span class="line">  slave2:</span><br><span class="line">    image: redis</span><br><span class="line">    container_name: redis-slave-2</span><br><span class="line">    ports:</span><br><span class="line">      - 6381:6379</span><br><span class="line">    command: redis-server --slaveof redis-master 6379</span><br></pre></td></tr></table></figure></li>
-<li>启动容器<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install docker-compose # 已安装跳过此步</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+</li>
+<li>Java的调度方法<ul>
+<li>对于同优先级的线程组成先进先出队列（先到先服务），使用时间片策略</li>
+<li>对高优先级，使用优先调度的抢占式策略</li>
+</ul>
+</li>
+</ul>
+<h5 id="线程的状态"><a href="#线程的状态" class="headerlink" title="线程的状态"></a>线程的状态</h5><ul>
+<li>创建：当new了一个线程，并没有调用start之前，线程处于创建状态；</li>
+<li>就绪：当调用了start之后，线程处于就绪状态，这是，线程调度程序还没有设置执行当前线程；</li>
+<li>运行：线程调度程序执行到线程时，当前线程从就绪状态转成运行状态，开始执行run方法里边的代码；</li>
+<li>阻塞：线程在运行的时候，被暂停执行（通常等待某项资源就绪后在执行，sleep、wait可以导致线程阻塞），这是该线程处于阻塞状态；</li>
+<li>死亡：当一个线程执行完run方法里边的代码或调用了stop方法后，该线程结束运行</li>
+</ul>
+<h5 id="线程的优先级"><a href="#线程的优先级" class="headerlink" title="线程的优先级"></a>线程的优先级</h5><ul>
+<li>等级<ul>
+<li>MAX_PRIORITY：10</li>
+<li>MIN_PRIORITY：1</li>
+<li>NORM_PRIORITY：5</li>
+</ul>
+</li>
+<li>方法：<ul>
+<li>getPriority()：返回线程优先级</li>
+<li>setPriority(int newPriority)：改变线程的优先级</li>
+</ul>
+</li>
+</ul>
+<h5 id="创建方式"><a href="#创建方式" class="headerlink" title="创建方式"></a>创建方式</h5><ul>
+<li><p>继承于Thread类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadTest extends Thread &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        System.out.println(&quot;run&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        new ThreadTest().start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现Runnable接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadTest implements Runnable &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        System.out.println(&quot;run&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        new Thread(new ThreadTest()).start();</span><br><span class="line">        &#x2F;&#x2F; 或者</span><br><span class="line">        new Thread(() -&gt; System.out.println(&quot;run&quot;)).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现Callable接口（带返回值）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import java.util.concurrent.Callable;</span><br><span class="line">import java.util.concurrent.FutureTask;</span><br><span class="line"></span><br><span class="line">public class ThreadTest implements Callable&lt;String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String call() throws Exception &#123;</span><br><span class="line">        System.out.println(&quot;call&quot;);</span><br><span class="line">        return &quot;success&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        ThreadTest callable &#x3D; new ThreadTest();</span><br><span class="line">        FutureTask&lt;String&gt; futureTask &#x3D; new FutureTask&lt;&gt;(callable);</span><br><span class="line">        Thread thread &#x3D; new Thread(futureTask);</span><br><span class="line">        thread.start();</span><br><span class="line">        System.out.println(futureTask.get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h4 id="Redis-常用命令"><a href="#Redis-常用命令" class="headerlink" title="Redis 常用命令"></a>Redis 常用命令</h4><ul>
-<li><h5 id="连接操作相关的命令"><a href="#连接操作相关的命令" class="headerlink" title="连接操作相关的命令"></a>连接操作相关的命令</h5><ul>
-<li>ping：测试连接是否存活如果正常会返回</li>
-<li>echo：打印</li>
-<li>select：切换到指定的数据库，数据库索引号用数字值指定，以 0 作为起始索引值</li>
-<li>quit：关闭连接</li>
-<li>auth：简单密码认证</li>
+<h4 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h4><ul>
+<li>背景：经常创建和销毁，使用量特别大的资源，比如并发情况下的线程，对性能影响很大。</li>
+<li>思路：提前创建好多个线程，放入线程池之，使用时直接获取，使用完放回池中。可以避免频繁创建销毁，实现重复利用。类似生活中的公共交通工具。（数据库连接池）</li>
+<li>好处：提高响应速度；减少了创建新线程的时间；降低资源消耗（重复利用线程池中线程，不需要每次都创建）；便于线程管理</li>
+</ul>
+<h5 id="相关API-1"><a href="#相关API-1" class="headerlink" title="相关API"></a>相关API</h5><p>ExecutorService 和 Executors</p>
+<ul>
+<li>ExecutorService：真正的线程池接口。常见子类ThreadPoolExecutor.</li>
+<li>void execute(Runnable command)：执行任务/命令，没有返回值，一般用来执行Runnable</li>
+<li>Future submit(Callable task)：执行任务，有返回值，一般用来执行Callable</li>
+<li>void shutdown()：关闭连接池。</li>
+</ul>
+<h5 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h5><ul>
+<li>corePoolSize：线程池的大小。线程池创建之后不会立即去创建线程，而是等待线程的到来。当当前执行的线程数大于改值是，线程会加入到缓冲队列。</li>
+<li>maximumPoolSize：线程池中创建的最大线程数。</li>
+<li>keepAliveTime：空闲的线程多久时间后被销毁。默认情况下，改值在线程数大于corePoolSize时，对超出corePoolSize值得这些线程起作用。</li>
+<li>unit：TimeUnit枚举类型的值，代表keepAliveTime时间单位，可以取下列值：<ul>
+<li>TimeUnit.HOURS; //小时</li>
+<li>TimeUnit.MINUTES; //分钟</li>
+<li>TimeUnit.SECONDS; //秒</li>
+<li>TimeUnit.MILLISECONDS; //毫秒</li>
+<li>TimeUnit.MICROSECONDS; //微妙</li>
+<li>TimeUnit.NANOSECONDS; //纳秒</li>
 </ul>
 </li>
-<li><h5 id="服务端相关命令"><a href="#服务端相关命令" class="headerlink" title="服务端相关命令"></a>服务端相关命令</h5><ul>
-<li>time：返回当前服务器时间</li>
-<li>client list：返回所有连接到服务器的客户端信息和统计数据 参见 <a target="_blank" rel="noopener" href="http://redisdoc.com/server/client_list.html">http://redisdoc.com/server/client_list.html</a></li>
-<li>client kill ip:port：关闭地址为 ip:port 的客户端</li>
-<li>save：将数据同步保存到磁盘</li>
-<li>bgsave：将数据异步保存到磁盘</li>
-<li>lastsave：返回上次成功将数据保存到磁盘的Unix时戳</li>
-<li>shundown：将数据同步保存到磁盘，然后关闭服务</li>
-<li>info：提供服务器的信息和统计</li>
-<li>config resetstat：重置 info 命令中的某些统计数据</li>
-<li>config get：获取配置文件信息</li>
-<li>config set：动态地调整 Redis 服务器的配置(configuration)而无须重启，可以修改的配置参数可以使用命令 CONFIG GET * 来列出</li>
-<li>config rewrite：Redis 服务器时所指定的 redis.conf 文件进行改写</li>
-<li>monitor：实时转储收到的请求</li>
-<li>slaveof：改变复制策略设置</li>
+<li>workQueue：阻塞队列，用来存储等待执行的任务，决定了线程池的排队策略，有以下取值：<ul>
+<li>ArrayBlockingQueue;</li>
+<li>LinkedBlockingQueue;</li>
+<li>SynchronousQueue;</li>
+<li>threadFactory：线程工厂，是用来创建线程的。默认new Executors.DefaultThreadFactory();</li>
 </ul>
 </li>
-<li><h5 id="发布订阅相关命令"><a href="#发布订阅相关命令" class="headerlink" title="发布订阅相关命令"></a>发布订阅相关命令</h5><ul>
-<li>psubscribe：订阅一个或多个符合给定模式的频道 例如 psubscribe news.* tweet.*</li>
-<li>publish：将信息 message 发送到指定的频道 channel 例如 publish msg “good morning”</li>
-<li>pubsub channels：列出当前的活跃频道 例如 PUBSUB CHANNELS news.i*</li>
-<li>pubsub numsub：返回给定频道的订阅者数量 例如 PUBSUB NUMSUB news.it news.internet news.sport news.music</li>
-<li>pubsub numpat：返回客户端订阅的所有模式的数量总和</li>
-<li>punsubscribe：指示客户端退订所有给定模式。</li>
-<li>subscribe：订阅给定的一个或多个频道的信息。例如 subscribe msg chat_room</li>
-<li>unsubscribe：指示客户端退订给定的频道。</li>
-</ul>
-</li>
-<li><h5 id="对-Key-操作的命令"><a href="#对-Key-操作的命令" class="headerlink" title="对 Key 操作的命令"></a>对 Key 操作的命令</h5><ul>
-<li>exists(key)：确认一个 key 是否存在</li>
-<li>del(key)：删除一个 key</li>
-<li>type(key)：返回值的类型</li>
-<li>keys(pattern)：返回满足给定 pattern 的所有 key</li>
-<li>randomkey：随机返回 key 空间的一个</li>
-<li>keyrename(oldname, newname)：重命名 key</li>
-<li>dbsize：返回当前数据库中 key 的数目</li>
-<li>expire：设定一个 key 的活动时间（s）</li>
-<li>ttl：获得一个 key 的活动时间</li>
-<li>move(key, dbindex)：移动当前数据库中的 key 到 dbindex 数据库</li>
-<li>flushdb：删除当前选择数据库中的所有 key</li>
-<li>flushall：删除所有数据库中的所有 key</li>
-</ul>
-</li>
-<li><h5 id="对-String-操作的命令"><a href="#对-String-操作的命令" class="headerlink" title="对 String 操作的命令"></a>对 String 操作的命令</h5><ul>
-<li>set(key, value)：给数据库中名称为 key 的 string 赋予值 value</li>
-<li>get(key)：返回数据库中名称为 key 的 string 的 value</li>
-<li>getset(key, value)：给名称为 key 的 string 赋予上一次的 value</li>
-<li>mget(key1, key2,…, key N)：返回库中多个 string 的 value</li>
-<li>setnx(key, value)：添加 string，名称为 key，值为 value</li>
-<li>setex(key, time, value)：向库中添加 string，设定过期时间 time</li>
-<li>mset(key N, value N)：批量设置多个 string 的值</li>
-<li>msetnx(key N, value N)：如果所有名称为 key i 的 string 都不存在</li>
-<li>incr(key)：名称为 key 的 string 增 1 操作</li>
-<li>incrby(key, integer)：名称为 key 的 string 增加 integer</li>
-<li>decr(key)：名称为 key 的 string 减 1 操作</li>
-<li>decrby(key, integer)：名称为 key 的 string 减少 integer</li>
-<li>append(key, value)：名称为 key 的 string 的值附加 value</li>
-<li>substr(key, start, end)：返回名称为 key 的 string 的 value 的子串</li>
-</ul>
-</li>
-<li><h5 id="对-List-操作的命令"><a href="#对-List-操作的命令" class="headerlink" title="对 List 操作的命令"></a>对 List 操作的命令</h5><ul>
-<li>rpush(key, value)：在名称为 key 的 list 尾添加一个值为 value 的元素</li>
-<li>lpush(key, value)：在名称为 key 的 list 头添加一个值为 value 的元素</li>
-<li>llen(key)：返回名称为 key 的 list 的长度</li>
-<li>lrange(key, start, end)：返回名称为 key 的 list 中 start 至 end 之间的元素</li>
-<li>ltrim(key, start, end)：截取名称为 key 的 list</li>
-<li>lindex(key, index)：返回名称为 key 的 list 中 index 位置的元素</li>
-<li>lset(key, index, value)：给名称为 key 的 list 中 index 位置的元素赋值</li>
-<li>lrem(key, count, value)：删除 count 个 key 的 list 中值为 value 的元素</li>
-<li>lpop(key)：返回并删除名称为 key 的 list 中的首元素</li>
-<li>rpop(key)：返回并删除名称为 key 的 list 中的尾元素</li>
-<li>blpop(key1, key2,… key N, timeout)：lpop 命令的 block 版本。</li>
-<li>brpop(key1, key2,… key N, timeout)：rpop 的 block 版本。</li>
-<li>rpoplpush(srckey, dstkey)：返回并删除名称为 srckey 的 list 的尾元素，并将该元素添加到名称为 dstkey 的 list 的头部</li>
-</ul>
-</li>
-<li><h5 id="对-Set-操作的命令"><a href="#对-Set-操作的命令" class="headerlink" title="对 Set 操作的命令"></a>对 Set 操作的命令</h5><ul>
-<li>sadd(key, member)：向名称为 key 的 set 中添加元素 member</li>
-<li>srem(key, member) ：删除名称为 key 的 set 中的元素 member</li>
-<li>spop(key) ：随机返回并删除名称为 key 的 set 中一个元素</li>
-<li>smove(srckey, dstkey, member) ：移到集合元素</li>
-<li>scard(key) ：返回名称为 key 的 set 的基数</li>
-<li>sismember(key, member) ：member 是否是名称为 key 的 set 的元素</li>
-<li>sinter(key1, key2,…key N) ：求交集</li>
-<li>sinterstore(dstkey, (keys)) ：求交集并将交集保存到 dstkey 的集合</li>
-<li>sunion(key1, (keys)) ：求并集</li>
-<li>sunionstore(dstkey, (keys)) ：求并集并将并集保存到 dstkey 的集合</li>
-<li>sdiff(key1, (keys)) ：求差集</li>
-<li>sdiffstore(dstkey, (keys)) ：求差集并将差集保存到 dstkey 的集合</li>
-<li>smembers(key) ：返回名称为 key 的 set 的所有元素</li>
-<li>srandmember(key) ：随机返回名称为 key 的 set 的一个元素</li>
-</ul>
-</li>
-<li><h5 id="对-Hash-操作的命令"><a href="#对-Hash-操作的命令" class="headerlink" title="对 Hash 操作的命令"></a>对 Hash 操作的命令</h5><ul>
-<li>hset(key, field, value)：向名称为 key 的 hash 中添加元素 field</li>
-<li>hget(key, field)：返回名称为 key 的 hash 中 field 对应的 value</li>
-<li>hmget(key, (fields))：返回名称为 key 的 hash 中 field i 对应的 value</li>
-<li>hmset(key, (fields))：向名称为 key 的 hash 中添加元素 field</li>
-<li>hincrby(key, field, integer)：将名称为 key 的 hash 中 field 的 value 增加 integer</li>
-<li>hexists(key, field)：名称为 key 的 hash 中是否存在键为 field 的域</li>
-<li>hdel(key, field)：删除名称为 key 的 hash 中键为 field 的域</li>
-<li>hlen(key)：返回名称为 key 的 hash 中元素个数</li>
-<li>hkeys(key)：返回名称为 key 的 hash 中所有键</li>
-<li>hvals(key)：返回名称为 key 的 hash 中所有键对应的 value</li>
-<li>hgetall(key)：返回名称为 key 的 hash 中所有的键（field）及其对应的 value</li>
-</ul>
-</li>
-<li><h5 id="Redis-Sentinel"><a href="#Redis-Sentinel" class="headerlink" title="Redis Sentinel"></a>Redis Sentinel</h5><ul>
-<li>ping ：返回 pong</li>
-<li>sentinel masters ：列出所有被监视的主服务器，以及这些主服务器的当前状态。</li>
-<li>sentinel slaves：列出给定主服务器的所有从服务器，以及这些从服务器的当前状态。</li>
-<li>sentinel get-master-addr-by-name：返回给定名字的主服务器的 IP 地址和端口号。如果这个主服务器正在执行故障转移操作，或者针对这个主服务器的故障转移操作已经完成，那么这个命令返回新的主服务器的 IP 地址和端口号。</li>
-<li>sentinel reset：重置所有名字和给定模式 pattern 相匹配的主服务器。pattern 参数是一个 Glob 风格的模式 重置操作清楚主服务器目前的所有状态，包括正在执行中的故障转移，并移除目前已经发现和关联的，主服务器的所有从服务器和 Sentinel 。</li>
-<li>sentinel failover：当主服务器失效时，在不询问其他 Sentinel 意见的情况下，强制开始一次自动故障迁移（不过发起故障转移的 Sentinel 会向其他 Sentinel 发送一个新的配置，其他 Sentinel 会根据这个配置进行相应的更新）。</li>
+<li>handler：线程拒绝策略。当创建的线程超出maximumPoolSize，且缓冲队列已满时，新任务会拒绝，有以下取值：<ul>
+<li>ThreadPoolExecutor.AbortPolicy:丢弃任务并抛出RejectedExecutionException异常。 </li>
+<li>ThreadPoolExecutor.DiscardPolicy：也是丢弃任务，但是不抛出异常。 </li>
+<li>ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新尝试执行任务（重复此过程）。</li>
+<li>ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务。</li>
 </ul>
 </li>
 </ul>
+<h5 id="创建方式-1"><a href="#创建方式-1" class="headerlink" title="创建方式"></a>创建方式</h5><table>
+<thead>
+<tr>
+<th>Executors</th>
+<th>工具类，线程池的工厂类，用于创建并返回不同类型的线程池</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Executors.newCachedThreadPool()</td>
+<td>创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。</td>
+</tr>
+<tr>
+<td>Executors.newFixedThreadPool(n)</td>
+<td>创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。</td>
+</tr>
+<tr>
+<td>Executors.newSingleThreadExecutor()</td>
+<td>创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。</td>
+</tr>
+<tr>
+<td>Executors.newScheduledThreadPool(n)</td>
+<td>创建一个定长线程池，支持定时及周期性任务执行。</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import java.util.concurrent.Callable;</span><br><span class="line">import java.util.concurrent.ExecutorService;</span><br><span class="line">import java.util.concurrent.Executors;</span><br><span class="line">import java.util.concurrent.Future;</span><br><span class="line"></span><br><span class="line">public class ThreadTest implements Callable&lt;String&gt; &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String call() throws Exception &#123;</span><br><span class="line">        System.out.println(&quot;call&quot;);</span><br><span class="line">        return &quot;success&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class ThreadTest2 implements Runnable &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            System.out.println(&quot;run&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        &#x2F;&#x2F; 创建固定线程个数为十个的线程池</span><br><span class="line">        ExecutorService executorService &#x3D; Executors.newFixedThreadPool(10);</span><br><span class="line">        ThreadTest callable &#x3D; new ThreadTest();</span><br><span class="line">        ThreadTest2 runnable &#x3D; new ThreadTest2();</span><br><span class="line">        &#x2F;&#x2F; 执行线程</span><br><span class="line">        &#x2F;&#x2F; 适合适用于Runnable</span><br><span class="line">        executorService.execute(runnable);</span><br><span class="line">        &#x2F;&#x2F; 适合使用于Callable</span><br><span class="line">        Future&lt;String&gt; submit &#x3D; executorService.submit(callable);</span><br><span class="line">        System.out.println(submit.get());</span><br><span class="line">        &#x2F;&#x2F; 关闭线程池</span><br><span class="line">        executorService.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </article>
-<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#Redis-%E7%AE%80%E4%BB%8B"><span class="animated rollIn hannah-toc-text">Redis 简介</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#Redis-%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="animated rollIn hannah-toc-text">Redis 的应用场景</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E4%BD%BF%E7%94%A8-Docker-Compose-%E6%90%AD%E5%BB%BA-Redis-%E9%9B%86%E7%BE%A4"><span class="animated rollIn hannah-toc-text">使用 Docker Compose 搭建 Redis 集群</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#Redis-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="animated rollIn hannah-toc-text">Redis 常用命令</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="animated rollIn hannah-toc-text">连接操作相关的命令</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="animated rollIn hannah-toc-text">服务端相关命令</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="animated rollIn hannah-toc-text">发布订阅相关命令</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%AF%B9-Key-%E6%93%8D%E4%BD%9C%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="animated rollIn hannah-toc-text">对 Key 操作的命令</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%AF%B9-String-%E6%93%8D%E4%BD%9C%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="animated rollIn hannah-toc-text">对 String 操作的命令</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%AF%B9-List-%E6%93%8D%E4%BD%9C%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="animated rollIn hannah-toc-text">对 List 操作的命令</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%AF%B9-Set-%E6%93%8D%E4%BD%9C%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="animated rollIn hannah-toc-text">对 Set 操作的命令</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%AF%B9-Hash-%E6%93%8D%E4%BD%9C%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="animated rollIn hannah-toc-text">对 Hash 操作的命令</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#Redis-Sentinel"><span class="animated rollIn hannah-toc-text">Redis Sentinel</span></a></li></ol></li></ol>
+<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B-amp-%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="animated rollIn hannah-toc-text">多线程&amp;线程池</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="animated rollIn hannah-toc-text">多线程</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E7%9B%B8%E5%85%B3API"><span class="animated rollIn hannah-toc-text">相关API</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%B0%83%E5%BA%A6"><span class="animated rollIn hannah-toc-text">线程的调度</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81"><span class="animated rollIn hannah-toc-text">线程的状态</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7"><span class="animated rollIn hannah-toc-text">线程的优先级</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="animated rollIn hannah-toc-text">创建方式</span></a></li></ol></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="animated rollIn hannah-toc-text">线程池</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E7%9B%B8%E5%85%B3API-1"><span class="animated rollIn hannah-toc-text">相关API</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="animated rollIn hannah-toc-text">配置参数</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-5"><a class="animated rollIn hannah-toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F-1"><span class="animated rollIn hannah-toc-text">创建方式</span></a></li></ol></li></ol></li></ol>
 <div class="animated bounceInDown paginations">
     <div class="col-md-8 col-md-push-2 col-xs-12">
         <nav>
             
-            <a href="/2020/09/25/java-design-patterns/" class="prev col-md-2 col-xs-4 text-left">&larr; Prev</a>
+            <a href="/2020/03/01/java-redis-history/" class="prev col-md-2 col-xs-4 text-left">&larr; Prev</a>
             
             <span
                 class="page-content col-md-8  col-xs-4 text-center">
                 
             </span>
             
-            <a href="/2020/08/27/java-jvm/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
+            <a href="/2020/02/26/java-concurrent-synchronized-cas-lock/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
             
         </nav>
         <div>
             <div class="col-md-6 col-xs-6 text-left">
                 
-                java设计模式
+                Redis存储用户浏览记录
                 
             </div>
             <div class="col-md-6 col-xs-6 text-right">
                 
-                java虚拟机
+                java并发-synchronized关键字&CAS锁
                 
             </div>
         </div>

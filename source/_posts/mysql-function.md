@@ -47,3 +47,33 @@ CREATE FUNCTION `getChildList`(rootId bigint)
    RETURN str; 
 END
 ```
+
+### Mysql创建测试数据
+
+#### 表结构
+```
+CREATE TABLE `test` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `t_id` bigint(20) DEFAULT NULL,
+  `t_no` varchar(20) DEFAULT NULL,
+  `t_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4
+```
+
+#### 存储过程
+```
+CREATE PROCEDURE create_test_data(size bigint)
+BEGIN
+SET @i=1;
+WHILE @i<=size DO
+INSERT INTO test (t_id, t_no, t_time) VALUES(concat('100', @i%3), @i%3, now());
+SET @i=@i+1;
+END WHILE;
+END
+```
+
+#### 执行存储过程
+```
+call create_test_data(10000)
+```

@@ -10,7 +10,7 @@
 
 <title>
     
-    tag: 数据库 |
+    Mysql sql解析 |
     
     ilubov</title>
 <!--end title-->
@@ -185,13 +185,14 @@
     <ul class="bread-crumb-menu animated rubberBand">
         <li><a href="/"><i class="fh fh-ravelry" aria-hidden="true"></i> Home</a></li>
         
-        <li><a href="/tags"><i class="fh fh-tags" aria-hidden="true"></i> Tags</a></li>
+        <li><a href="/categories/java/"><i class="fh fh-cube" aria-hidden="true"></i> java</a>
+        </li>
         
         <li>
             
-            <i class="fh fh-tag" aria-hidden="true"></i>
+            <i class="fh fh-newspaper-o" aria-hidden="true"></i>
             
-            数据库
+            Mysql sql解析
         </li>
         
     </ul>
@@ -208,324 +209,144 @@
 </div>
             <!--end breadcrumb-->
             <!--begin body-->
-            <div id="tag">
-    <h2><i class="fh fh-tags" aria-hidden="true"></i>&nbsp;数据库</h2>
-    
-    <div class="row recent-posts">
-    
-    <h2>
+            <article class="post animated rollIn">
+    <h1 class="post-title">Mysql sql解析</h1>
+    <div class="post-subtitle">
         
-        <a href="/archives/2020" title="2020">2020</a>
-    </h2>
-    
-    <div class="recent-post-item animated fadeInLeftBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/11/13/mysql-function/">
-                mysql使用函数递归查找父级或子级id
-            </a>
-        </h3>
-        
-        <time datetime="2020-11-13T13:22:17.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-11-13
+        <time datetime="2021-03-05T15:12:45.000Z" class="item">
+            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2021-03-05
         </time>
         
         
         <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
+      <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-primary tags" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
+            <a class="label label-primary tags" href="/categories/java/">
+           <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;java
+        </a>
             
         </span>
         
-    </div>
-    
-    <div class="item-footer">
         
         <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
+        <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
             
-            <a class="label label-info tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
-            
-            <a class="label label-info tags" href="/tags/mysql/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;mysql
-                    </a>
-            
-        </span>
-        
-        <a class="look" href="/2020/11/13/mysql-function/">Look >></a>
-    </div>
-</div>
-    
-    <div class="recent-post-item animated fadeInRightBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/10/05/mysql-explain/">
-                mysql explain
+            <a class="label label-info tags" href="/tags/java/">
+            <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;java
             </a>
-        </h3>
-        
-        <time datetime="2020-10-05T11:22:17.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-10-05
-        </time>
-        
-        
-        <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
-            
-            <a class="label label-primary tags" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
             
         </span>
         
     </div>
     
-    <div class="item-footer">
-        
-        <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
+    <h3 id="Mysql-sql解析"><a href="#Mysql-sql解析" class="headerlink" title="Mysql sql解析"></a>Mysql sql解析</h3><p><img src="/images/mysql/mysql-sql-parsing.png" alt="image"></p>
+<h4 id="示例语句"><a href="#示例语句" class="headerlink" title="示例语句"></a>示例语句</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT</span><br><span class="line"> &lt; select_list &gt;</span><br><span class="line">FROM</span><br><span class="line"> &lt; left_table &gt; &lt; join_type &gt;</span><br><span class="line">JOIN &lt; right_table &gt; ON &lt; join_condition &gt;</span><br><span class="line">WHERE</span><br><span class="line"> &lt; where_condition &gt;</span><br><span class="line">GROUP BY</span><br><span class="line"> &lt; group_by_list &gt;</span><br><span class="line">HAVING</span><br><span class="line"> &lt; having_condition &gt;</span><br><span class="line">ORDER BY</span><br><span class="line"> &lt; order_by_condition &gt;</span><br><span class="line">LIMIT &lt; limit_number &gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1 FROM &lt;left_table&gt;</span><br><span class="line">2 ON &lt;join_condition&gt;</span><br><span class="line">3 &lt;join_type&gt; JOIN &lt;right_table&gt;  第二步和第三步会循环执行</span><br><span class="line">4 WHERE &lt;where_condition&gt;  第四步会循环执行，多个条件的执行顺序是从左往右的。</span><br><span class="line">5 GROUP BY &lt;group_by_list&gt;</span><br><span class="line">6 HAVING &lt;having_condition&gt;</span><br><span class="line">7 SELECT 分组之后才会执行SELECT</span><br><span class="line">8 DISTINCT &lt;select_list&gt;</span><br><span class="line">9 ORDER BY &lt;order_by_condition&gt;</span><br><span class="line">10 LIMIT &lt;limit_number&gt; 前9步都是SQL92标准语法。limit是MySQL的独有语法</span><br></pre></td></tr></table></figure>
+
+<h4 id="sql"><a href="#sql" class="headerlink" title="sql"></a>sql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">    d.name, count(d.id) cnt</span><br><span class="line">from dept d </span><br><span class="line">left join user u on d.id &#x3D; u.dept_id </span><br><span class="line">where u.age &gt; 10</span><br><span class="line">group by d.name</span><br><span class="line">having count(d.id) &gt; 0</span><br><span class="line">order by cnt desc</span><br><span class="line">limit 10</span><br></pre></td></tr></table></figure>
+
+<h4 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h4><ul>
+<li>1.FROM: 将2个表联合查询得到他们的笛卡尔积CROSS JOIN，产生虚表VT1。</li>
+<li>2.ON: 对虚表VT1进行ON筛选，只有那些符合的行才会被记录在虚表VT2中。</li>
+<li>3.LEFT JOIN: 保留左表中未匹配的行就会作为外部行，添加到虚拟表VT2中，产生虚拟表VT3。</li>
+<li>4.WHERE: 对虚拟表VT3进行WHERE条件过滤，只有符合的记录才会被插入到虚拟表VT4中。</li>
+<li>5.GROUP BY: 根据GROUP BY子句中的列，对VT4中的记录进行分组操作，产生虚拟表VT5 。</li>
+<li>6.HAVING: 对虚拟表VT5应用HAVING过滤，只有符合的记录才会被插入到虚拟表VT6中。</li>
+<li>7.SELECT: 对SELECT子句中的元素进行处理，生成VT7表。</li>
+<li>8.ORDER BY: 根据ORDER BY子句的条件对结果进行排序，生成VT8表。</li>
+<li>9.LIMIT: LIMIT子句从上一步得到的VT8虚拟表 中选出从指定位置开始的指定行数据。</li>
+</ul>
+<h4 id="流程说明"><a href="#流程说明" class="headerlink" title="流程说明"></a>流程说明</h4><ul>
+<li><p>单表查询：根据 WHERE 条件过滤表中的记录，形成中间表（这个中间表对用户是不可见的）；<br>然后根据SELECT 的选择列选择相应的列进行返回最终结果。</p>
+</li>
+<li><p>两表连接查询：对两表求积（笛卡尔积：行相乘、列相加）并用 ON 条件和连接连接类型进行过滤形成中间表；<br>然后根据WHERE条件过滤中间表的记录，并根据 SELECT 指定的列返回查询结果。</p>
+</li>
+<li><p>多表连接查询：先对第一个和第二个表按照两表连接做查询，然后用查询结果和第三个表做连接查询，以此类推，<br>直到所有的表都连接上为止，最终形成一个中间的结果表，然后根据WHERE条件过滤中间表的记录，并根据SELECT指定的列返回查询结果。</p>
+</li>
+</ul>
+
+</article>
+<ol class="animated rollIn hannah-toc"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-3"><a class="animated rollIn hannah-toc-link" href="#Mysql-sql%E8%A7%A3%E6%9E%90"><span class="animated rollIn hannah-toc-text">Mysql sql解析</span></a><ol class="animated rollIn hannah-toc-child"><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E7%A4%BA%E4%BE%8B%E8%AF%AD%E5%8F%A5"><span class="animated rollIn hannah-toc-text">示例语句</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="animated rollIn hannah-toc-text">执行顺序</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#sql"><span class="animated rollIn hannah-toc-text">sql</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="animated rollIn hannah-toc-text">流程分析</span></a></li><li class="animated rollIn hannah-toc-item animated rollIn hannah-toc-level-4"><a class="animated rollIn hannah-toc-link" href="#%E6%B5%81%E7%A8%8B%E8%AF%B4%E6%98%8E"><span class="animated rollIn hannah-toc-text">流程说明</span></a></li></ol></li></ol>
+<div class="animated bounceInDown paginations">
+    <div class="col-md-8 col-md-push-2 col-xs-12">
+        <nav>
             
-            <a class="label label-info tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
+            <a href="/2021/03/06/java-spring-boot-run/" class="prev col-md-2 col-xs-4 text-left">&larr; Prev</a>
             
-            <a class="label label-info tags" href="/tags/mysql/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;mysql
-                    </a>
+            <span
+                class="page-content col-md-8  col-xs-4 text-center">
+                
+            </span>
             
-        </span>
-        
-        <a class="look" href="/2020/10/05/mysql-explain/">Look >></a>
+            <a href="/2021/03/02/java-synchronized/" class="next col-md-2 col-xs-4 text-right">Next &rarr;</a>
+            
+        </nav>
+        <div>
+            <div class="col-md-6 col-xs-6 text-left">
+                
+                SpringBoot启动流程
+                
+            </div>
+            <div class="col-md-6 col-xs-6 text-right">
+                
+                关键字synchronized
+                
+            </div>
+        </div>
     </div>
-</div>
-    
-    <div class="recent-post-item animated fadeInLeftBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/09/15/redis-cluster/">
-                Redis集群
-            </a>
-        </h3>
-        
-        <time datetime="2020-09-15T14:11:20.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-09-15
-        </time>
-        
-        
-        <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
-            
-            <a class="label label-primary tags" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
-            
-        </span>
-        
-    </div>
-    
-    <div class="item-footer">
-        
-        <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
-            
-            <a class="label label-info tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
-            
-            <a class="label label-info tags" href="/tags/redis/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;redis
-                    </a>
-            
-        </span>
-        
-        <a class="look" href="/2020/09/15/redis-cluster/">Look >></a>
-    </div>
-</div>
-    
-    <div class="recent-post-item animated fadeInRightBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/05/11/database-redis-introduce/">
-                Redis
-            </a>
-        </h3>
-        
-        <time datetime="2020-05-11T14:11:20.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-05-11
-        </time>
-        
-        
-        <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
-            
-            <a class="label label-primary tags" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
-            
-        </span>
-        
-    </div>
-    
-    <div class="item-footer">
-        
-        <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
-            
-            <a class="label label-info tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
-            
-            <a class="label label-info tags" href="/tags/redis/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;redis
-                    </a>
-            
-        </span>
-        
-        <a class="look" href="/2020/05/11/database-redis-introduce/">Look >></a>
-    </div>
-</div>
-    
-    <div class="recent-post-item animated fadeInLeftBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/04/30/database-sharding/">
-                sharding jdbc
-            </a>
-        </h3>
-        
-        <time datetime="2020-04-30T15:22:17.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-04-30
-        </time>
-        
-        
-        <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
-            
-            <a class="label label-primary tags" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
-            
-        </span>
-        
-    </div>
-    
-    <div class="item-footer">
-        
-        <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
-            
-            <a class="label label-info tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
-            
-            <a class="label label-info tags" href="/tags/sharding-jdbc/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;sharding jdbc
-                    </a>
-            
-        </span>
-        
-        <a class="look" href="/2020/04/30/database-sharding/">Look >></a>
-    </div>
-</div>
-    
-    <div class="recent-post-item animated fadeInRightBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/04/30/database-mysql-transaction-isolation/">
-                mysql-事务隔离级别
-            </a>
-        </h3>
-        
-        <time datetime="2020-04-30T15:22:17.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-04-30
-        </time>
-        
-        
-        <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
-            
-            <a class="label label-primary tags" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
-            
-        </span>
-        
-    </div>
-    
-    <div class="item-footer">
-        
-        <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
-            
-            <a class="label label-info tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
-            
-            <a class="label label-info tags" href="/tags/mysql/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;mysql
-                    </a>
-            
-        </span>
-        
-        <a class="look" href="/2020/04/30/database-mysql-transaction-isolation/">Look >></a>
-    </div>
-</div>
-    
-    <div class="recent-post-item animated fadeInLeftBig">
-    <div class="item-head">
-        <h3 class="title">
-            <a href="/2020/04/01/database-mysql-indexes/">
-                mysql索引失效
-            </a>
-        </h3>
-        
-        <time datetime="2020-04-01T11:22:17.000Z" class="item">
-            <i class="fh fh-calendar" aria-hidden="true"></i>&nbsp;&nbsp;2020-04-01
-        </time>
-        
-        
-        <span class="item">
-                  <i class="fh fh-cubes" aria-hidden="true"></i>&nbsp;
-            
-            <a class="label label-primary tags" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                       <i class="fh fh-cube" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
-            
-        </span>
-        
-    </div>
-    
-    <div class="item-footer">
-        
-        <span class="item">
-                    <i class="fh fh-tags" aria-hidden="true"></i>&nbsp;
-            
-            <a class="label label-info tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;数据库
-                    </a>
-            
-            <a class="label label-info tags" href="/tags/mysql/">
-                        <i class="fh fh-tag" aria-hidden="true"></i>&nbsp;mysql
-                    </a>
-            
-        </span>
-        
-        <a class="look" href="/2020/04/01/database-mysql-indexes/">Look >></a>
-    </div>
-</div>
-    
 </div>
 
-    
-</div>
             <!--end body-->
             <!--begin comments-->
             
+<div class="comments">
+    
+
+    
+    
+<div id="gitalk-container">
+</div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script>
+    var loadJs = function (d, a) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document
+            .documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("src", d);
+        if (typeof a === "function") {
+            if (window.attachEvent) {
+                b.onreadystatechange = function () {
+                    var e = b.readyState;
+                    if (e === "loaded" || e === "complete") {
+                        b.onreadystatechange = null;
+                        a()
+                    }
+                }
+            } else {
+                b.onload = a
+            }
+        }
+        c.appendChild(b)
+    };
+    loadJs("https://unpkg.com/gitalk/dist/gitalk.min.js", function () {
+        var gitalk = new Gitalk({
+            clientID: '93363d527b7abfb071ed',
+            clientSecret: 'e6d6ff61e51b30e6f838e4ca2e6626218f6dd468',
+            repo: 'ilubov.github.io',
+            owner: 'ilubov',
+            admin: ['ilubov'],
+            id: decodeURIComponent(location.pathname),
+            distractionFreeMode: false
+        })
+
+        gitalk.render('gitalk-container')
+    });
+</script>
+
+</div>
+
 
             <!--end comments-->
         </div>

@@ -50,6 +50,42 @@ categories:
 * 方法：
     * getPriority()：返回线程优先级
     * setPriority(int newPriority)：改变线程的优先级
+* 理论：
+    * 线程的优先级不能担保线程的执行次序。优先级高的线程获取CPU执行的几率较大，优先级低的线程也有机会执行
+    * 为防止低优先级的线程被饿死，Windows有个抗争的方法，给低优先级的线程一个优先级的临时提升
+* 部分代码：
+```
+public class Thread implements Runnable {
+    ...
+    // 线程优先级
+    private int priority;
+    ...
+    // 线程可以拥有的最小优先级
+    public final static int MIN_PRIORITY = 1;
+    // 分配给线程的默认优先级
+    public final static int NORM_PRIORITY = 5;
+    // 线程所能拥有的最大优先级
+    public final static int MAX_PRIORITY = 10;
+    ...
+    // 修改线程的当前优先级方法
+    public final void setPriority(int newPriority) {
+        ThreadGroup g;
+        // 如果不允许当前线程访问该线程，则抛出此异常
+        checkAccess();
+        // 大于10或者小于1会有java.lang.IllegalArgumentException异常
+        if (newPriority > MAX_PRIORITY || newPriority < MIN_PRIORITY) {
+            throw new IllegalArgumentException();
+        }
+        if((g = getThreadGroup()) != null) {
+            // 如果设置值大于线程组最大优先权 则让设置值等于线程组最大优先权
+            if (newPriority > g.getMaxPriority()) {
+                newPriority = g.getMaxPriority();
+            }
+            setPriority0(priority = newPriority);
+        }
+    }
+}
+```
 
 ##### 创建方式
 
